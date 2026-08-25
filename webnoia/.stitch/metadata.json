@@ -1,0 +1,20 @@
+{
+  "projectId": "2822640222041109640",
+  "title": "Webnoia Full Landing Page",
+  "deviceType": "DESKTOP",
+  "Last Sync Time": "2026-08-25T14:22:00.000Z",
+  "screens": {
+    "landing-desktop": {
+      "id": "e6f737db1d994723af85b270ac426ebc",
+      "sourceScreen": "projects/2822640222041109640/screens/e6f737db1d994723af85b270ac426ebc",
+      "width": 2560,
+      "height": 13054
+    },
+    "landing-mobile": {
+      "id": "769841979707426fa9d12512b6bd5308",
+      "sourceScreen": "projects/2822640222041109640/screens/769841979707426fa9d12512b6bd5308",
+      "width": 780,
+      "height": 16714
+    }
+  }
+}

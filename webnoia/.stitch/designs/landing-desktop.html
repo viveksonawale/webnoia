@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Webnoia - On-Demand Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Playfair+Display:ital,wght@1,400..900&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#e34400',
+              dark: '#111111',
+              light: '#f9f9f9',
+              white: '#ffffff',
+              border: '#e5e7eb'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          backgroundImage: {
+            'dot-pattern': 'radial-gradient(#e5e7eb 1px, transparent 1px)',
+          },
+          backgroundSize: {
+            'dot-size': '24px 24px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styles">
+    body {
+      background-color: #f9f9f9;
+    }
+    .bg-dots {
+      background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="font-sans text-brand-dark antialiased bg-dots min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- BEGIN: Navigation -->
+<header class="w-full fixed top-0 z-50 py-6 px-8 flex justify-between items-center bg-transparent backdrop-blur-sm">
+<!-- Logo -->
+<a class="block w-24" href="#">
+<img alt="Webnoia Logo" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvkzKdBwi7qliGLKJcnUFLePQY-ZXjmOFluMc1VK6soW5c9advDnItAcJ5H9GL4i0VDzOBzXItQZWpp984ewXU04cva8jtThP2C70TueGtKXVDnrUgTgP5_FdqZ0OCPXhBl8o5xOIynFnszMg21A7LC3YmDgJd8JJ4hIqmDwMFnU6rDs5fKBPsyP8om5NYeZQgv0fkXN-qpvR9v7zTEBPWPrGsnyyxHtGGubGV6x-qgd0XxDEivh0"/>
+</a>
+<!-- Nav Links -->
+<nav class="hidden md:flex bg-white rounded-full border border-gray-200 px-6 py-3 shadow-sm">
+<ul class="flex space-x-8 text-sm font-medium">
+<li><a class="hover:text-brand-orange transition-colors" href="#">Home</a></li>
+<li><a class="text-gray-500 hover:text-brand-orange transition-colors" href="#services">Services</a></li>
+<li><a class="text-gray-500 hover:text-brand-orange transition-colors" href="#testimonial">Testimonials</a></li>
+<li><a class="text-gray-500 hover:text-brand-orange transition-colors" href="#pricing">Pricing</a></li>
+<li><a class="text-gray-500 hover:text-brand-orange transition-colors" href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<!-- CTA -->
+<a class="bg-brand-orange text-white px-6 py-3 rounded-xl font-medium shadow-[0_4px_14px_0_rgba(227,68,0,0.39)] hover:shadow-[0_6px_20px_rgba(227,68,0,0.23)] hover:bg-[#c93d00] transition-all duration-200" href="#">
+      Get Template
+    </a>
+</header>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow pt-32 pb-16 flex flex-col items-center">
+<!-- BEGIN: Hero Section -->
+<section class="text-center px-4 max-w-4xl mx-auto mt-16 mb-24">
+<!-- Reviews Badge -->
+<div class="flex items-center justify-center space-x-3 mb-8">
+<div class="flex -space-x-2">
+<img alt="User 1" class="w-8 h-8 rounded-full border-2 border-brand-light object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCttFCwYbUIoV9MUP7dT-8TyPWda5LoFbmNxQqk-YDP2fV3YxjPxI0gu-XMWwPYuQSjssV_-t96RRs75DC6x69DeiKHcjLOZpOEbDEhu6J6KuczGrm9V5tg-3XKVnMF5OsoAnXn9qTiftfbDnn_75PYGi3-iAeqb_HjPHBLRF7Zq64r55Pm-6f77Jq58cxjXHYieNpaVoK0UNxDbtKhhhNfWab4jeyV_7bFAnmNLuJ84lRUYd29HWk"/>
+<img alt="User 2" class="w-8 h-8 rounded-full border-2 border-brand-light object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnz9FVjMbiL-NXG9yTEpKHjorlEZqYS52TQdn4uYjZidWX9-MmcuJb-LvT7bm6vhOvwBkNe4RKmZM9kve3ZdrHPOGVJFZym9xOnir4Wy90cOiPWWVKzKKi3J1T7RWrrNLfP62C6CvuUpX7ylOot5OVIIn6l3Q28wQIv7hFq0Rx_rC52I8x-AgGaSPOS0_KM_pBTml5FQ65mp4ZyWr93Uqz3yLlt_Q5-o-ZKSp9T9Y1bgdZWFthaI"/>
+<img alt="User 3" class="w-8 h-8 rounded-full border-2 border-brand-light object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpouX2xhZ7du7cHsCAafXukJnEFhrf1P6ZbdUoUQ5R2uLLQQz1frVuJ8AUIiQytReBWRYquCSgaxJNkEi4gUNy4D-cYrgSSVnU89bRv2Uu2TdcPxvxNY9TXZr0afSH36baR9e39EPPmLjwn1zmisANof9bDXbdBv-37VElRgOUtwGijwL8nvcZO5-2HSXTlCuvzizUYJIPJvXQVhUU5OwKppmJmSR0I1f1B13Bbh2nwrJ06LZrpBU"/>
+</div>
+<div class="flex flex-col items-start">
+<div class="flex text-brand-orange text-sm">
+            ★★★★★ <span class="bg-brand-dark text-white text-xs ml-2 px-1.5 py-0.5 rounded-md font-bold">4.9</span>
+</div>
+<span class="text-sm font-medium text-gray-600">300+ Scaled Brands</span>
+</div>
+</div>
+<!-- Headline -->
+<h1 class="text-6xl md:text-7xl font-bold tracking-tight text-brand-dark leading-tight mb-6">
+        On-Demand Design <br/>
+        for <span class="font-serif italic font-medium">Scaling Brands.</span>
+</h1>
+<!-- Subheadline -->
+<p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+        Design subscription, made for those who move fast and scale faster.
+      </p>
+<!-- CTA Buttons -->
+<div class="flex items-center justify-center space-x-4">
+<a class="bg-brand-orange text-white px-8 py-3.5 rounded-xl font-medium shadow-[0_4px_14px_0_rgba(227,68,0,0.39)] hover:bg-[#c93d00] transition-colors" href="#">
+          Book a Call
+        </a>
+<a class="bg-white text-brand-orange border border-brand-orange px-8 py-3.5 rounded-xl font-medium hover:bg-orange-50 transition-colors shadow-sm" href="#pricing">
+          See Pricing
+        </a>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Portfolio Grid -->
+<section class="w-full px-4 md:px-8 max-w-[1600px] mx-auto overflow-hidden mb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+<!-- Project 1 -->
+<div class="rounded-3xl overflow-hidden aspect-[4/5] bg-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+<img alt="Lucid Dashboard Mockup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuJdHTQKFeu3afxQC23pPKl8bvNcSp3c9qF0W6BRbWNv0WOE0mjrVr_DMYVaF93ouFw-jaF9ZrdT9shqaJMX5KkWFNMfheGtV3ilgHQqztH2mcWbmNboZKVwMXZZTqxapSw0N4atzLkmwOkMklPoybS04bwEUWVf8zkausD9Eh-eA5cx5Eymap9WxiiLKM3WjOuaWUVIPyHus5xJuxEWHG1Ur257GpeT1lh75O0GEjwD4xW5lZN0c"/>
+</div>
+<!-- Project 2 -->
+<div class="rounded-3xl overflow-hidden aspect-[4/5] bg-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+<img alt="Orange Packaging Design" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVCVWeLeinvZ1onTSdBla0jbarANbQgwIPGDQlkxps1lTr3bntxwb5ShqNSvx4bwvOq2R19PzF92TSMv63yXSNx5V7XxY7ABSFjJqIvFtVTUejaziMjF8RFGoP5n3lcm0LL_uuLh0cBfywO1NxFKQdU_6_BxN30Qm0K3DC6mZyyPZeKlAI6JWwWJVkl1tzugYJLBWPkjyQro3dqc_ZIeS2sJNz42_q-NiE3Wgoq1bPvTtR2m7OWNY"/>
+</div>
+<!-- Project 3 -->
+<div class="rounded-3xl overflow-hidden aspect-[4/5] bg-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+<img alt="Fitness App UI" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkG3GRBWNE1gxXm23hnOynToRjEuNofBhnjo8dcr5EWSygWrrN5KFCHpH-hFu3tHIxHekOBtmX45bByPeyQV-TV0MGRmgCLQwMJvlTfH7LFq_MZ2yXRDTOEodj548HrNfxrWb_WlqPxxRjccJf3n461dipF8YvukfTc94CyocGeIuM59bt-LvG3nJYoqo9IIk28VZIp7artzWfcnDVeSzR4Xlx6O-C4qtfWVV2lvVH66hTYFaV-ms"/>
+</div>
+<!-- Project 4 -->
+<div class="rounded-3xl overflow-hidden aspect-[4/5] bg-gray-100 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+<img alt="Jackarta Box Mockup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdWE705qAjSus-QhlfMsnSk-nJ_vpgWTqXVmXyv0_ehjtEH3EWQn1b3uTCTp9OKJzSMcKlfd-AqLQGze4ENeikBKYDEmmmb1jR4qXP9cRiM4ybblFyAm5jsdtn8o6UFIvoGeUd0AjMraja1Dyk_IL0i_eM73_SNfajRarCLAtJQHG6pMv4va0VKAbQpFhkqUYlzofojWtIsBUkz_5-zMNaW7nBxHLvs6rAiex_MHVYEztWeE3UAOg"/>
+</div>
+</div>
+</section>
+<!-- END: Portfolio Grid -->
+<!-- BEGIN: Services Section -->
+<section class="w-full px-4 md:px-8 max-w-6xl mx-auto mb-32" id="services">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight mb-16 text-center max-w-3xl mx-auto">
+    We help brands show up with <span class="text-brand-orange">clarity, confidence</span>, and design that actually works.
+  </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<h3 class="text-2xl font-bold mb-4">Brand Identity</h3>
+<p class="text-gray-600 mb-6">We help founders shape how their brand looks, sounds, and feels. From logo to typography to colors, we craft a system that’s distinct, aligned, and built to grow with your business.</p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li>• Colour Palette</li>
+<li>• Logo</li>
+<li>• Business Collateral</li>
+<li>• Social Media Post</li>
+<li>• Mockup</li>
+<li>• Brand Voice Direction</li>
+</ul>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<h3 class="text-2xl font-bold mb-4">UI/UX Design</h3>
+<p class="text-gray-600 mb-6">We create intuitive, scalable interfaces that not only look good but actually guide users and drive results. Whether it’s for mobile apps, websites, or SaaS platforms — we design products people love to use.</p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li>• Hi-Fi UI Design</li>
+<li>• Prototyping</li>
+<li>• Wireframing</li>
+<li>• User Flow</li>
+<li>• Design System</li>
+<li>• UX Research</li>
+</ul>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<h3 class="text-2xl font-bold mb-4">Web Development</h3>
+<p class="text-gray-600 mb-6">We build custom websites using powerful no-code tools — meaning you get beautiful, fast, and functional builds without the dev lag. Ideal for marketing sites, portfolios, landing pages, or simple platforms.</p>
+<ul class="text-sm text-gray-500 space-y-2">
+<li>• Responsive</li>
+<li>• Optimization</li>
+<li>• CMS Setup</li>
+<li>• Domain Setup</li>
+<li>• Animation &amp; Interaction</li>
+<li>• SEO Optimized</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- END: Services Section -->
+<!-- BEGIN: How It Works Section -->
+<section class="w-full px-4 md:px-8 max-w-6xl mx-auto mb-32">
+<div class="text-center mb-16">
+<h4 class="text-sm font-bold text-brand-orange uppercase tracking-wider mb-4">How it works</h4>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight max-w-2xl mx-auto">
+      Great design, done simply delivered fast.
+    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center">
+<div class="bg-brand-orange text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">1</div>
+<h3 class="text-2xl font-bold mb-4">Request</h3>
+<p class="text-gray-600">Share your design needs. Branding, UI/UX, or development. We’ll get it done.</p>
+</div>
+<div class="text-center">
+<div class="bg-brand-orange text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">2</div>
+<h3 class="text-2xl font-bold mb-4">Receive</h3>
+<p class="text-gray-600">Receive your final work within few days. We stay ready for your next task.</p>
+</div>
+<div class="text-center">
+<div class="bg-brand-orange text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">3</div>
+<h3 class="text-2xl font-bold mb-4">Works</h3>
+<p class="text-gray-600">Collaboration that moved the needle.</p>
+</div>
+</div>
+</section>
+<!-- END: How It Works Section -->
+<!-- BEGIN: Membership Benefits Section -->
+<section class="w-full px-4 md:px-8 max-w-6xl mx-auto mb-32 bg-white rounded-[3rem] p-12 shadow-sm border border-gray-100">
+<div class="text-center mb-16">
+<h4 class="text-sm font-bold text-brand-orange uppercase tracking-wider mb-4">Membership benefits</h4>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight max-w-2xl mx-auto">
+      Stress free, monthly design services.
+    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-bold mb-2">Fixed monthly rate</h3>
+<p class="text-gray-600">Pay a predictable flat fee every month. Just reliable design support.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
+<p class="text-gray-600">Fast turnaround without compromising on creativity or details.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Premium Quality</h3>
+<p class="text-gray-600">All designs are created by professionals who deliver excellence.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Scalable</h3>
+<p class="text-gray-600">Easily upgrade, downgrade, or pause your plan based on your project volume.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Unique &amp; Custom</h3>
+<p class="text-gray-600">Every project is crafted from scratch to reflect your brand’s personality.</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Design Board</h3>
+<p class="text-gray-600">Manage, review, and approve projects all from your personal design dashboard.</p>
+</div>
+</div>
+</section>
+<!-- END: Membership Benefits Section -->
+<!-- BEGIN: Pricing Section -->
+<section class="w-full px-4 md:px-8 max-w-5xl mx-auto mb-32" id="pricing">
+<div class="text-center mb-16">
+<h4 class="text-sm font-bold text-brand-orange uppercase tracking-wider mb-4">pricing</h4>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight max-w-2xl mx-auto">
+      Transparent pricing, no hidden fees.
+    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Basic Plan -->
+<div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+<h3 class="text-2xl font-bold mb-2">Basic</h3>
+<div class="text-5xl font-bold mb-2">$1,775<span class="text-lg text-gray-500 font-normal">/month</span></div>
+<ul class="text-gray-600 space-y-4 mb-10 flex-grow mt-8">
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> 1 active task at a time</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> 48-hour turn around</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Unlimited stock photos</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Source files included</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Pause or cancel anytime</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Additional Active Task</li>
+</ul>
+<a class="bg-brand-dark text-white text-center px-6 py-4 rounded-xl font-medium hover:bg-gray-800 transition-colors w-full" href="#">Start scaling</a>
+</div>
+<!-- Pro Plan -->
+<div class="bg-brand-dark text-white p-10 rounded-3xl shadow-xl flex flex-col relative overflow-hidden">
+<div class="absolute top-6 right-6 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-full">2 Spots Available</div>
+<h3 class="text-2xl font-bold mb-2">Pro</h3>
+<div class="text-5xl font-bold mb-2">$2,995<span class="text-lg text-gray-400 font-normal">/month</span></div>
+<ul class="text-gray-300 space-y-4 mb-10 flex-grow mt-8">
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> 2 active task at a time</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> 24-hour turn around</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Unlimited stock photos</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Source files included</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> Pause or cancel anytime</li>
+<li class="flex items-center"><span class="text-brand-orange mr-2">✓</span> No-Code Web development</li>
+</ul>
+<a class="bg-brand-orange text-white text-center px-6 py-4 rounded-xl font-medium hover:bg-[#c93d00] transition-colors w-full shadow-[0_4px_14px_0_rgba(227,68,0,0.39)]" href="#">Start scaling</a>
+</div>
+</div>
+</section>
+<!-- END: Pricing Section -->
+<!-- BEGIN: Testimonials Section -->
+<section class="w-full px-4 md:px-8 max-w-6xl mx-auto mb-32" id="testimonial">
+<div class="text-center mb-16">
+<h4 class="text-sm font-bold text-brand-orange uppercase tracking-wider mb-4">TESTIMONIALS</h4>
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight max-w-3xl mx-auto">
+      We love what we do, and they love the results.
+    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"We were struggling to present ourselves professionally until we worked with them. Now our brand looks like it belongs with the leaders in our space."</p>
+<div>
+<div class="font-bold">Malik Johnson</div>
+<div class="text-sm text-gray-500">Founder, GrowthLoop</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"Before, we wasted time going back and forth with designers. Now we get clean, clear visuals on the first try. Which lets us focus on what really matters."</p>
+<div>
+<div class="font-bold">Marcus Lee</div>
+<div class="text-sm text-gray-500">Product Manager, NovaTech</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"It’s not just about looking good. It’s about showing up confidently every time. That’s what they help us do, and it’s changed how our team feels about our brand."</p>
+<div>
+<div class="font-bold">Bruno Rivera</div>
+<div class="text-sm text-gray-500">Brand Strategist, Studio Hive</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"As a non-designer, I finally felt in control. The layout just made sense and looked incredible out of the box."</p>
+<div>
+<div class="font-bold">Rui Hachi</div>
+<div class="text-sm text-gray-500">Solo SaaS Builder</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"Webnoia helped us look polished without hiring a whole design team. Our brand has never felt this aligned online."</p>
+<div>
+<div class="font-bold">Michael Kith</div>
+<div class="text-sm text-gray-500">Indie App Dev</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<p class="text-gray-600 mb-6">"Webnoia made launching our site feel effortless. The design was clean, fast, and surprisingly flexible. We went live in days, not weeks."</p>
+<div>
+<div class="font-bold">Ayla Noor</div>
+<div class="text-sm text-gray-500">Founder, Sunday Studio</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Testimonials Section -->
+<!-- BEGIN: FAQ Section -->
+<section class="w-full px-4 md:px-8 max-w-3xl mx-auto mb-32" id="faq">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight">
+      Frequently Asked Questions.
+    </h2>
+</div>
+<div class="space-y-4">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">How fast will I receive my designs?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">How does onboarding work?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">Who works on my designs and code?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">Is there a limit to how many requests I can make?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">Can I pause my subscription?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">What about projects like full websites or apps?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">What tools do you use?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">How does web development work?</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 font-bold">How do I request new work?</div>
+</div>
+</section>
+<!-- END: FAQ Section -->
+<!-- BEGIN: CTA / Footer -->
+<footer class="w-full bg-brand-dark text-white py-24 px-4 text-center mt-auto">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-8">
+      We make design work easier for you.
+    </h2>
+<p class="text-gray-400 mb-10 text-lg">Book a quick call to see how Webnoia works.</p>
+<a class="bg-brand-orange text-white px-8 py-4 rounded-xl font-medium shadow-[0_4px_14px_0_rgba(227,68,0,0.39)] hover:bg-[#c93d00] transition-colors inline-block mb-16" href="#pricing">
+      See Pricing
+    </a>
+<div class="flex justify-center mb-8">
+<a class="block w-32" href="#">
+<img alt="Webnoia Logo" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvkzKdBwi7qliGLKJcnUFLePQY-ZXjmOFluMc1VK6soW5c9advDnItAcJ5H9GL4i0VDzOBzXItQZWpp984ewXU04cva8jtThP2C70TueGtKXVDnrUgTgP5_FdqZ0OCPXhBl8o5xOIynFnszMg21A7LC3YmDgJd8JJ4hIqmDwMFnU6rDs5fKBPsyP8om5NYeZQgv0fkXN-qpvR9v7zTEBPWPrGsnyyxHtGGubGV6x-qgd0XxDEivh0"/>
+</a>
+</div>
+<div class="text-sm text-gray-500 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+<a class="hover:text-white transition-colors" href="#">Thank You</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<span>© 2025 Webnoia.</span>
+</div>
+</div>
+</footer>
+<!-- END: CTA / Footer -->
+</main>
+<!-- END: Main Content -->
+<!-- Framer Badges (Bottom Right) -->
+<div class="fixed bottom-6 right-6 flex flex-col space-y-2 z-50">
+<a class="bg-gray-900 text-white text-xs font-medium px-3 py-2 rounded-lg flex items-center justify-between shadow-md hover:bg-gray-800 w-36" href="#">
+      Buy Template <span class="ml-2">↗</span>
+</a>
+<a class="bg-white text-gray-900 text-xs font-medium px-3 py-2 rounded-lg border border-gray-200 flex items-center justify-between shadow-md hover:bg-gray-50 w-36" href="#">
+      More Templates <span class="ml-2 bg-gray-200 rounded-md p-1"><svg fill="none" height="10" viewbox="0 0 15 15" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5H13.5V13.5H1.5V1.5Z" stroke="currentColor" stroke-width="1.5"></path></svg></span>
+</a>
+<a class="bg-white text-gray-900 text-xs font-medium px-3 py-2 rounded-lg border border-gray-200 flex items-center justify-between shadow-md hover:bg-gray-50 w-36" href="#">
+<svg class="w-3 h-3 mr-2" fill="none" viewbox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0L12 6L6 12L0 6L6 0Z" fill="currentColor"></path></svg> Made in Framer
+    </a>
+</div>
+</body></html>

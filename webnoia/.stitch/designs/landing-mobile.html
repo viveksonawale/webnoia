@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Webnoia - On-Demand Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="font-setup">
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    
+    body {
+      font-family: 'Hanken Grotesk', sans-serif;
+      background-color: #f9f9f9;
+      color: #121212;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#E93D25',
+            surface: '#f9f9f9',
+            'surface-container': '#f0f0f0',
+            'on-surface': '#121212',
+            'on-surface-variant': '#444444'
+          },
+          borderRadius: {
+            'xl': '0.75rem',
+            '2xl': '1rem',
+            '3xl': '1.5rem'
+          },
+          backgroundImage: {
+            'dot-pattern': 'radial-gradient(#dadada 1px, transparent 1px)'
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    .bg-dots {
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen bg-surface relative overflow-x-hidden bg-dots bg-dot-pattern">
+<!-- BEGIN: MobileHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-container py-4 px-6 flex justify-between items-center">
+<!-- Logo -->
+<a class="block w-24" href="#">
+<img alt="Webnoia Logo" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvkzKdBwi7qliGLKJcnUFLePQY-ZXjmOFluMc1VK6soW5c9advDnItAcJ5H9GL4i0VDzOBzXItQZWpp984ewXU04cva8jtThP2C70TueGtKXVDnrUgTgP5_FdqZ0OCPXhBl8o5xOIynFnszMg21A7LC3YmDgJd8JJ4hIqmDwMFnU6rDs5fKBPsyP8om5NYeZQgv0fkXN-qpvR9v7zTEBPWPrGsnyyxHtGGubGV6x-qgd0XxDEivh0"/>
+</a>
+<!-- Mobile Menu Button (Hamburger) -->
+<button aria-label="Menu" class="p-2 text-on-surface">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- END: MobileHeader -->
+<!-- BEGIN: MainContent -->
+<main class="pt-24 pb-12 px-4 flex flex-col items-center text-center">
+<!-- Social Proof -->
+<div class="inline-flex flex-col items-center gap-2 mb-8 mt-4">
+<div class="flex -space-x-2">
+<img alt="User 1" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1_MSIT4yIq3AT5gofOVC-AtTSROTQjo3aCG6x4W8xl5fk6qVjBhaqD91wzIRQssaxUEQyu3i-dl7g38ImeaDEhVqqcEJNzhpc2KJViJc_f0KCvrsOS1p305Wyropc3ITqO7HMsC9Qd5db5yWZNxgXsReWrtCpDDeUvm_pXnzqC9UWdiQFqf2GsgqNKxnkE_zFXil5GCk97theLDFQZmtt8OxfRQbp_DqQzQP1hhbrFDKQUjDlGIA"/>
+<img alt="User 2" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfMf0UlJNBeN51ZKRNkk6IvjfCcScoK-BQJhk4NuumIeaIkTNANTfoQveDVZT6WiA6f3KgzTm8-yMKn0VER6bVb10ZEZMQylpD-y6TSbyvsicVm2oufdW2VrcAOT2qL0agXgDA2hra8xBCr1Mn7yg3Z4CaX5mf_8bz7Y3J2Mveiaa-oW7BtFH6AIsg02Us71pCutXNRu2GTLBDkuT2lZdFEdWJ8X7visPwpRsEVUfFJmlXtKTwyJI"/>
+<img alt="User 3" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQPUt_Axcta5gU8a1JXDqR4HlvuO62_j7IJRF0nLrcSprk0BDKGxNTUDiUD1BEEZTqLvHUyYexMkYArHqbghXqv8QJNFmrjMVygFy2ziwRhRaSw0OEFTfHDmJj0OGcsJoM8sz2kq-HGSL7_qSqHepgulwfJwqQUp0RuDPUF8gEOOZxjMXTDt81kDt67C_IuDEYUKRZdqDWSjPoWb1DKj5MZdidxpJnsOa4mk202GUnemT_gkd4DD8"/>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center text-brand">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" fill-rule="evenodd"></path></svg>
+<span class="ml-2 text-xs font-bold text-on-surface bg-surface-container px-2 py-0.5 rounded">4.9</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-1">300+ Scaled Brands</p>
+</div>
+</div>
+<!-- Hero Heading -->
+<h1 class="text-5xl md:text-6xl font-medium tracking-tight mb-4 leading-tight">
+      On-Demand Design<br/>
+      for <span class="font-serif italic tracking-normal">Scaling Brands.</span>
+</h1>
+<!-- Hero Subtitle -->
+<p class="text-lg text-on-surface-variant mb-8 max-w-md mx-auto">
+      Design subscription, made for those who move fast and scale faster.
+    </p>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs mx-auto mb-16">
+<a class="bg-brand text-white px-8 py-3.5 rounded-full font-medium hover:bg-[#c23a00] transition-colors w-full sm:w-auto" href="#">
+        Book a Call
+      </a>
+<a class="bg-white border border-surface-container text-on-surface px-8 py-3.5 rounded-full font-medium hover:bg-surface transition-colors w-full sm:w-auto" href="#">
+        See Pricing
+      </a>
+</div>
+<!-- BEGIN: PortfolioGrid -->
+<section aria-label="Portfolio Portfolio" class="w-full flex flex-col gap-6 mb-24">
+<!-- Grid Item 1 -->
+<div class="w-full rounded-3xl overflow-hidden aspect-[4/3] bg-surface-container relative">
+<img alt="Lucid Web Design Project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn13I8Hyu_uQGDZ0LxbKXIuxfvKUdSGwhZod7Wy-n34GtflSbArjP8SWMXWs4Rr-p1UsTPMKo_1MDIDGB6dVt-JVZNoavG_1Q-sQLjavwlZoVPNvabjeMRFQVMXPMFOXgeuERIA7d8VBPNUnCDXZPxxkHx12JJI0oBsZiI_oHWqxbf8qrhJnzeiCMF3S0Yfr1B8s1WIXEo_le5zGd7Wn7LgXizHVBQKL7ahMEIY3K0t2nlONw-YeY"/>
+</div>
+<!-- Grid Item 2 -->
+<div class="w-full rounded-3xl overflow-hidden aspect-[4/3] bg-surface-container relative">
+<img alt="Packaging Design Project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZY82DDXraeELCS7ikaP6uwv2q_vuvhuqgzEsWnmXdR7a7vbFT_hYPa7SNNBQEzYLcJKdMq-HomOZm6dZ_Jal9NLha0Vp-GPhGYAp_oztSfpzKurrnH8P3almwqrsUcKrqQULjYKKcGsXLMeEayAX2AWkU1_mEVRWp0ml344Hk2qyUjKfhTjYL93vJq_7aP0oVKqSKTYEBMxybHeShH55lhP2ETeWqbEWdvNKcMdrI4i86_b9PreY"/>
+</div>
+<!-- Grid Item 3 -->
+<div class="w-full rounded-3xl overflow-hidden aspect-[4/3] bg-surface-container relative">
+<img alt="Mobile App UI Project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRbGGEgtPLfrJv21IkeeCY-sQfwc3ln4rXUEDEBXF3efi3piX1Di5DudRUlD0W0ZIlQCSYWCgrPUs4znE5MLxI4IvqRilrLz_C2TMG64DLH7seUQJ3Cl8F4AnUAkv181v9KZ-aNUwPLkLqnT308gK3mPtcdv8GI3VG23lk1wUWIzl7vFo-j3sRsw7Gb-iORYzj8l4W3E5ZLnZh87gJN7RK0e7BAAOKcnaNFru-fQ8TdMZipvuJA4"/>
+</div>
+<!-- Grid Item 4 -->
+<div class="w-full rounded-3xl overflow-hidden aspect-[4/3] bg-surface-container relative">
+<img alt="Jackarta Brand Identity Project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHUkRCR7Nb5H-sa-_Y7Cb7hHl_BKaGOZDzUA-zQl0OYTvn1igUOShfO12_pf-2R2YkWHfsD5KYi_F0Vgj14hqWT7wm53nPB1VM9sL9NFpzkanJDXtb6vdwfykIeSUaoNnB8ZNr9UNrUvJh-q5HpE6wuEM-yDd1w_VFmfjOJGPMT9mvVNkGxfRd77sVfsIAiW9QplK2naxGHi5jjIS8uhcmNFZ_AgQLn5xezwbgaTfyB2H7yq7qDdk"/>
+</div>
+</section>
+<!-- END: PortfolioGrid -->
+<!-- Services Section -->
+<section class="w-full mb-24 text-left" id="services">
+<h2 class="text-4xl font-medium tracking-tight mb-8">
+        We help brands show up with <span class="font-serif italic text-brand">clarity, confidence, and design that actually works.</span>
+</h2>
+<div class="flex flex-col gap-12">
+<!-- Service 1 -->
+<div class="bg-white rounded-3xl p-8 border border-surface-container shadow-sm">
+<h3 class="text-2xl font-semibold mb-4">Brand Identity</h3>
+<p class="text-on-surface-variant mb-6">We help founders shape how their brand looks, sounds, and feels. From logo to typography to colors, we craft a system that’s distinct, aligned, and built to grow with your business.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Logo</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Colour Palette</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Business Collateral</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Social Media Post</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Mockup</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Brand Voice Direction</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-white rounded-3xl p-8 border border-surface-container shadow-sm">
+<h3 class="text-2xl font-semibold mb-4">UI/UX Design</h3>
+<p class="text-on-surface-variant mb-6">We create intuitive, scalable interfaces that not only look good but actually guide users and drive results. Whether it’s for mobile apps, websites, or SaaS platforms — we design products people love to use.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Hi-Fi UI Design</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Prototyping</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Wireframing</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">User Flow</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Design System</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">UX Research</span>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-white rounded-3xl p-8 border border-surface-container shadow-sm">
+<h3 class="text-2xl font-semibold mb-4">Web Development</h3>
+<p class="text-on-surface-variant mb-6">We build custom websites using powerful no-code tools — meaning you get beautiful, fast, and functional builds without the dev lag. Ideal for marketing sites, portfolios, landing pages, or simple platforms.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Responsive</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Optimization</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">CMS Setup</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Domain Setup</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">Animation &amp; Interaction</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-sm">SEO Optimized</span>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="w-full mb-24 text-left">
+<div class="mb-4 text-sm font-bold tracking-widest uppercase text-on-surface-variant">How it works</div>
+<h2 class="text-4xl font-medium tracking-tight mb-12">
+        Great design, done <span class="font-serif italic text-brand">simply delivered fast.</span>
+</h2>
+<div class="flex flex-col gap-8 relative border-l-2 border-surface-container ml-4 pl-8 py-4">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-brand"></div>
+<h3 class="text-2xl font-semibold mb-2">Subscribe</h3>
+<p class="text-on-surface-variant">Choose a plan that suits your needs &amp; request as many designs as you’d like.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-surface-container border-2 border-white"></div>
+<h3 class="text-2xl font-semibold mb-2">Request</h3>
+<p class="text-on-surface-variant">Share your design needs. Branding, UI/UX, or development. We’ll get it done.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-surface-container border-2 border-white"></div>
+<h3 class="text-2xl font-semibold mb-2">Receive</h3>
+<p class="text-on-surface-variant">Receive your final work within few days. We stay ready for your next task.</p>
+</div>
+</div>
+</section>
+<!-- Membership Benefits -->
+<section class="w-full mb-24 text-left">
+<div class="mb-4 text-sm font-bold tracking-widest uppercase text-on-surface-variant">Membership benefits</div>
+<h2 class="text-4xl font-medium tracking-tight mb-8">
+        Stress free, <span class="font-serif italic text-brand">monthly design services.</span>
+</h2>
+<div class="grid grid-cols-1 gap-6">
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Fixed monthly rate</h4>
+<p class="text-sm text-on-surface-variant">Pay a predictable flat fee every month. Just reliable design support.</p>
+</div>
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Fast Delivery</h4>
+<p class="text-sm text-on-surface-variant">Fast turnaround without compromising on creativity or details.</p>
+</div>
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Premium Quality</h4>
+<p class="text-sm text-on-surface-variant">All designs are created by professionals who deliver excellence.</p>
+</div>
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Scalable</h4>
+<p class="text-sm text-on-surface-variant">Easily upgrade, downgrade, or pause your plan based on your project volume.</p>
+</div>
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Unique &amp; Custom</h4>
+<p class="text-sm text-on-surface-variant">Every project is crafted from scratch to reflect your brand’s personality.</p>
+</div>
+<div class="p-6 bg-white rounded-2xl border border-surface-container">
+<h4 class="font-semibold mb-2">Design Board</h4>
+<p class="text-sm text-on-surface-variant">Manage, review, and approve projects all from your personal design dashboard.</p>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="w-full mb-24 text-left" id="pricing">
+<div class="mb-4 text-sm font-bold tracking-widest uppercase text-on-surface-variant">pricing</div>
+<h2 class="text-4xl font-medium tracking-tight mb-8">
+        Transparent pricing, <span class="font-serif italic text-brand">no hidden fees.</span>
+</h2>
+<div class="flex flex-col gap-6">
+<!-- Basic Plan -->
+<div class="p-8 bg-white rounded-3xl border border-surface-container shadow-sm flex flex-col">
+<h3 class="text-2xl font-semibold mb-2">Basic</h3>
+<div class="mb-6">
+<span class="text-4xl font-bold">$1,775</span><span class="text-on-surface-variant">/month</span>
+</div>
+<ul class="flex flex-col gap-3 mb-8 text-on-surface-variant">
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> 1 active task at a time</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> 48-hour turn around</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Unlimited stock photos</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Source files included</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Pause or cancel anytime</li>
+</ul>
+<a class="mt-auto block w-full text-center bg-brand text-white px-6 py-4 rounded-full font-medium hover:bg-[#c23a00] transition-colors" href="#">Start scaling</a>
+</div>
+<!-- Pro Plan -->
+<div class="p-8 bg-on-surface text-white rounded-3xl shadow-lg flex flex-col relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">2 Spots Available</div>
+<h3 class="text-2xl font-semibold mb-2">Pro</h3>
+<div class="mb-6">
+<span class="text-4xl font-bold">$2,995</span><span class="text-gray-400">/month</span>
+</div>
+<ul class="flex flex-col gap-3 mb-8 text-gray-300">
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> 2 active task at a time</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> 24-hour turn around</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Unlimited stock photos</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Source files included</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Pause or cancel anytime</li>
+<li class="flex items-center gap-2"><svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> No-Code Web development</li>
+</ul>
+<a class="mt-auto block w-full text-center bg-brand text-white px-6 py-4 rounded-full font-medium hover:bg-[#c23a00] transition-colors" href="#">Start scaling</a>
+</div>
+</div>
+<div class="mt-8 text-center text-on-surface-variant">
+        Prefer to email? <a class="text-brand font-semibold hover:underline" href="#">Email Us</a>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="w-full mb-24 text-left" id="testimonial">
+<div class="mb-4 text-sm font-bold tracking-widest uppercase text-on-surface-variant">TESTIMONIALS</div>
+<h2 class="text-4xl font-medium tracking-tight mb-8">
+        We love what we do, and <span class="font-serif italic text-brand">they love the results.</span>
+</h2>
+<div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory hide-scrollbar">
+<!-- Testimonial 1 -->
+<div class="snap-center shrink-0 w-[85vw] max-w-[320px] p-6 bg-white rounded-3xl border border-surface-container flex flex-col justify-between">
+<p class="text-lg mb-6">"We were struggling to present ourselves professionally until we worked with them. Now our brand looks like it belongs with the leaders in our space."</p>
+<div>
+<p class="font-semibold">Malik Johnson</p>
+<p class="text-sm text-on-surface-variant">Founder, GrowthLoop</p>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="snap-center shrink-0 w-[85vw] max-w-[320px] p-6 bg-white rounded-3xl border border-surface-container flex flex-col justify-between">
+<p class="text-lg mb-6">"Before, we wasted time going back and forth with designers. Now we get clean, clear visuals on the first try. Which lets us focus on what really matters."</p>
+<div>
+<p class="font-semibold">Marcus Lee</p>
+<p class="text-sm text-on-surface-variant">Product Manager, NovaTech</p>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="snap-center shrink-0 w-[85vw] max-w-[320px] p-6 bg-white rounded-3xl border border-surface-container flex flex-col justify-between">
+<p class="text-lg mb-6">"Webnoia helped us look polished without hiring a whole design team. Our brand has never felt this aligned online."</p>
+<div>
+<p class="font-semibold">Michael Kith</p>
+<p class="text-sm text-on-surface-variant">Indie App Dev</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="w-full mb-24 text-left" id="faq">
+<h2 class="text-4xl font-medium tracking-tight mb-8">
+        Frequently <span class="font-serif italic text-brand">Asked Questions.</span>
+</h2>
+<div class="flex flex-col border-t border-surface-container">
+<!-- FAQ Items (Collapsed for simple HTML structure, can be interactive via JS) -->
+<div class="py-4 border-b border-surface-container flex justify-between items-center cursor-pointer">
+<span class="font-semibold">How fast will I receive my designs?</span>
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="py-4 border-b border-surface-container flex justify-between items-center cursor-pointer">
+<span class="font-semibold">How does onboarding work?</span>
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="py-4 border-b border-surface-container flex justify-between items-center cursor-pointer">
+<span class="font-semibold">Who works on my designs and code?</span>
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="py-4 border-b border-surface-container flex justify-between items-center cursor-pointer">
+<span class="font-semibold">Is there a limit to how many requests I can make?</span>
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="py-4 border-b border-surface-container flex justify-between items-center cursor-pointer">
+<span class="font-semibold">Can I pause my subscription?</span>
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</section>
+<!-- Bottom CTA / Footer -->
+<section class="w-full bg-on-surface text-white rounded-3xl p-8 mb-12 flex flex-col items-center text-center">
+<h2 class="text-4xl font-medium tracking-tight mb-4">
+        We make design work <span class="font-serif italic text-brand">easier for you.</span>
+</h2>
+<p class="text-gray-300 mb-8">Book a quick call to see how Webnoia works.</p>
+<a class="bg-brand text-white px-8 py-3.5 rounded-full font-medium hover:bg-[#c23a00] transition-colors w-full sm:w-auto mb-12" href="#">
+        See Pricing
+    </a>
+<div class="w-full flex flex-col items-center border-t border-gray-700 pt-8 mt-4">
+<a class="block w-32 mb-6" href="#">
+<img alt="Webnoia Logo" class="w-full h-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvkzKdBwi7qliGLKJcnUFLePQY-ZXjmOFluMc1VK6soW5c9advDnItAcJ5H9GL4i0VDzOBzXItQZWpp984ewXU04cva8jtThP2C70TueGtKXVDnrUgTgP5_FdqZ0OCPXhBl8o5xOIynFnszMg21A7LC3YmDgJd8JJ4hIqmDwMFnU6rDs5fKBPsyP8om5NYeZQgv0fkXN-qpvR9v7zTEBPWPrGsnyyxHtGGubGV6x-qgd0XxDEivh0"/>
+</a>
+<div class="flex gap-4 mb-6">
+<a class="text-gray-400 hover:text-white" href="#">Twitter</a>
+<a class="text-gray-400 hover:text-white" href="#">Dribbble</a>
+<a class="text-gray-400 hover:text-white" href="#">Behance</a>
+</div>
+<div class="flex gap-4 text-sm text-gray-400 mb-4">
+<a class="hover:text-white" href="#">Terms of Service</a>
+</div>
+<p class="text-xs text-gray-500">© 2025 Webnoia.</p>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- Fixed Action Buttons (Bottom Right) -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-2 z-50 hidden sm:flex">
+<button class="bg-on-surface text-white text-xs font-medium px-4 py-2 rounded-lg shadow-lg flex items-center justify-between w-36 hover:bg-[#2a2a2a] transition-colors">
+      Buy Template
+      <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="bg-white text-on-surface text-xs font-medium px-4 py-2 rounded-lg shadow-lg border border-surface-container flex items-center justify-between w-36 hover:bg-surface transition-colors">
+      More Templates
+      <svg class="w-4 h-4 ml-2" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</button>
+</div>
+<style>
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+</body></html>
