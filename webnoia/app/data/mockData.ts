@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 
 export const HERO_COPY = {
   eyebrow: "FOR SAAS FOUNDERS & STARTUPS",
-  headline: ["On-Demand Web Services", "for Scaling Brands."],
+  headline: ["Everything Your Brand Needs", "to Grow Online."],
   subheadline:
     "AI-accelerated development, done right. We build, test, and maintain websites that keep your brand at the premium end of the market.",
   primaryCta: { label: "Book a Consultation", href: "#contact" },
