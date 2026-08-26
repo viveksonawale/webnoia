@@ -19,7 +19,7 @@ export default function Home() {
         <PortfolioGrid />
         <Services />
         <HowItWorks />
-        <MembershipBenefits />
+        {/* <MembershipBenefits /> */}
         <Pricing />
         <Testimonials />
         <FAQ />

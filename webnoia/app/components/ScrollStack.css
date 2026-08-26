@@ -1,0 +1,88 @@
+.scroll-stack {
+  position: relative;
+  width: 100%;
+  padding-bottom: 35vh;
+}
+
+.scroll-stack-item {
+  position: sticky;
+
+  /*
+   * Where the cards settle in the viewport.
+   * Adjust this if your navbar overlaps.
+   */
+  top: 120px;
+
+  /*
+   * Every card needs enough vertical space
+   * to create the scrolling interval before
+   * the next card arrives.
+   */
+  margin-bottom: 80px;
+
+  /*
+   * Required for proper stacking.
+   */
+  z-index: 1;
+}
+
+/*
+ * Later cards sit above earlier cards,
+ * exactly like a physical stack of books.
+ */
+.scroll-stack-item:nth-child(1) {
+  z-index: 1;
+}
+
+.scroll-stack-item:nth-child(2) {
+  z-index: 2;
+}
+
+.scroll-stack-item:nth-child(3) {
+  z-index: 3;
+}
+
+.scroll-stack-item:nth-child(4) {
+  z-index: 4;
+}
+
+.scroll-stack-item:nth-child(5) {
+  z-index: 5;
+}
+
+.scroll-stack-item:nth-child(6) {
+  z-index: 6;
+}
+
+/*
+ * Small visual depth between stacked cards.
+ */
+.scroll-stack-item + .scroll-stack-item {
+  margin-top: 0;
+}
+
+/*
+ * Mobile:
+ * Don't force the stack interaction on small screens.
+ */
+@media (max-width: 767px) {
+  .scroll-stack {
+    padding-bottom: 0;
+  }
+
+  .scroll-stack-item {
+    position: relative;
+    top: auto;
+    margin-bottom: 24px;
+  }
+}
+
+/*
+ * Accessibility.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-stack-item {
+    position: relative;
+    top: auto;
+  }
+}

@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 
 export const HERO_COPY = {
   eyebrow: "FOR SAAS FOUNDERS & STARTUPS",
-  headline: ["On-Demand Web Services", "for Scaling Brands."],
+  headline: ["Everything Your Brand Needs", "to Grow Online."],
   subheadline:
     "AI-accelerated development, done right. We build, test, and maintain websites that keep your brand at the premium end of the market.",
   primaryCta: { label: "Book a Consultation", href: "#contact" },
@@ -69,7 +69,7 @@ export const PORTFOLIO_ITEMS = [
 export const SERVICES = [
   {
     id: "s1",
-    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80",
+    image: "/web-design-development.png",
     number: "01",
     title: "Web Design & Development",
     description:
@@ -80,7 +80,7 @@ export const SERVICES = [
   },
   {
     id: "s2",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1648260296289-ab882814a005?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     number: "02",
     title: "UI/UX Design",
     description:
@@ -91,7 +91,7 @@ export const SERVICES = [
   },
   {
     id: "s3",
-    image: "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&q=80",
+    image: "/website-testing-qa.jpg",
     number: "03",
     title: "Website Testing & QA",
     description:
@@ -102,7 +102,7 @@ export const SERVICES = [
   },
   {
     id: "s4",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    image: "/website-maintenance-support.jpeg",
     number: "04",
     title: "Website Maintenance",
     description:
@@ -116,25 +116,25 @@ export const SERVICES = [
 export const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "Book a Consultation",
-    description: "Tell us about your project, goals, and timeline. No sales scripts — just a real conversation.",
+    title: "We Listen First",
+    description: "Before anything gets built, we sit down to understand your business — what you do, who your customers are, and your goals. No templates, no guesswork.",
   },
   {
     step: "02",
-    title: "We Build a Plan",
-    description: "We scope the work, define deliverables, and give you a clear timeline and price upfront.",
+    title: "You See It Before We Build It",
+    description: "We show you the complete look and feel before writing a single line of code. If something's off, we adjust it on paper first.",
   },
   {
     step: "03",
-    title: "Iterative Delivery",
-    description: "We ship in stages, share work-in-progress, and refine based on your feedback.",
+    title: "We Build, You Stay in the Loop",
+    description: "We work in stages and check in constantly. You're never left wondering what's happening for weeks, and your feedback shapes the final build.",
   },
   {
     step: "04",
-    title: "Launch & Maintain",
-    description: "Once live, we stay on board for ongoing support, testing, and improvements.",
+    title: "We Launch — And We Don't Disappear",
+    description: "Once live, we test everything, set up full backups, and hand it over clean. Afterwards, we're always directly reachable whenever you need us.",
   },
-] as const;
+];
 
 export const MEMBERSHIP_BENEFITS = [
   { title: "Pause anytime", description: "No long-term contracts. Pause or cancel whenever you need." },
@@ -204,17 +204,17 @@ export const PRICING_PLANS = [
 export const TESTIMONIALS = [
   {
     id: "t1",
-    name: "Sarah Chen",
-    title: "Co-Founder, Driftly",
-    avatar: "https://i.pravatar.cc/150?img=47",
+    name: "Rahul Dey",
+    title: "Founder, Metanoia",
+    avatar: "/rahul-dey.jpeg",
     quote:
       "Webnoia redesigned our entire SaaS site in 3 weeks and it converted noticeably better on day one. The attention to detail was unlike anything I'd seen from a typical agency.",
   },
   {
     id: "t2",
-    name: "Marcus Obi",
-    title: "Head of Growth, Pulso",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    name: "Divyang Bhanushali",
+    title: "Co-Founder, Metanoia",
+    avatar: "/divyang-Bhanushali.jpeg",
     quote:
       "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring — all done without us having to chase anyone.",
   },
