@@ -80,7 +80,7 @@ export const SERVICES = [
   },
   {
     id: "s2",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1648260296289-ab882814a005?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     number: "02",
     title: "UI/UX Design",
     description:
@@ -91,7 +91,7 @@ export const SERVICES = [
   },
   {
     id: "s3",
-    image: "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&q=80",
+    image: "/website-testing-qa.jpg",
     number: "03",
     title: "Website Testing & QA",
     description:
