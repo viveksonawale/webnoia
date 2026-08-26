@@ -80,15 +80,190 @@ export default function Hero({ className = "" }: HeroProps) {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
           onClick={() => handleScroll(HERO_COPY.primaryCta.href)}
-          className="bg-brand-jade hover:bg-brand-jade-hover text-brand-white px-8 py-4 rounded-xl font-semibold shadow-[0_4px_20px_0_rgba(20,92,82,0.25)] hover:shadow-[0_6px_24px_rgba(20,92,82,0.35)] transition-all duration-200 active:scale-[0.98] w-full sm:w-auto cursor-pointer"
+          className="
+    group
+    relative
+    isolate
+    flex
+    w-full
+    items-center
+    justify-center
+    gap-2
+    overflow-hidden
+    rounded-full
+    border-2
+    border-brand-jade
+    bg-brand-jade
+    px-8
+    py-4
+    font-semibold
+    text-brand-white
+    shadow-[0_4px_20px_0_rgba(20,92,82,0.25)]
+    transition-all
+    duration-300
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    hover:-translate-y-0.5
+    hover:border-brand-jade-hover
+    hover:bg-brand-jade-hover
+    hover:shadow-[0_8px_24px_rgba(20,92,82,0.30)]
+    active:translate-y-0
+    active:scale-[0.98]
+    sm:w-auto
+    cursor-pointer
+  "
         >
-          {HERO_COPY.primaryCta.label}
+          {/* Jade reveal */}
+          <span
+            className="
+      absolute
+      left-1/2
+      top-1/2
+      z-[-1]
+      aspect-square
+      w-5
+      -translate-x-1/2
+      -translate-y-1/2
+      scale-0
+      rounded-full
+      bg-brand-jade-hover
+      transition-transform
+      duration-300
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      group-hover:scale-[14]
+    "
+          />
+
+          <span className="relative z-10">
+            {HERO_COPY.primaryCta.label}
+          </span>
+
+          {/* <svg
+            width="16"
+            height="16"
+            viewBox="0 0 14 14"
+            fill="none"
+            className="
+      relative
+      z-10
+      transition-transform
+      duration-300
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      group-hover:translate-x-1
+    "
+          >
+            <path
+              d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg> */}
         </button>
         <button
           onClick={() => handleScroll(HERO_COPY.secondaryCta.href)}
-          className="border border-brand-border bg-brand-white text-ink-primary px-8 py-4 rounded-xl font-medium hover:border-brand-jade hover:text-brand-jade transition-all duration-200 w-full sm:w-auto hover:bg-jade-whisper cursor-pointer"
+          className="
+    group
+    relative
+    inline-flex
+    w-full
+    items-center
+    justify-center
+    gap-3
+    overflow-hidden
+    rounded-full
+    border
+    border-brand-border/60
+    bg-brand-white/80
+    px-7
+    py-3.5
+    font-medium
+    text-sm
+    tracking-wide
+    text-ink-primary
+    shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)]
+    backdrop-blur-md
+    transition-all
+    duration-500
+    ease-out
+    hover:-translate-y-0.5
+    hover:border-brand-jade/40
+    hover:bg-brand-white
+    hover:shadow-[0_12px_32px_-8px_rgba(20,92,82,0.15)]
+    active:translate-y-0
+    active:scale-[0.98]
+    sm:w-auto
+    cursor-pointer
+  "
         >
-          {HERO_COPY.secondaryCta.label}
+          {/* Ambient Jade Glow Halo */}
+          <div
+            className="
+      pointer-events-none
+      absolute
+      -inset-px
+      rounded-full
+      opacity-0
+      bg-gradient-to-r
+      from-brand-jade/20
+      via-transparent
+      to-brand-jade/20
+      blur-md
+      transition-opacity
+      duration-500
+      group-hover:opacity-100
+    "
+          />
+
+          {/* Premium Shimmer/Light Sweep Effect */}
+          <div
+            className="
+      pointer-events-none
+      absolute
+      inset-0
+      -translate-x-full
+      bg-gradient-to-r
+      from-transparent
+      via-brand-white/60
+      to-transparent
+      transition-transform
+      duration-1000
+      ease-out
+      group-hover:translate-x-full
+    "
+          />
+
+          {/* Button Text */}
+          <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-jade">
+            {HERO_COPY.secondaryCta.label}
+          </span>
+
+          {/* Sleek Minimal Arrow */}
+          <div className="relative z-10 flex h-4 w-4 items-center justify-center overflow-hidden">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              className="
+        transform
+        transition-transform
+        duration-300
+        ease-out
+        group-hover:translate-x-0.5
+        group-hover:-translate-y-0.5
+      "
+            >
+              <path
+                d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-colors duration-300 group-hover:stroke-brand-jade"
+              />
+            </svg>
+          </div>
         </button>
       </div>
     </section>

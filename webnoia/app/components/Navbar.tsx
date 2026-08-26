@@ -84,10 +84,9 @@ export default function Navbar() {
             transition-all
             duration-700
             ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${
-              mounted
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-3 opacity-0"
+            ${mounted
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-3 opacity-0"
             }
           `}
         >
@@ -135,10 +134,9 @@ export default function Navbar() {
             transition-all
             duration-800
             ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${
-              mounted
-                ? "opacity-100"
-                : "translate-y-[-12px] opacity-0"
+            ${mounted
+              ? "opacity-100"
+              : "translate-y-[-12px] opacity-0"
             }
           `}
         >
@@ -178,10 +176,9 @@ export default function Navbar() {
                         transition-all
                         duration-300
                         ease-out
-                        ${
-                          isActive
-                            ? "text-brand-jade"
-                            : "text-ink-secondary hover:-translate-y-[1px] hover:text-ink-primary"
+                        ${isActive
+                          ? "text-brand-jade"
+                          : "text-ink-secondary hover:-translate-y-[1px] hover:text-ink-primary"
                         }
                       `}
                     >
@@ -199,10 +196,9 @@ export default function Navbar() {
                           bg-brand-jade
                           transition-all
                           duration-300
-                          ${
-                            isActive
-                              ? "w-3 opacity-100"
-                              : "w-0 opacity-0 group-hover:w-2 group-hover:opacity-40"
+                          ${isActive
+                            ? "w-3 opacity-100"
+                            : "w-0 opacity-0 group-hover:w-2 group-hover:opacity-40"
                           }
                         `}
                       />
@@ -218,10 +214,9 @@ export default function Navbar() {
                         bg-jade-light
                         transition-all
                         duration-300
-                        ${
-                          isActive
-                            ? "scale-100 opacity-100"
-                            : "scale-95 opacity-0"
+                        ${isActive
+                          ? "scale-100 opacity-100"
+                          : "scale-95 opacity-0"
                         }
                       `}
                     />
@@ -237,80 +232,98 @@ export default function Navbar() {
         ===================================================== */}
         <div
           className={`
-            hidden
-            pointer-events-auto
-            md:block
-            transition-all
-            duration-700
-            ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${
-              mounted
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-3 opacity-0"
+    hidden
+    pointer-events-auto
+    md:block
+    transition-all
+    duration-
+    700
+    ease-[cubic-bezier(0.16,1,0.3,1)]
+    ${mounted
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-3 opacity-0"
             }
-          `}
+  `}
         >
           <button
             onClick={(e) => handleNavClick(e, "#contact")}
             className="
-              group
-              relative
-              overflow-hidden
-              rounded-full
-              bg-brand-jade
-              px-6
-              py-3
-              text-sm
-              font-semibold
-              text-brand-white
-              shadow-[0_8px_24px_rgba(20,92,82,0.20)]
-              transition-all
-              duration-300
-              ease-out
-              hover:-translate-y-0.5
-              hover:bg-brand-jade-hover
-              hover:shadow-[0_12px_30px_rgba(20,92,82,0.28)]
-              active:translate-y-0
-            "
+      group
+      relative
+      isolate
+      flex
+      items-center
+      justify-center
+      gap-2
+      overflow-hidden
+      rounded-full
+      border-2
+      border-brand-jade
+      bg-brand-jade
+      px-6
+      py-3
+      text-sm
+      font-semibold
+      text-brand-white
+      shadow-[0_8px_24px_rgba(20,92,82,0.12)]
+      transition-all
+      duration-300
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      hover:-translate-y-0.5
+      hover:text-brand-jade
+      hover:shadow-[0_14px_32px_rgba(20,92,82,0.22)]
+      active:translate-y-0
+    "
           >
-            {/* Subtle hover sweep */}
+            {/* Expanding jade reveal */}
             <span
               className="
-                absolute
-                inset-y-0
-                -left-1/2
-                w-1/3
-                rotate-12
-                bg-brand-white/10
-                transition-all
-                duration-700
-                group-hover:left-[120%]
-              "
+        absolute
+        left-1/2
+        top-1/2
+        z-[-1]
+        aspect-square
+        w-4
+        -translate-x-1/2
+        -translate-y-1/2
+        scale-0
+        rounded-full
+        bg-brand-white
+        transition-transform
+        duration-700
+        ease-[cubic-bezier(0.16,1,0.3,1)]
+        group-hover:scale-[18]
+      "
             />
 
-            <span className="relative flex items-center gap-2">
+            <span className="relative z-10">
               Book a Consultation
-
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                className="
-                  transition-transform
-                  duration-300
-                  group-hover:translate-x-0.5
-                "
-              >
-                <path
-                  d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
             </span>
+
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              className="
+        relative
+        z-10
+        rotate-[-45deg]
+        transition-all
+        duration-500
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        group-hover:translate-x-1
+        group-hover:rotate-0
+      "
+            >
+              <path
+                d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
         </div>
 
@@ -324,10 +337,9 @@ export default function Navbar() {
             transition-all
             duration-700
             ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${
-              mounted
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-3 opacity-0"
+            ${mounted
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-3 opacity-0"
             }
           `}
         >
@@ -361,10 +373,9 @@ export default function Navbar() {
                   bg-ink-primary
                   transition-all
                   duration-300
-                  ${
-                    mobileOpen
-                      ? "translate-y-[6.5px] rotate-45"
-                      : ""
+                  ${mobileOpen
+                    ? "translate-y-[6.5px] rotate-45"
+                    : ""
                   }
                 `}
               />
@@ -389,10 +400,9 @@ export default function Navbar() {
                   bg-ink-primary
                   transition-all
                   duration-300
-                  ${
-                    mobileOpen
-                      ? "-translate-y-[6.5px] -rotate-45"
-                      : ""
+                  ${mobileOpen
+                    ? "-translate-y-[6.5px] -rotate-45"
+                    : ""
                   }
                 `}
               />
@@ -421,10 +431,9 @@ export default function Navbar() {
             duration-300
             ease-out
             md:hidden
-            ${
-              mobileOpen
-                ? "visible translate-y-0 scale-100 opacity-100"
-                : "invisible -translate-y-2 scale-[0.98] opacity-0"
+            ${mobileOpen
+              ? "visible translate-y-0 scale-100 opacity-100"
+              : "invisible -translate-y-2 scale-[0.98] opacity-0"
             }
           `}
         >
@@ -448,10 +457,9 @@ export default function Navbar() {
                       font-medium
                       transition-all
                       duration-200
-                      ${
-                        isActive
-                          ? "bg-jade-light text-brand-jade"
-                          : "text-ink-primary hover:bg-jade-whisper hover:text-brand-jade"
+                      ${isActive
+                        ? "bg-jade-light text-brand-jade"
+                        : "text-ink-primary hover:bg-jade-whisper hover:text-brand-jade"
                       }
                     `}
                   >
