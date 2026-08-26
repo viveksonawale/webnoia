@@ -12,7 +12,7 @@ export const HERO_COPY = {
   headline: ["Everything Your Brand Needs", "to Grow Online."],
   subheadline:
     "AI-accelerated development, done right. We build, test, and maintain websites that keep your brand at the premium end of the market.",
-  primaryCta: { label: "Book a Consultation", href: "#contact" },
+  primaryCta: { label: "Schedule a 1:1 Meeting", href: "#contact" },
   secondaryCta: { label: "View Services", href: "#services" },
   trustSignal: {
     rating: "4.9",
