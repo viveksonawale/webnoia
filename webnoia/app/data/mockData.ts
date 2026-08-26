@@ -69,7 +69,7 @@ export const PORTFOLIO_ITEMS = [
 export const SERVICES = [
   {
     id: "s1",
-    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80",
+    image: "/web-design-development.png",
     number: "01",
     title: "Web Design & Development",
     description:
@@ -102,7 +102,7 @@ export const SERVICES = [
   },
   {
     id: "s4",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    image: "/website-maintenance-support.jpeg",
     number: "04",
     title: "Website Maintenance",
     description:
@@ -204,17 +204,17 @@ export const PRICING_PLANS = [
 export const TESTIMONIALS = [
   {
     id: "t1",
-    name: "Sarah Chen",
-    title: "Co-Founder, Driftly",
-    avatar: "https://i.pravatar.cc/150?img=47",
+    name: "Rahul Dey",
+    title: "Founder, Metanoia",
+    avatar: "/rahul-dey.jpeg",
     quote:
       "Webnoia redesigned our entire SaaS site in 3 weeks and it converted noticeably better on day one. The attention to detail was unlike anything I'd seen from a typical agency.",
   },
   {
     id: "t2",
-    name: "Marcus Obi",
-    title: "Head of Growth, Pulso",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    name: "Divyang Bhanushali",
+    title: "Co-Founder, Metanoia",
+    avatar: "/divyang-Bhanushali.jpeg",
     quote:
       "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring — all done without us having to chase anyone.",
   },
