@@ -116,25 +116,25 @@ export const SERVICES = [
 export const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "Book a Consultation",
-    description: "Tell us about your project, goals, and timeline. No sales scripts — just a real conversation.",
+    title: "We Listen First",
+    description: "Before anything gets built, we sit down to understand your business — what you do, who your customers are, and your goals. No templates, no guesswork.",
   },
   {
     step: "02",
-    title: "We Build a Plan",
-    description: "We scope the work, define deliverables, and give you a clear timeline and price upfront.",
+    title: "You See It Before We Build It",
+    description: "We show you the complete look and feel before writing a single line of code. If something's off, we adjust it on paper first.",
   },
   {
     step: "03",
-    title: "Iterative Delivery",
-    description: "We ship in stages, share work-in-progress, and refine based on your feedback.",
+    title: "We Build, You Stay in the Loop",
+    description: "We work in stages and check in constantly. You're never left wondering what's happening for weeks, and your feedback shapes the final build.",
   },
   {
     step: "04",
-    title: "Launch & Maintain",
-    description: "Once live, we stay on board for ongoing support, testing, and improvements.",
+    title: "We Launch — And We Don't Disappear",
+    description: "Once live, we test everything, set up full backups, and hand it over clean. Afterwards, we're always directly reachable whenever you need us.",
   },
-] as const;
+];
 
 export const MEMBERSHIP_BENEFITS = [
   { title: "Pause anytime", description: "No long-term contracts. Pause or cancel whenever you need." },
