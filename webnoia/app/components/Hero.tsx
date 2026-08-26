@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { HERO_COPY } from "../data/mockData";
 
 export interface HeroProps {
@@ -15,7 +16,7 @@ export default function Hero({ className = "" }: HeroProps) {
   return (
     <section
       id="home"
-      className={`relative text-center px-4 max-w-5xl mx-auto pt-48 md:pt-52 pb-20 md:pb-32 ${className}`}
+      className={`relative text-center px-4 max-w-5xl mx-auto pt-48 md:pt-52 pb-12 md:pb-16 ${className}`}
     >
       {/* Background Radial Glow using Brand Colors */}
       <div
@@ -23,44 +24,36 @@ export default function Hero({ className = "" }: HeroProps) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[500px] h-[300px] bg-jade-mid/10 blur-[120px] pointer-events-none rounded-full"
       />
 
-      {/* Trust Signal / Avatar cluster */}
-      {/* {HERO_COPY.trustSignal && (
-        <div className="flex items-center justify-center space-x-3 mb-8">
-          <div className="flex -space-x-2">
-            {HERO_COPY.trustSignal.avatars?.map((src: string, i: number) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={i}
-                src={src}
-                alt={`Client ${i + 1}`}
-                className="w-8 h-8 rounded-full border-2 border-brand-white object-cover shadow-sm"
-                loading="lazy"
-              />
-            ))}
-          </div>
-          <div className="flex flex-col items-start text-left">
-            <div className="flex items-center text-brand-jade text-sm tracking-wide">
-              ★★★★★
-              <span className="bg-brand-dark text-brand-light text-xs ml-2 px-1.5 py-0.5 rounded-md font-bold">
-                {HERO_COPY.trustSignal.rating}
-              </span>
-            </div>
-            <span className="text-xs font-medium text-ink-secondary">
-              {HERO_COPY.trustSignal.count} {HERO_COPY.trustSignal.label}
+      {/* Review Section / Trust Signal */}
+      <div className="flex items-center justify-center space-x-4 mb-8">
+        <div className="flex -space-x-3">
+          <Image
+            src="/divyang-Bhanushali.jpeg"
+            alt="Divyang Bhanushali"
+            width={48}
+            height={48}
+            className="w-12 h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
+          />
+          <Image
+            src="/rahul-dey.jpeg"
+            alt="Rahul Dey"
+            width={48}
+            height={48}
+            className="w-12 h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
+          />
+        </div>
+        <div className="flex flex-col items-start text-left">
+          <div className="flex items-center gap-1.5 leading-none mb-0.5">
+            <span className="text-amber-400 text-xl font-bold tracking-tight">★★★★★</span>
+            <span className="bg-brand-dark text-brand-white text-[10px] px-1.5 py-0.5 rounded font-bold">
+              4.8
             </span>
           </div>
-        </div>
-      )}
-
-      {/* Eyebrow Pill }
-      {HERO_COPY.eyebrow && (
-        <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-jade-light border border-brand-border">
-          <span className="inline-block w-2 h-2 rounded-full bg-brand-jade animate-pulse" />
-          <span className="text-xs font-bold tracking-wider text-brand-jade uppercase font-display">
-            {HERO_COPY.eyebrow}
+          <span className="text-xs font-semibold tracking-wide text-ink-secondary">
+            3+ Scaled Brands
           </span>
         </div>
-      )} */}
+      </div>
 
       {/* Headline */}
       <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-ink-primary leading-tight mb-6 font-display">
@@ -94,7 +87,8 @@ export default function Hero({ className = "" }: HeroProps) {
     border-2
     border-brand-jade
     bg-brand-jade
-    px-8
+    pl-5
+    pr-8
     py-4
     font-semibold
     text-brand-white
@@ -133,11 +127,20 @@ export default function Hero({ className = "" }: HeroProps) {
     "
           />
 
+          {/* Google Meet Logo */}
+          <Image
+            src="/logos/googlemeet.webp"
+            alt="Google Meet"
+            width={20}
+            height={20}
+            className="relative z-10 shrink-0 w-5 h-5 object-contain"
+          />
+
           <span className="relative z-10">
             {HERO_COPY.primaryCta.label}
           </span>
 
-          {/* <svg
+          <svg
             width="16"
             height="16"
             viewBox="0 0 14 14"
@@ -158,7 +161,7 @@ export default function Hero({ className = "" }: HeroProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg> */}
+          </svg>
         </button>
         <button
           onClick={() => handleScroll(HERO_COPY.secondaryCta.href)}

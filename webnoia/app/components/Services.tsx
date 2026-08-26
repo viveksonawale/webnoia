@@ -13,24 +13,47 @@ export default function Services({
   return (
     <section
       id="services"
-      className={`relative w-full overflow-visible bg-brand-white py-20 md:py-32 ${className}`}
+      className={`relative w-full overflow-visible bg-transparent py-20 md:py-32 ${className}`}
     >
+      {/* Jade gradient background panel — rounded rectangle floating above content */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 right-0 -z-10 overflow-hidden"
+        style={{
+          top: "-16px",
+          bottom: "0",
+          borderTopLeftRadius: "2.5rem",
+          borderTopRightRadius: "2.5rem",
+          background:
+            "linear-gradient(to bottom, #46e7a1 0%, #2c9266 22%, #206748 48%, #1a5c3a 75%, #133d2a 100%)",
+        }}
+      >
+        {/* Subtle noise/grain overlay for premium feel */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
+            backgroundSize: "200px 200px",
+          }}
+        />
+      </div>
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         {/* Header */}
         <div className="mb-16 text-center md:mb-20">
           <div className="mb-4 flex items-center justify-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-white/60" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Services
             </span>
           </div>
 
-          <h2 className="mb-5 text-4xl font-bold tracking-tight text-brand-dark md:text-5xl">
+          <h2 className="mb-5 text-4xl font-bold tracking-tight text-white md:text-5xl">
             Everything you need.
             <br />
 
-            <span className="font-serif font-medium italic">
+            <span className="font-serif font-medium italic text-white/85">
               Nothing you don't.
             </span>
           </h2>
