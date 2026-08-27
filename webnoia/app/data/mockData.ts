@@ -69,14 +69,14 @@ export const PORTFOLIO_ITEMS = [
 export const SERVICES = [
   {
     id: "s1",
-    image: "/web-design-development.png",
+    image: "/webdev.JPG",
     number: "01",
     title: "Web Design & Development",
     description:
       "From pixel-perfect landing pages to full product sites. We use the latest frameworks and AI-assisted tooling to ship fast without cutting corners.",
     features: ["Custom Figma-to-Code", "Next.js / React", "Performance-first", "Mobile responsive"],
-    color: "from-orange-50 to-amber-50",
-    accent: "#e34400",
+    // color: "from-orange-50 to-amber-50",
+    accent: "#145C52",
   },
   {
     id: "s2",
@@ -86,19 +86,19 @@ export const SERVICES = [
     description:
       "Your product's interface is its first impression. We craft clean, conversion-optimized designs informed by real user behaviour and industry-leading visual standards.",
     features: ["User research", "High-fidelity Figma", "Design systems", "Accessibility"],
-    color: "from-stone-50 to-orange-50",
-    accent: "#C26520",
+    // color: "from-stone-50 to-orange-50",
+    accent: "#145C52",
   },
   {
     id: "s3",
-    image: "/website-testing-qa.jpg",
+    image: "https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmVzcG9uc2l2ZSUyMHdlYiUyMGRlc2lnbnxlbnwwfDF8MHx8fDA%3D",
     number: "03",
     title: "Website Testing & QA",
     description:
       "No more \"it works on my machine\" moments. We run systematic cross-browser, cross-device, and performance tests so you can ship with confidence.",
     features: ["Cross-browser QA", "Lighthouse audits", "Load testing", "Regression testing"],
-    color: "from-amber-50 to-yellow-50",
-    accent: "#DC7B31",
+    // color: "from-amber-50 to-yellow-50",
+    accent: "#145C52",
   },
   {
     id: "s4",
@@ -108,8 +108,8 @@ export const SERVICES = [
     description:
       "Your site needs ongoing care — security patches, dependency updates, content changes, and performance monitoring. We handle it all, quietly and reliably.",
     features: ["Monthly updates", "Security monitoring", "Content changes", "Uptime tracking"],
-    color: "from-orange-50 to-red-50",
-    accent: "#AF5C3C",
+    // color: "from-orange-50 to-red-50",
+    accent: "#145C52",
   },
 ] as const;
 
