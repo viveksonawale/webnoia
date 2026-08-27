@@ -1,956 +1,113 @@
 "use client";
 
-import { useState } from "react";
-
 export interface ContactCTAProps {
   readonly className?: string;
 }
 
-export default function ContactCTA({
-  className = "",
-}: ContactCTAProps) {
-  const [activeTab, setActiveTab] =
-    useState<"calendar" | "form">("calendar");
-
-  const [selectedDate, setSelectedDate] =
-    useState<number | null>(26);
-
-  const [selectedTime, setSelectedTime] =
-    useState<string | null>("14:30");
-
-  const [timezone, setTimezone] =
-    useState<string>("IST (GMT+5:30)");
-
-  const [services, setServices] =
-    useState<string[]>(["Web Design"]);
-
-  const [budget, setBudget] =
-    useState<string>("$2k - $5k");
-
-  const serviceOptions = [
-    "Web Design",
-    "Web Development",
-    "UI/UX Audit",
-    "Maintenance",
-  ];
-
-  const times = [
-    "09:00",
-    "11:00",
-    "14:30",
-    "16:00",
-    "18:00",
-  ];
-
-  const days = [
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat",
-    "Sun",
-  ];
-
-  const budgets = [
-    "<$2k",
-    "$2k - $5k",
-    "$5k - $10k",
-    "$10k+",
-  ];
-
-  const toggleService = (item: string) => {
-    setServices((prev) =>
-      prev.includes(item)
-        ? prev.filter((s) => s !== item)
-        : [...prev, item]
-    );
-  };
-
+export default function ContactCTA({ className = "" }: ContactCTAProps) {
   return (
     <section
       id="contact"
-      className={`
-        relative
-        w-full
-        overflow-hidden
-        border-t
-        border-brand-border/50
-        bg-brand-white
-        py-20
-        md:py-28
-        ${className}
-      `}
+      className={`w-full py-20 md:py-32 bg-brand-white ${className}`}
     >
-      {/* Ambient background */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-[0.35]
-          [background-image:radial-gradient(#145c52_0.7px,transparent_0.7px)]
-          [background-size:24px_24px]
-        "
-      />
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-1/2
-          h-[360px]
-          w-[700px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          bg-brand-jade/[0.06]
-          blur-[100px]
-        "
-      />
-
-      <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8">
-
-        {/* ───────────────── HEADER ───────────────── */}
-
-        <div className="mb-9 text-center md:mb-11">
-
-          {/* Availability pill */}
-          <div
-            className="
-              mb-4
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-brand-jade/15
-              bg-jade-whisper
-              px-3.5
-              py-1.5
-            "
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span
-                className="
-                  absolute
-                  inline-flex
-                  h-full
-                  w-full
-                  animate-ping
-                  rounded-full
-                  bg-brand-jade
-                  opacity-50
-                "
-              />
-
-              <span
-                className="
-                  relative
-                  inline-flex
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-brand-jade
-                "
-              />
-            </span>
-
-            <span
-              className="
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.16em]
-                text-brand-jade
-              "
-            >
-              2 consultation slots remaining
-            </span>
-          </div>
-
-          <h2
-            className="
-              mb-3
-              text-4xl
-              font-bold
-              tracking-tight
-              text-brand-dark
-              md:text-5xl
-            "
-          >
-            Let's build something{" "}
-            <span
-              className="
-                font-serif
-                font-medium
-                italic
-                text-brand-jade
-              "
-            >
-              extraordinary.
-            </span>
-          </h2>
-
-          <p
-            className="
-              mx-auto
-              max-w-xl
-              text-sm
-              leading-relaxed
-              text-gray-500
-              md:text-base
-            "
-          >
-            Choose how you'd like to start your project.
-          </p>
-
-          {/* ─────────────── SEGMENTED CONTROL ─────────────── */}
-
-          <div
-            className="
-              mt-6
-              inline-flex
-              rounded-full
-              border
-              border-brand-border
-              bg-brand-white
-              p-1
-              shadow-[0_4px_20px_rgba(13,64,57,0.05)]
-            "
-          >
-            <button
-              onClick={() => setActiveTab("calendar")}
-              className={`
-                cursor-pointer
-                rounded-full
-                px-5
-                py-2.5
-                text-[11px]
-                font-semibold
-                transition-all
-                duration-200
-                md:px-6
-                ${
-                  activeTab === "calendar"
-                    ? "bg-brand-jade text-brand-white shadow-sm"
-                    : "text-gray-500 hover:text-brand-dark"
-                }
-              `}
-            >
-              Book Strategy Call
-            </button>
-
-            <button
-              onClick={() => setActiveTab("form")}
-              className={`
-                cursor-pointer
-                rounded-full
-                px-5
-                py-2.5
-                text-[11px]
-                font-semibold
-                transition-all
-                duration-200
-                md:px-6
-                ${
-                  activeTab === "form"
-                    ? "bg-brand-jade text-brand-white shadow-sm"
-                    : "text-gray-500 hover:text-brand-dark"
-                }
-              `}
-            >
-              Instant Project Brief
-            </button>
-          </div>
-        </div>
-
-        {/* ───────────────── MAIN CONTAINER ───────────────── */}
-
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Card */}
         <div
-          className="
-            overflow-hidden
-            rounded-[2rem]
-            border
-            border-brand-border
-            bg-brand-white
-            shadow-[0_16px_50px_rgba(13,64,57,0.07)]
-          "
+          className="relative overflow-hidden rounded-3xl min-h-[680px] flex flex-col md:flex-row"
+          style={{
+            background:
+              "linear-gradient(135deg, #145C52 0%, #1B7568 40%, #0D4039 100%)",
+          }}
         >
-          {activeTab === "calendar" ? (
+          {/* Ambient glow */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 -left-24 w-[400px] h-[400px] rounded-full opacity-25 blur-[100px]"
+            style={{ background: "#46e7a1" }}
+          />
 
-            /* ═════════════════ CALENDAR ═════════════════ */
+          {/* Left content */}
+          <div className="relative z-10 flex flex-col justify-between p-8 md:p-12 lg:p-14 md:w-[45%]">
+            {/* Logo */}
+            <div className="mb-8">
+              <span className="text-xl font-bold tracking-tight text-white">
+                Web<span className="text-jade-light">noia</span>
+              </span>
+            </div>
 
-            <div className="flex flex-col lg:flex-row">
+            {/* Headline */}
+            <div className="flex-1 flex flex-col justify-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15] mb-5">
+                We make your vision{" "}
+                <span className="font-serif italic font-medium">
+                  come alive.
+                </span>
+              </h2>
+              <p className="text-white/60 text-base mb-8 max-w-sm">
+                Book a quick call to see how Webnoia works.
+              </p>
 
-              {/* ───────── HOST PANEL ───────── */}
-
-              <div
-                className="
-                  flex
-                  w-full
-                  flex-col
-                  justify-between
-                  border-b
-                  border-brand-border
-                  bg-jade-mist
-                  p-7
-                  lg:w-[40%]
-                  lg:border-b-0
-                  lg:border-r
-                  lg:p-8
-                "
-              >
-                <div>
-
-                  {/* Brand */}
-                  <div className="mb-7 flex items-center gap-3">
-                    <div
-                      className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-brand-jade
-                        text-sm
-                        font-bold
-                        text-brand-white
-                        shadow-[0_6px_18px_rgba(20,92,82,0.18)]
-                      "
-                    >
-                      W
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-bold text-brand-dark">
-                        Webnoia
-                      </h4>
-
-                      <p className="text-[10px] text-gray-400">
-                        Design & Engineering Studio
-                      </p>
-                    </div>
-                  </div>
-
-                  <p
-                    className="
-                      mb-2
-                      text-[10px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-brand-jade
-                    "
-                  >
-                    Discovery
-                  </p>
-
-                  <h3
-                    className="
-                      mb-3
-                      text-2xl
-                      font-bold
-                      tracking-tight
-                      text-brand-dark
-                    "
-                  >
-                    30-Min Technical Discovery
-                  </h3>
-
-                  <p
-                    className="
-                      max-w-sm
-                      text-xs
-                      leading-relaxed
-                      text-gray-500
-                    "
-                  >
-                    A focused session to map your technical
-                    requirements, design language, and launch
-                    timeline.
-                  </p>
-                </div>
-
-                {/* Details */}
-                <div className="mt-8 space-y-2.5 border-t border-brand-border pt-5">
-
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="
-                        flex
-                        h-7
-                        w-7
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-brand-white
-                        text-[10px]
-                        text-brand-jade
-                      "
-                    >
-                      30
-                    </span>
-
-                    <span className="text-[11px] font-medium text-gray-600">
-                      Minutes · 1-on-1
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="
-                        flex
-                        h-7
-                        w-7
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-brand-white
-                        text-[10px]
-                        text-brand-jade
-                      "
-                    >
-                      ↗
-                    </span>
-
-                    <span className="text-[11px] font-medium text-gray-600">
-                      Google Meet
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="
-                        flex
-                        h-7
-                        w-7
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-brand-white
-                        text-[10px]
-                        text-brand-jade
-                      "
-                    >
-                      ◎
-                    </span>
-
-                    <select
-                      value={timezone}
-                      onChange={(e) =>
-                        setTimezone(e.target.value)
-                      }
-                      className="
-                        cursor-pointer
-                        bg-transparent
-                        text-[11px]
-                        font-medium
-                        text-brand-dark
-                        outline-none
-                      "
-                    >
-                      <option>
-                        IST (GMT+5:30)
-                      </option>
-                      <option>
-                        EST (GMT-5:00)
-                      </option>
-                      <option>
-                        PST (GMT-8:00)
-                      </option>
-                      <option>
-                        GMT (GMT+0:00)
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* ───────── CALENDAR PANEL ───────── */}
-
-              <div
-                className="
-                  flex
-                  w-full
-                  flex-col
-                  p-7
-                  lg:w-[60%]
-                  lg:p-8
-                "
-              >
-                <div className="flex-1">
-
-                  {/* Calendar header */}
-                  <div className="mb-5 flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-bold text-brand-dark">
-                        August 2026
-                      </h4>
-
-                      <p className="mt-0.5 text-[10px] text-gray-400">
-                        Choose your preferred date
-                      </p>
-                    </div>
-
-                    <span
-                      className="
-                        rounded-full
-                        border
-                        border-brand-jade/15
-                        bg-jade-whisper
-                        px-3
-                        py-1
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-wider
-                        text-brand-jade
-                      "
-                    >
-                      Select date
-                    </span>
-                  </div>
-
-                  {/* Days */}
-                  <div
-                    className="
-                      mb-2
-                      grid
-                      grid-cols-7
-                      text-center
-                    "
-                  >
-                    {days.map((day) => (
-                      <div
-                        key={day}
-                        className="
-                          py-1
-                          text-[9px]
-                          font-semibold
-                          uppercase
-                          tracking-wider
-                          text-gray-400
-                        "
-                      >
-                        {day.slice(0, 1)}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Dates */}
-                  <div className="grid grid-cols-7 gap-1.5">
-                    {[...Array(31)].map((_, i) => {
-                      const day = i + 1;
-                      const isSelected =
-                        selectedDate === day;
-                      const isPast = day < 20;
-
-                      return (
-                        <button
-                          key={day}
-                          disabled={isPast}
-                          onClick={() =>
-                            setSelectedDate(day)
-                          }
-                          className={`
-                            mx-auto
-                            flex
-                            h-9
-                            w-9
-                            items-center
-                            justify-center
-                            rounded-full
-                            text-[11px]
-                            font-medium
-                            transition-all
-                            duration-200
-                            ${
-                              isSelected
-                                ? "bg-brand-jade font-bold text-brand-white shadow-[0_5px_14px_rgba(20,92,82,0.22)]"
-                                : ""
-                            }
-                            ${
-                              !isSelected &&
-                              !isPast
-                                ? "text-brand-dark hover:bg-jade-whisper hover:text-brand-jade"
-                                : ""
-                            }
-                            ${
-                              isPast
-                                ? "cursor-not-allowed text-gray-300"
-                                : "cursor-pointer"
-                            }
-                          `}
-                        >
-                          {day}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Time */}
-                <div
-                  className="
-                    mt-7
-                    border-t
-                    border-brand-border
-                    pt-5
-                  "
+              <div className="flex flex-col gap-5">
+                <a
+                  href="#pricing"
+                  className="inline-flex items-center justify-center w-fit px-6 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm"
                 >
-                  <div className="mb-3 flex items-center justify-between">
-                    <span
-                      className="
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.15em]
-                        text-gray-400
-                      "
-                    >
-                      Available · Aug {selectedDate}
-                    </span>
-                  </div>
-
-                  <div className="mb-5 flex flex-wrap gap-2">
-                    {times.map((time) => (
-                      <button
-                        key={time}
-                        onClick={() =>
-                          setSelectedTime(time)
-                        }
-                        className={`
-                          cursor-pointer
-                          rounded-full
-                          border
-                          px-4
-                          py-2
-                          text-[10px]
-                          font-semibold
-                          transition-all
-                          duration-200
-                          ${
-                            selectedTime === time
-                              ? "border-brand-dark bg-brand-dark text-brand-white"
-                              : "border-brand-border bg-brand-white text-brand-dark hover:border-brand-jade hover:text-brand-jade"
-                          }
-                        `}
-                      >
-                        {time}
-                      </button>
-                    ))}
-                  </div>
-
-                  <button
-                    className="
-                      w-full
-                      cursor-pointer
-                      rounded-full
-                      bg-brand-jade
-                      px-6
-                      py-3.5
-                      text-xs
-                      font-bold
-                      text-brand-white
-                      shadow-[0_8px_22px_rgba(20,92,82,0.18)]
-                      transition-all
-                      duration-200
-                      hover:-translate-y-0.5
-                      hover:bg-brand-jade-hover
-                      hover:shadow-[0_12px_28px_rgba(20,92,82,0.24)]
-                    "
-                  >
-                    Confirm Call
-                    <span className="mx-1.5 opacity-50">
-                      ·
-                    </span>
-                    Aug {selectedDate}
-                    <span className="mx-1.5 opacity-50">
-                      ·
-                    </span>
-                    {selectedTime}
-                    <span className="ml-1">
-                      →
-                    </span>
-                  </button>
-                </div>
+                  See Pricing
+                </a>
               </div>
             </div>
 
-          ) : (
-
-            /* ═════════════════ BRIEF FORM ═════════════════ */
-
-            <form
-              onSubmit={(e) =>
-                e.preventDefault()
-              }
-              className="
-                space-y-7
-                p-7
-                md:p-9
-              "
-            >
-
-              {/* Services */}
-              <div>
-                <label
-                  className="
-                    mb-3
-                    block
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.15em]
-                    text-brand-dark
-                  "
-                >
-                  01 · What do you need?
-                </label>
-
-                <div className="flex flex-wrap gap-2">
-                  {serviceOptions.map(
-                    (service) => {
-                      const isChecked =
-                        services.includes(
-                          service
-                        );
-
-                      return (
-                        <button
-                          type="button"
-                          key={service}
-                          onClick={() =>
-                            toggleService(
-                              service
-                            )
-                          }
-                          className={`
-                            cursor-pointer
-                            rounded-full
-                            border
-                            px-4
-                            py-2
-                            text-[10px]
-                            font-semibold
-                            transition-all
-                            duration-200
-                            ${
-                              isChecked
-                                ? "border-brand-jade bg-brand-jade text-brand-white"
-                                : "border-brand-border bg-brand-white text-brand-dark hover:border-brand-jade hover:text-brand-jade"
-                            }
-                          `}
-                        >
-                          {isChecked
-                            ? "✓ "
-                            : "+ "}
-                          {service}
-                        </button>
-                      );
-                    }
-                  )}
-                </div>
-              </div>
-
-              {/* Budget */}
-              <div>
-                <label
-                  className="
-                    mb-3
-                    block
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.15em]
-                    text-brand-dark
-                  "
-                >
-                  02 · Anticipated budget
-                </label>
-
-                <div className="flex flex-wrap gap-2">
-                  {budgets.map((item) => (
-                    <button
-                      type="button"
-                      key={item}
-                      onClick={() =>
-                        setBudget(item)
-                      }
-                      className={`
-                        cursor-pointer
-                        rounded-full
-                        border
-                        px-4
-                        py-2
-                        text-[10px]
-                        font-semibold
-                        transition-all
-                        duration-200
-                        ${
-                          budget === item
-                            ? "border-brand-dark bg-brand-dark text-brand-white"
-                            : "border-brand-border bg-brand-white text-brand-dark hover:border-brand-jade hover:text-brand-jade"
-                        }
-                      `}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact fields */}
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div>
-                  <label
-                    className="
-                      mb-2
-                      block
-                      text-[10px]
-                      font-bold
-                      uppercase
-                      tracking-[0.15em]
-                      text-brand-dark
-                    "
-                  >
-                    Your name
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Sarah Connor"
-                    className="
-                      w-full
-                      rounded-full
-                      border
-                      border-brand-border
-                      bg-jade-mist
-                      px-5
-                      py-3
-                      text-xs
-                      text-brand-dark
-                      outline-none
-                      transition-colors
-                      placeholder:text-gray-400
-                      focus:border-brand-jade
-                      focus:bg-brand-white
-                    "
-                  />
-                </div>
-
-                <div>
-                  <label
-                    className="
-                      mb-2
-                      block
-                      text-[10px]
-                      font-bold
-                      uppercase
-                      tracking-[0.15em]
-                      text-brand-dark
-                    "
-                  >
-                    Work email
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="sarah@company.com"
-                    className="
-                      w-full
-                      rounded-full
-                      border
-                      border-brand-border
-                      bg-jade-mist
-                      px-5
-                      py-3
-                      text-xs
-                      text-brand-dark
-                      outline-none
-                      transition-colors
-                      placeholder:text-gray-400
-                      focus:border-brand-jade
-                      focus:bg-brand-white
-                    "
-                  />
-                </div>
-              </div>
-
-              {/* Brief */}
-              <div>
-                <label
-                  className="
-                    mb-2
-                    block
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.15em]
-                    text-brand-dark
-                  "
-                >
-                  03 · Project brief
-                </label>
-
-                <textarea
-                  rows={3}
-                  placeholder="Tell us about your vision, timeline, or reference websites..."
-                  className="
-                    w-full
-                    resize-none
-                    rounded-[1.5rem]
-                    border
-                    border-brand-border
-                    bg-jade-mist
-                    px-5
-                    py-4
-                    text-xs
-                    leading-relaxed
-                    text-brand-dark
-                    outline-none
-                    transition-colors
-                    placeholder:text-gray-400
-                    focus:border-brand-jade
-                    focus:bg-brand-white
-                  "
-                />
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="
-                  w-full
-                  cursor-pointer
-                  rounded-full
-                  bg-brand-jade
-                  px-6
-                  py-3.5
-                  text-xs
-                  font-bold
-                  text-brand-white
-                  shadow-[0_8px_22px_rgba(20,92,82,0.18)]
-                  transition-all
-                  duration-200
-                  hover:-translate-y-0.5
-                  hover:bg-brand-jade-hover
-                  hover:shadow-[0_12px_28px_rgba(20,92,82,0.24)]
-                "
+            {/* Social icons */}
+            <div className="flex items-center gap-3 mt-8">
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/919975558544"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-all duration-300"
               >
-                Send Brief & Get Estimate
-                <span className="ml-1.5">
-                  →
-                </span>
-              </button>
-            </form>
-          )}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </a>
+              {/* X */}
+              <a
+                href="https://x.com/webnoia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X / Twitter"
+                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-all duration-300"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              {/* Facebook */}
+              <a
+                href="https://facebook.com/webnoia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-all duration-300"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Right — Cal.com embed */}
+          <div className="relative z-10 flex-1 p-4 md:p-6 flex items-stretch">
+            <div className="w-full rounded-2xl overflow-hidden bg-white shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+              <iframe
+                src="https://cal.com/vivek-sonawale-pz4xth?embed=true&theme=light&hideEventTypeDetails=true&layout=month_view"
+                style={{ width: "100%", height: "100%", minHeight: "640px", border: "none" }}
+                title="Book a discovery call with Webnoia"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
