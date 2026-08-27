@@ -14,7 +14,7 @@ export default function Testimonials({ className = "" }: TestimonialsProps) {
   return (
     <section 
       id="testimonial" 
-      className={`relative w-full py-18 md:py-20 bg-gray-200/50 border-y border-brand-border/40 overflow-hidden ${className}`}
+      className={`relative w-full py-14 md:py-20 bg-gray-200/50 border-y border-brand-border/40 overflow-hidden ${className}`}
     >
       {/* Background Radial Canvas */}
       <div 
@@ -35,11 +35,11 @@ export default function Testimonials({ className = "" }: TestimonialsProps) {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
-            Don't just take <span className="font-serif italic font-medium">our word for it.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
+            Don&apos;t just take <span className="font-serif italic font-medium">our word for it.</span>
           </h2>
           <p className="text-gray-500 text-sm md:text-base mx-auto">
-            Real feedback from founders and businesses we've collaborated with.
+            Real feedback from founders and businesses we&apos;ve collaborated with.
           </p>
         </div>
 

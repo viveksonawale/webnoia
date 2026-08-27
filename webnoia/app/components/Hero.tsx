@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { HERO_COPY } from "../data/mockData";
 
 export interface HeroProps {
@@ -16,47 +17,47 @@ export default function Hero({ className = "" }: HeroProps) {
   return (
     <section
       id="home"
-      className={`relative text-center px-4 max-w-5xl mx-auto pt-48 md:pt-52 pb-12 md:pb-16 ${className}`}
+      className={`relative text-center px-4 w-full max-w-5xl mx-auto pt-28 md:pt-40 pb-16 md:pb-24 ${className}`}
     >
       {/* Background Radial Glow using Brand Colors */}
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[500px] h-[300px] bg-jade-mid/10 blur-[120px] pointer-events-none rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[300px] md:w-[500px] h-[200px] md:h-[300px] bg-jade-mid/10 blur-[120px] pointer-events-none rounded-full"
       />
 
       {/* Review Section / Trust Signal */}
-      <div className="flex items-center justify-center space-x-4 mb-8">
-        <div className="flex -space-x-3">
+      <div className="flex items-center justify-center gap-3 mb-8 flex-wrap">
+        <div className="flex -space-x-3 shrink-0">
           <Image
             src="/divyang-Bhanushali.jpeg"
             alt="Divyang Bhanushali"
-            width={48}
-            height={48}
-            className="w-12 h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
+            width={44}
+            height={44}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
           />
           <Image
             src="/rahul-dey.jpeg"
             alt="Rahul Dey"
-            width={48}
-            height={48}
-            className="w-12 h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
+            width={44}
+            height={44}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-brand-white object-cover shadow-md"
           />
         </div>
         <div className="flex flex-col items-start text-left">
           <div className="flex items-center gap-1.5 leading-none mb-0.5">
-            <span className="text-amber-400 text-xl font-bold tracking-tight">★★★★★</span>
-            <span className="bg-brand-dark text-brand-white text-[10px] px-1.5 py-0.5 rounded font-bold">
+            <span className="text-amber-400 text-lg md:text-2xl font-bold tracking-tight">★★★★★</span>
+            <span className="bg-brand-dark text-brand-white text-[12px] md:text-[14px] px-1.5 py-1 rounded font-bold">
               4.8
             </span>
           </div>
-          <span className="text-xs font-semibold tracking-wide text-ink-secondary">
+          <span className="text-xs md:text-sm font-semibold tracking-wide text-ink-secondary">
             3+ Scaled Brands
           </span>
         </div>
       </div>
 
       {/* Headline */}
-      <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-ink-primary leading-tight mb-6 font-display">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-ink-primary leading-tight mb-5 md:mb-6 font-display">
         {HERO_COPY.headline[0]}
         <br />
         <span className="font-serif italic font-normal text-brand-jade">
@@ -65,14 +66,14 @@ export default function Hero({ className = "" }: HeroProps) {
       </h1>
 
       {/* Subheadline */}
-      <p className="text-lg md:text-xl text-ink-secondary mb-10 max-w-2xl mx-auto leading-relaxed font-sans">
+      <p className="text-sm md:text-xl text-ink-secondary mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-sans px-2">
         {HERO_COPY.subheadline}
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button
-          onClick={() => handleScroll(HERO_COPY.primaryCta.href)}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full max-w-sm sm:max-w-none mx-auto">
+        <Link
+          href={HERO_COPY.primaryCta.href}
           className="
     group
     relative
@@ -89,7 +90,10 @@ export default function Hero({ className = "" }: HeroProps) {
     bg-brand-jade
     pl-5
     pr-8
-    py-4
+    py-3.5
+    md:py-4
+    text-sm
+    md:text-base
     font-semibold
     text-brand-white
     shadow-[0_4px_20px_0_rgba(20,92,82,0.25)]
@@ -162,7 +166,7 @@ export default function Hero({ className = "" }: HeroProps) {
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </Link>
         <button
           onClick={() => handleScroll(HERO_COPY.secondaryCta.href)}
           className="
@@ -178,8 +182,9 @@ export default function Hero({ className = "" }: HeroProps) {
     border
     border-brand-border/60
     bg-brand-white/80
-    px-7
-    py-3.5
+    px-6
+    py-3
+    md:py-3.5
     font-medium
     text-sm
     tracking-wide

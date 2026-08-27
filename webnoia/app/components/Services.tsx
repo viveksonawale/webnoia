@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { SERVICES } from "../data/mockData";
 
 export interface ServicesProps {
@@ -60,7 +61,7 @@ export default function Services({
         </div>
 
         {/* Book Stack */}
-        <div className="relative flex flex-col gap-12 pb-40">
+        <div className="relative flex flex-col gap-8 md:gap-12 pb-20 md:pb-40">
           {SERVICES.map((service, index) => {
             const topOffset = 100 + index * 32;
 
@@ -68,17 +69,18 @@ export default function Services({
               <div
                 key={service.id}
                 style={{ top: `${topOffset}px` }}
-                className="sticky z-10"
+                className="md:sticky z-10"
               >
                 <article
                   className="
                     group
                     relative
                     flex
-                    min-h-[440px]
+                    min-h-[360px]
                     flex-col
                     overflow-hidden
-                    rounded-[2rem]
+                    rounded-[1.5rem]
+                    md:rounded-[2rem]
                     border
                     border-brand-border
                     bg-brand-white
@@ -223,7 +225,7 @@ export default function Services({
                     </span>
 
                     {/* Eyebrow */}
-                    <div className="relative mb-5 flex items-center gap-3">
+                    {/* <div className="relative mb-5 flex items-center gap-3">
                       <span className="h-px w-8 bg-brand-jade" />
 
                       <span
@@ -237,7 +239,7 @@ export default function Services({
                       >
                         What we do
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Title */}
                     <h3
@@ -288,7 +290,7 @@ export default function Services({
                               rounded-full
                               border
                               border-brand-border
-                              bg-jade-mist
+                              bg-jade-whisper
 
                               px-3.5
                               py-2
@@ -335,7 +337,8 @@ export default function Services({
                     </div>
 
                     {/* Bottom directional detail */}
-                    <div
+                    <Link
+                      href="/schedule"
                       className="
                         relative
                         mt-10
@@ -345,6 +348,8 @@ export default function Services({
                         border-t
                         border-brand-border
                         pt-5
+                        cursor-pointer
+                        group/link
                       "
                     >
                       <span
@@ -376,9 +381,9 @@ export default function Services({
                           duration-300
                           ease-[cubic-bezier(0.22,1,0.36,1)]
 
-                          group-hover:border-brand-jade
-                          group-hover:bg-brand-jade
-                          group-hover:text-brand-white
+                          group-hover/link:border-brand-jade
+                          group-hover/link:bg-brand-jade
+                          group-hover/link:text-brand-white
                         "
                       >
                         <svg
@@ -396,7 +401,7 @@ export default function Services({
                           />
                         </svg>
                       </span>
-                    </div>
+                    </Link>
                   </div>
                 </article>
               </div>
