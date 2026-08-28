@@ -12,7 +12,7 @@ export const HERO_COPY = {
   headline: ["Everything Your Brand Needs", "to Grow Online."],
   subheadline:
     "AI-accelerated development, done right. We build, test, and maintain websites that keep your brand at the premium end of the market.",
-  primaryCta: { label: "Schedule a 1:1 Meeting", href: "#contact" },
+  primaryCta: { label: "Schedule a 1:1 Meeting", href: "/schedule" },
   secondaryCta: { label: "View Services", href: "#services" },
   trustSignal: {
     rating: "4.9",
@@ -69,7 +69,7 @@ export const PORTFOLIO_ITEMS = [
 export const SERVICES = [
   {
     id: "s1",
-    image: "/webdev.JPG",
+    image: "/service-images/website-development.webp",
     number: "01",
     title: "Web Design & Development",
     description:
@@ -80,7 +80,7 @@ export const SERVICES = [
   },
   {
     id: "s2",
-    image: "https://images.unsplash.com/photo-1648260296289-ab882814a005?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/service-images/ui-ux-designer.webp",
     number: "02",
     title: "UI/UX Design",
     description:
@@ -91,7 +91,7 @@ export const SERVICES = [
   },
   {
     id: "s3",
-    image: "https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmVzcG9uc2l2ZSUyMHdlYiUyMGRlc2lnbnxlbnwwfDF8MHx8fDA%3D",
+    image: "/service-images/Website Testing & QA.webp",
     number: "03",
     title: "Website Testing & QA",
     description:
@@ -102,7 +102,7 @@ export const SERVICES = [
   },
   {
     id: "s4",
-    image: "/website-maintenance-support.jpeg",
+    image: "/service-images/Website Maintenance.webp",
     number: "04",
     title: "Website Maintenance",
     description:
@@ -149,16 +149,15 @@ export const PRICING_PLANS = [
   {
     id: "starter",
     name: "Starter",
-    price: "[Price]",
-    period: "/month",
-    description: "For businesses needing a polished presence and ongoing care.",
+    priceINR: "₹20k - ₹28k",
+    priceUSD: "~$210 - $295",
+    estHours: "25 - 35 hrs",
+    description: "Essential presence and performance for small businesses.",
     features: [
-      "1 active request at a time",
-      "Web design & development",
-      "Website maintenance",
-      "Monthly QA audit",
-      "Async support",
-      "Pause or cancel anytime",
+      "5-page site",
+      "CMS or static",
+      "Contact form",
+      "Mobile responsive",
     ],
     cta: "Get Started",
     highlight: false,
@@ -166,17 +165,15 @@ export const PRICING_PLANS = [
   {
     id: "growth",
     name: "Growth",
-    price: "[Price]",
-    period: "/month",
-    description: "For scaling brands that need faster turnaround and more scope.",
+    priceINR: "₹45k - ₹65k",
+    priceUSD: "~$470 - $680",
+    estHours: "50 - 70 hrs",
+    description: "For scaling brands needing custom functionality.",
     features: [
-      "2 active requests at a time",
-      "Web design & development",
-      "UI/UX design included",
-      "Full QA & testing",
-      "Priority delivery",
-      "Monthly strategy call",
-      "Pause or cancel anytime",
+      "Custom multi-page",
+      "Backend forms/dashboard",
+      "Integrations",
+      "Priority support",
     ],
     cta: "Get Started",
     highlight: true,
@@ -184,17 +181,16 @@ export const PRICING_PLANS = [
   },
   {
     id: "custom",
-    name: "Custom",
-    price: "Let's talk",
-    period: "",
-    description: "For teams needing dedicated capacity and enterprise-grade delivery.",
+    name: "Custom / Automation",
+    priceINR: "₹90k+",
+    priceUSD: "~$950+",
+    estHours: "100+ hrs",
+    description: "Full-stack development with workflow automation.",
     features: [
-      "Unlimited active requests",
-      "Dedicated team",
-      "Custom SLA",
-      "White-label option",
-      "Priority Slack access",
-      "Weekly syncs",
+      "Complex full-stack apps",
+      "Workflow automation",
+      "Custom databases",
+      "Dedicated architecture",
     ],
     cta: "Book a Call",
     highlight: false,

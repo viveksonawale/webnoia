@@ -15,7 +15,7 @@ export default function FAQ({ className = "" }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`relative w-full py-18 md:py-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
+      className={`relative w-full py-14 md:py-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
     >
       {/* Background Radial Pattern */}
       {/* <div
@@ -33,7 +33,7 @@ export default function FAQ({ className = "" }: FAQProps) {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
             Frequently Asked <span className="font-serif italic font-medium">Questions.</span>
           </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-md mx-auto">
