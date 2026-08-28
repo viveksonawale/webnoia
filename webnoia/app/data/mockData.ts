@@ -91,7 +91,7 @@ export const SERVICES = [
   },
   {
     id: "s3",
-    image: "/service-images/Website Testing & QA.webp",
+    image: "/service-images/WebTesting-QA.webp",
     number: "03",
     title: "Website Testing & QA",
     description:
@@ -102,7 +102,7 @@ export const SERVICES = [
   },
   {
     id: "s4",
-    image: "/website-maintenance-support.jpeg",
+    image: "/service-images/Web-Maintenance.webp",
     number: "04",
     title: "Website Maintenance",
     description:

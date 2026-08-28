@@ -1,120 +1,117 @@
 "use client";
 
 import { HOW_IT_WORKS } from "../data/mockData";
+import {
+  Brain,
+  RefreshCcw,
+  Rocket,
+  ThumbsUpIcon,
+} from "lucide-react";
 
 export interface HowItWorksProps {
   readonly className?: string;
 }
 
-const ICONS = [
-  // Ear / Listen
-  <svg key="listen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-  </svg>,
-  // Eye / See it
-  <svg key="eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
-    <circle cx="12" cy="12" r="3"/>
-  </svg>,
-  // Code / Build
-  <svg key="code" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="16 18 22 12 16 6"/>
-    <polyline points="8 6 2 12 8 18"/>
-  </svg>,
-  // Rocket / Launch
-  <svg key="rocket" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-    <path d="m3.5 14.5 4 4M16 3s3 0 5.5 2.5C24 8 21.5 20 15 20c-1.73 0-3.4-.77-4.64-2.12L8.5 16.5C7 14.5 7 12 9 11l2-1c1-2 1.5-4.5 3-6.5z"/>
-    <circle cx="16" cy="9" r="1" fill="currentColor" stroke="none"/>
-  </svg>,
+const STEP_ICONS = [
+  Brain, // 01. Listening / Discovery
+  ThumbsUpIcon,         // 02. Reviewing / Feedback
+  RefreshCcw,         // 03. Looping / Building
+  Rocket,             // 04. Launching / Deployment
 ];
 
 export default function HowItWorks({ className = "" }: HowItWorksProps) {
   return (
-    <section
+    <section 
       id="how-it-works"
-      className={`relative w-full py-20 md:py-32 bg-brand-white overflow-hidden ${className}`}
+      className={`relative w-full py-14 md:py-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
     >
-      {/* Faint grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(#111614 1px, transparent 1px), linear-gradient(to right, #111614 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Jade glow blob top-left */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-jade/5 blur-[100px] pointer-events-none" />
+      {/* Micro-Square Grid Pattern Canvas */}
+<div 
+  className="absolute inset-0 bg-[linear-gradient(to_right,#d1d5db_1px,transparent_1px),linear-gradient(to_bottom,#d1d5db_1px,transparent_1px)] bg-[size:10px_10px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none" 
+/>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="mb-16 md:mb-20">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">How We Work</span>
+        <div className="text-center mb-14 md:mb-15">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
+            </span>
+            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+              How We Work
+            </span>
           </div>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-[1.1]">
-              Great design,{" "}
-              <span className="font-serif italic font-medium text-brand-jade">done simply.</span>
-            </h2>
-            <p className="text-gray-500 max-w-sm text-sm md:text-base leading-relaxed md:text-right">
-              No agency fluff or black-box processes. Just a clear path from idea to a site that works.
-            </p>
-          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
+            Great design,{" "}
+            <span className="font-serif italic font-medium text-brand-jade">done simply.</span>
+          </h2>
+          <p className="text-ink-secondary text-sm md:text-base max-w-lg mx-auto font-sans">
+            No agency fluff or black-box processes. Just a straightforward path from idea to a live site that converts.
+          </p>
         </div>
 
-        {/* Steps — horizontal timeline on desktop, stacked on mobile */}
-        <div className="relative">
-          {/* Connecting line — desktop only */}
-          <div className="hidden md:block absolute top-[34px] left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-brand-border z-0" />
+        {/* 4-Step Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {HOW_IT_WORKS.map((step, index) => {
+            const IconComponent = STEP_ICONS[index];
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
-            {HOW_IT_WORKS.map((step, index) => (
-              <div key={step.step} className="relative flex flex-col group">
-                {/* Step number + icon pill */}
-                <div className="relative z-10 mb-6 flex items-center gap-3 md:flex-col md:items-start md:gap-2">
-                  {/* Icon circle */}
-                  <div className="
-                    w-[52px] h-[52px] shrink-0
-                    rounded-full border border-brand-border bg-white
-                    flex items-center justify-center
-                    text-brand-jade
-                    shadow-sm
-                    transition-all duration-300
-                    group-hover:border-brand-jade group-hover:bg-brand-jade group-hover:text-white
-                    group-hover:shadow-[0_0_20px_rgba(20,92,82,0.35)]
-                  ">
-                    {ICONS[index]}
-                  </div>
-                  {/* Step number badge */}
-                  <span className="md:hidden text-xs font-bold tracking-widest text-brand-jade uppercase">
-                    Step {step.step}
+            return (
+              <div
+                key={step.step}
+                className="
+                  group
+                  relative
+                  flex
+                  flex-col
+                  justify-between
+                  rounded-2xl
+                  border
+                  border-brand-border
+                  bg-white/90
+                  p-6
+                  backdrop-blur-md
+                  shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)]
+                  transition-all
+                  duration-500
+                  hover:-translate-y-1
+                  hover:border-brand-jade/50
+                  hover:shadow-[0_12px_32px_-8px_rgba(20,92,82,0.15)]
+                "
+              >
+                {/* Top Row: Icon Tag Badge & Watermark Index */}
+                <div className="relative mb-5 flex items-start justify-between">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-jade bg-jade-whisper border border-brand-border/60 group-hover:border-jade-mid rounded-full px-2.5 py-1 font-display">
+                    {IconComponent && (
+                      <IconComponent
+                        size={14}
+                        strokeWidth={2}
+                        className="text-brand-jade"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Phase {step.step}
+                  </span>
+
+                  {/* Watermark Index Number */}
+                  <span className="text-4xl font-extrabold tracking-tight text-brand-jade/90 transition-colors duration-300 group-hover:text-jade-mid select-none leading-none font-display">
+                    {step.step}
                   </span>
                 </div>
 
-                {/* Content */}
-                <div className="flex-1">
-                  <span className="hidden md:block text-[10px] font-bold tracking-[0.2em] text-brand-jade/70 uppercase mb-2">
-                    {step.step}
-                  </span>
-                  <h3 className="text-base font-bold text-brand-dark mb-3 leading-snug transition-colors duration-300 group-hover:text-brand-jade">
+                {/* Text Content */}
+                <div className="flex flex-col justify-between grow">
+                  <h3 className="text-base md:text-lg font-bold text-ink-primary mb-2.5 leading-snug font-display min-h-[2.75rem] transition-colors duration-300 group-hover:text-brand-jade">
                     {step.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-500">
+                  <p className="text-ink-secondary text-xs md:text-sm leading-relaxed font-sans">
                     {step.description}
                   </p>
                 </div>
-
-                {/* Mobile connector line */}
-                {index < HOW_IT_WORKS.length - 1 && (
-                  <div className="sm:hidden absolute left-[25px] top-[52px] w-px h-[calc(100%+24px)] bg-brand-border" />
-                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
