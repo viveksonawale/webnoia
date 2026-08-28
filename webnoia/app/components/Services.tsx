@@ -14,7 +14,7 @@ export default function Services({
   return (
     <section
       id="services"
-      className={`relative w-full overflow-visible bg-transparent py-20 md:py-32 ${className}`}
+      className={`relative w-full overflow-visible bg-transparent py-14 md:py-20 ${className}`}
     >
       {/* Jade gradient background panel — rounded rectangle floating above content */}
       <div
@@ -26,7 +26,7 @@ export default function Services({
           borderTopLeftRadius: "2.5rem",
           borderTopRightRadius: "2.5rem",
           background:
-            "linear-gradient(to bottom, #46e7a1 0%, #2c9266 22%, #206748 48%, #1a5c3a 75%, #133d2a 100%)",
+            "linear-gradient(to bottom, #2c9a6a 0%, #2c9266 22%, #206748 48%, #1a5c3a 75%, #133d2a 100%)",
         }}
       >
         {/* Subtle noise/grain overlay for premium feel */}
@@ -41,7 +41,7 @@ export default function Services({
       </div>
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         {/* Header */}
-        <div className="mb-16 text-center md:mb-20">
+        <div className="mb-14 text-center md:mb-15">
           <div className="mb-4 flex items-center justify-center gap-2">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-white/60" />
 
@@ -337,7 +337,7 @@ export default function Services({
                     </div>
 
                     {/* Bottom directional detail */}
-                    <Link
+                    {/* <Link
                       href="/schedule"
                       className="
                         relative
@@ -401,7 +401,7 @@ export default function Services({
                           />
                         </svg>
                       </span>
-                    </Link>
+                    </Link> */}
                   </div>
                 </article>
               </div>

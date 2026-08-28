@@ -102,7 +102,7 @@ export const SERVICES = [
   },
   {
     id: "s4",
-    image: "/service-images/Website Maintenance.webp",
+    image: "/website-maintenance-support.jpeg",
     number: "04",
     title: "Website Maintenance",
     description:

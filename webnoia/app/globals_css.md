@@ -1,0 +1,113 @@
+# globals.css
+
+```css
+@import "tailwindcss";
+
+@theme {
+
+  /* ── Brand Colours (Webnoia Jade system) ── */
+
+  --color-brand-jade: #145C52;
+
+  --color-brand-jade-hover: #0D4039;
+
+  --color-brand-dark: #111614;
+
+  --color-brand-light: #F2F8F6;
+
+  --color-brand-white: #ffffff;
+
+  --color-brand-border: #DDE8E4;
+
+  /* ── Jade palette (from DESIGN.md) ── */
+
+  --color-canvas: #FFFFFF;
+
+  --color-ink-primary: #111614;
+
+  --color-ink-secondary: #5F6B67;
+
+  --color-jade-primary: #145C52;
+
+  --color-jade-dark: #0D4039;
+
+  --color-jade-mid: #1B7568;
+
+  --color-jade-light: #E6F1EE;
+
+  --color-jade-tint: #F2F8F6;
+
+  --color-jade-whisper: #F8FBFA;
+
+  --color-jade-disabled: #A8BBB5;
+
+  /* ── Typography ── */
+
+  --font-sans: 'Instrument Sans', 'DM Sans', sans-serif;
+
+  --font-serif: 'Instrument Serif', serif;
+
+  --font-display: 'Instrument Sans', sans-serif;
+
+}
+
+/* ── Global reset & base ── */
+
+*, *::before, *::after {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  background-color: #FFFFFF;
+
+  color: #111614;
+
+  font-family: var(--font-sans);
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+
+}
+
+/* ── Dot pattern background ── */
+
+.bg-dots {
+
+  background-image: radial-gradient(#DDE8E4 1px, transparent 1px);
+
+  background-size: 24px 24px;
+
+}
+
+/* ── Stacking cards scroll animation ── */
+
+.sticky-card {
+
+  position: sticky;
+
+  top: 120px;
+
+}
+
+/* ── Custom scrollbar ── */
+
+::-webkit-scrollbar { width: 6px; }
+
+::-webkit-scrollbar-track { background: #F8FBFA; }
+
+::-webkit-scrollbar-thumb { background: #DDE8E4; border-radius: 3px; }
+
+::-webkit-scrollbar-thumb:hover { background: #A8BBB5; }
+```
