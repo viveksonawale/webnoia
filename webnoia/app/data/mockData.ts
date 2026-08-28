@@ -75,8 +75,8 @@ export const SERVICES = [
     description:
       "From pixel-perfect landing pages to full product sites. We use the latest frameworks and AI-assisted tooling to ship fast without cutting corners.",
     features: ["Custom Figma-to-Code", "Next.js / React", "Performance-first", "Mobile responsive"],
-    color: "from-orange-50 to-amber-50",
-    accent: "#e34400",
+    // color: "from-orange-50 to-amber-50",
+    accent: "#145C52",
   },
   {
     id: "s2",
@@ -86,30 +86,30 @@ export const SERVICES = [
     description:
       "Your product's interface is its first impression. We craft clean, conversion-optimized designs informed by real user behaviour and industry-leading visual standards.",
     features: ["User research", "High-fidelity Figma", "Design systems", "Accessibility"],
-    color: "from-stone-50 to-orange-50",
-    accent: "#C26520",
+    // color: "from-stone-50 to-orange-50",
+    accent: "#145C52",
   },
   {
     id: "s3",
-    image: "/service-images/Website Testing & QA.webp",
+    image: "/service-images/WebTesting-QA.webp",
     number: "03",
     title: "Website Testing & QA",
     description:
       "No more \"it works on my machine\" moments. We run systematic cross-browser, cross-device, and performance tests so you can ship with confidence.",
     features: ["Cross-browser QA", "Lighthouse audits", "Load testing", "Regression testing"],
-    color: "from-amber-50 to-yellow-50",
-    accent: "#DC7B31",
+    // color: "from-amber-50 to-yellow-50",
+    accent: "#145C52",
   },
   {
     id: "s4",
-    image: "/service-images/Website Maintenance.webp",
+    image: "/service-images/Web-Maintenance.webp",
     number: "04",
     title: "Website Maintenance",
     description:
       "Your site needs ongoing care — security patches, dependency updates, content changes, and performance monitoring. We handle it all, quietly and reliably.",
     features: ["Monthly updates", "Security monitoring", "Content changes", "Uptime tracking"],
-    color: "from-orange-50 to-red-50",
-    accent: "#AF5C3C",
+    // color: "from-orange-50 to-red-50",
+    accent: "#145C52",
   },
 ] as const;
 
@@ -214,14 +214,14 @@ export const TESTIMONIALS = [
     quote:
       "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring — all done without us having to chase anyone.",
   },
-  {
-    id: "t3",
-    name: "Aiko Tanaka",
-    title: "Founder, Solvar Studio",
-    avatar: "https://i.pravatar.cc/150?img=45",
-    quote:
-      "The QA process alone was worth it. We discovered six critical cross-browser issues before launch that would have been embarrassing. They caught everything.",
-  },
+  // {
+  //   id: "t3",
+  //   name: "Aiko Tanaka",
+  //   title: "Founder, Solvar Studio",
+  //   avatar: "https://i.pravatar.cc/150?img=45",
+  //   quote:
+  //     "The QA process alone was worth it. We discovered six critical cross-browser issues before launch that would have been embarrassing. They caught everything.",
+  // },
 ] as const;
 
 export const FAQ_ITEMS = [
