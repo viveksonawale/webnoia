@@ -15,7 +15,7 @@ export default function Pricing({ className = "" }: PricingProps) {
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-8">
+        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-10">
           <div className="inline-flex items-center gap-2 mb-5">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />

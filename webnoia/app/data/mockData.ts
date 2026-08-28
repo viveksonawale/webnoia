@@ -214,14 +214,14 @@ export const TESTIMONIALS = [
     quote:
       "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring — all done without us having to chase anyone.",
   },
-  {
-    id: "t3",
-    name: "Aiko Tanaka",
-    title: "Founder, Solvar Studio",
-    avatar: "https://i.pravatar.cc/150?img=45",
-    quote:
-      "The QA process alone was worth it. We discovered six critical cross-browser issues before launch that would have been embarrassing. They caught everything.",
-  },
+  // {
+  //   id: "t3",
+  //   name: "Aiko Tanaka",
+  //   title: "Founder, Solvar Studio",
+  //   avatar: "https://i.pravatar.cc/150?img=45",
+  //   quote:
+  //     "The QA process alone was worth it. We discovered six critical cross-browser issues before launch that would have been embarrassing. They caught everything.",
+  // },
 ] as const;
 
 export const FAQ_ITEMS = [
