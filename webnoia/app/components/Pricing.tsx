@@ -1,137 +1,343 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { PRICING_PLANS } from "../data/mockData";
 
 export interface PricingProps {
   readonly className?: string;
 }
 
 export default function Pricing({ className = "" }: PricingProps) {
-  const [basicAddon, setBasicAddon] = useState(false);
-  const [proAddon, setProAddon] = useState(false);
-
   return (
-    <section id="pricing" className={`w-full py-20 md:py-32 bg-brand-white ${className}`}>
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
+    <section
+      id="pricing"
+      className={`w-full py-14 md:py-20 bg-brand-white ${className}`}
+    >
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Pricing</span>
+        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-10">
+          <div className="inline-flex items-center gap-2 mb-5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
+            </span>
+            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+              Pricing
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-5">
-            Transparent pricing,{" "}
-            <span className="font-serif italic font-medium">no hidden fees.</span>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl leading-[0.98] font-semibold tracking-[-0.04em] text-brand-dark">
+            Simple pricing. 
+            
+            <span className="font-serif italic font-normal text-brand-jade">
+              Serious value.
+            </span>
           </h2>
+
+          <p className="mt-6 text-sm md:text-base leading-relaxed text-gray-500 max-w-xl mx-auto">
+            Clear scope, transparent pricing, and no surprises once we start
+            building.
+          </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto items-stretch justify-center mb-8">
+        {/* Pricing Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-6xl mx-auto">
+          {PRICING_PLANS.map((plan) => {
+            const isGrowth = plan.highlight;
 
-          {/* Basic Plan */}
-          <div className="flex-1 bg-white border border-brand-border rounded-3xl p-8 md:p-10 shadow-sm flex flex-col">
-            <div className="bg-brand-light text-brand-jade text-sm font-semibold px-4 py-1.5 rounded-full self-start mb-6">
-              Basic
-            </div>
-            <div className="mb-8">
-              <span className="text-5xl font-bold tracking-tight text-brand-dark">$1,775</span>
-              <span className="text-gray-500 ml-1">/month</span>
-            </div>
-
-            <ul className="space-y-4 mb-8 flex-1 border-b border-dashed border-brand-border pb-8">
-              {[
-                "1 active task at a time",
-                "48-hour turn around",
-                "Unlimited stock photos",
-                "Source files included",
-                "Pause or cancel anytime",
-              ].map((feature) => (
-                <li key={feature} className="flex items-center gap-3 text-brand-dark font-medium">
-                  <div className="w-5 h-5 rounded-md bg-brand-jade text-white flex items-center justify-center text-xs shrink-0">
-                    ✓
-                  </div>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex items-center justify-between mb-8">
-              <span className="text-sm font-medium text-brand-dark">Additional Active Task</span>
-              <button
-                onClick={() => setBasicAddon(!basicAddon)}
-                className={`w-12 h-6 rounded-full transition-colors relative ${basicAddon ? "bg-brand-jade" : "bg-gray-200"}`}
+            return (
+              <div
+                key={plan.id}
+                className={`
+                  group relative overflow-hidden
+                  flex flex-col
+                  rounded-[20px]
+                  p-5 md:p-6
+                  min-h-[400px]
+                  transition-all duration-300 ease-out
+                  ${
+                    isGrowth
+                      ? `
+                        bg-brand-dark text-white
+                        shadow-[0_18px_50px_rgba(13,64,57,0.16)]
+                        hover:-translate-y-1
+                        hover:shadow-[0_24px_60px_rgba(13,64,57,0.22)]
+                      `
+                      : `
+                        bg-brand-white
+                        border border-brand-border
+                        hover:-translate-y-1
+                        hover:border-brand-jade/30
+                        hover:shadow-[0_18px_45px_rgba(13,64,57,0.08)]
+                      `
+                  }
+                `}
               >
-                <div className={`w-5 h-5 bg-white rounded-full absolute top-0.5 transition-transform shadow-sm ${basicAddon ? "translate-x-6" : "translate-x-0.5"}`} />
-              </button>
-            </div>
+                {/* Pro accent */}
+                {isGrowth && (
+                  <>
+                    <div className="absolute inset-x-0 top-0 h-px bg-brand-jade" />
 
-            <button className="w-full py-4 rounded-xl font-bold text-brand-jade border border-brand-jade hover:bg-brand-jade hover:text-white transition-colors duration-300">
-              Start scaling
-            </button>
-          </div>
+                    <div
+                      className="
+                        pointer-events-none
+                        absolute -top-24 -right-24
+                        w-64 h-64
+                        rounded-full
+                        bg-brand-jade/15
+                        blur-3xl
+                      "
+                    />
+                  </>
+                )}
 
-          {/* Pro Plan */}
-          <div className="flex-1 bg-brand-dark text-white rounded-3xl p-8 md:p-10 shadow-xl flex flex-col relative overflow-hidden">
-            {/* Subtle jade glow top-right */}
-            <div className="pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full bg-brand-jade/20 blur-3xl" />
-
-            <div className="flex justify-between items-center mb-6">
-              <div className="bg-white/10 text-brand-jade text-sm font-semibold px-4 py-1.5 rounded-full">
-                Pro
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-brand-jade animate-pulse" />
-                2 Spots Available
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <span className="text-5xl font-bold tracking-tight text-white">$2,995</span>
-              <span className="text-gray-400 ml-1">/month</span>
-            </div>
-
-            <ul className="space-y-4 mb-8 flex-1 border-b border-dashed border-white/15 pb-8">
-              {[
-                "2 active tasks at a time",
-                "24-hour turn around",
-                "Unlimited stock photos",
-                "Source files included",
-                "Pause or cancel anytime",
-              ].map((feature) => (
-                <li key={feature} className="flex items-center gap-3 text-gray-200 font-medium">
-                  <div className="w-5 h-5 rounded-md bg-brand-jade text-white flex items-center justify-center text-xs shrink-0">
-                    ✓
+                {/* Header */}
+                <div className="relative flex items-center justify-between">
+                  <div>
+                    <span
+                      className={`
+                        text-[11px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.16em]
+                        ${
+                          isGrowth
+                            ? "text-brand-jade"
+                            : "text-gray-400"
+                        }
+                      `}
+                    >
+                      {plan.name}
+                    </span>
                   </div>
-                  {feature}
-                </li>
-              ))}
-            </ul>
 
-            <div className="flex items-center justify-between mb-8">
-              <span className="text-sm font-medium text-gray-200">No-Code Web development</span>
-              <button
-                onClick={() => setProAddon(!proAddon)}
-                className={`w-12 h-6 rounded-full transition-colors relative ${proAddon ? "bg-brand-jade" : "bg-white/20"}`}
-              >
-                <div className={`w-5 h-5 bg-white rounded-full absolute top-0.5 transition-transform shadow-sm ${proAddon ? "translate-x-6" : "translate-x-0.5"}`} />
-              </button>
-            </div>
+                  {"badge" in plan && plan.badge && (
+                    <span
+                      className="
+                        inline-flex items-center gap-1.5
+                        rounded-full
+                        bg-brand-jade/10
+                        px-2.5 py-1
+                        text-[10px]
+                        font-semibold
+                        text-brand-jade
+                      "
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-jade" />
+                      {plan.badge}
+                    </span>
+                  )}
+                </div>
 
-            <button className="w-full py-4 rounded-xl font-bold text-white bg-brand-jade hover:bg-jade-mid transition-colors duration-300 shadow-[0_4px_20px_rgba(20,92,82,0.45)]">
-              Start scaling
-            </button>
-          </div>
+                {/* Price */}
+                <div className="relative mt-8">
+                  <div className="flex items-end gap-2">
+                    <span
+                      className={`
+                        text-[34px]
+                        md:text-[30px]
+                        leading-none
+                        font-semibold
+                        tracking-[-0.04em]
+                        ${
+                          isGrowth
+                            ? "text-white"
+                            : "text-brand-dark"
+                        }
+                      `}
+                    >
+                      {plan.priceINR}
+                    </span>
+
+                    <span
+                      className={`
+                        pb-0.5
+                        text-xs
+                        ${
+                          isGrowth
+                            ? "text-white/45"
+                            : "text-gray-400"
+                        }
+                      `}
+                    >
+                      {plan.priceUSD}
+                    </span>
+                  </div>
+
+                  <div
+                    className={`
+                      mt-3
+                      text-xs
+                      font-medium
+                      ${
+                        isGrowth
+                          ? "text-brand-jade"
+                          : "text-brand-jade/80"
+                      }
+                    `}
+                  >
+                    Estimated {plan.estHours}
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="relative mt-7 mb-6">
+                  <div
+                    className={`
+                      h-px w-full
+                      ${
+                        isGrowth
+                          ? "bg-white/10"
+                          : "bg-brand-border"
+                      }
+                    `}
+                  />
+                </div>
+
+                {/* Features */}
+                <ul className="relative flex-1 space-y-3">
+                  {plan.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className={`
+                        flex items-start gap-3
+                        text-sm
+                        leading-snug
+                        ${
+                          isGrowth
+                            ? "text-white/75"
+                            : "text-brand-dark/80"
+                        }
+                      `}
+                    >
+                      <span
+                        className={`
+                          mt-[2px]
+                          flex
+                          h-4
+                          w-4
+                          shrink-0
+                          items-center
+                          justify-center
+                          rounded-full
+                          text-[9px]
+                          font-bold
+                          ${
+                            isGrowth
+                              ? "bg-brand-jade text-white"
+                              : "bg-brand-soft-jade text-brand-jade"
+                          }
+                        `}
+                      >
+                        ✓
+                      </span>
+
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Link href="/schedule" className="relative mt-8 block">
+                  <button
+                    className={`
+                      group/btn
+                      w-full
+                      h-11
+                      rounded-full
+                      flex items-center justify-center gap-2
+                      text-sm
+                      font-semibold
+                      transition-all duration-300
+                      ${
+                        isGrowth
+                          ? `
+                            bg-brand-jade
+                            text-white
+                            hover:bg-brand-rich-jade
+                          `
+                          : `
+                            border border-brand-jade
+                            text-brand-jade
+                            hover:bg-brand-jade
+                            hover:text-white
+                          `
+                      }
+                    `}
+                  >
+                    <span>{plan.cta}</span>
+
+                    <span
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover/btn:translate-x-0.5
+                      "
+                    >
+                      →
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
         {/* Email CTA */}
-        <div className="max-w-4xl mx-auto bg-white border border-brand-border rounded-2xl p-6 flex items-center justify-between shadow-sm">
-          <span className="text-xl font-medium text-brand-dark">Prefer to email?</span>
-          <button className="px-6 py-2.5 rounded-xl text-brand-jade font-medium border border-brand-jade hover:bg-brand-jade/5 transition-colors duration-300">
-            Email Us
-          </button>
+        <div
+          className="
+            max-w-5xl mx-auto
+            mt-3
+            px-5 py-4
+            rounded-[18px]
+            border border-brand-border
+            bg-brand-mist
+            flex flex-col sm:flex-row
+            items-center justify-between
+            gap-4
+          "
+        >
+          <div className="flex items-center gap-3">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-soft-jade text-brand-jade text-sm">
+              @
+            </span>
+
+            <div>
+              <p className="text-sm font-semibold text-brand-dark">
+                Have something custom in mind?
+              </p>
+
+              <p className="text-xs text-gray-500 mt-0.5">
+                Tell us what you&apos;re building.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="mailto:hello@webnoia.com"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              gap-2
+              px-5
+              h-10
+              rounded-full
+              border border-brand-jade
+              text-sm
+              font-semibold
+              text-brand-jade
+              hover:bg-brand-jade
+              hover:text-white
+              transition-all duration-300
+              whitespace-nowrap
+            "
+          >
+            Email us
+            <span>→</span>
+          </a>
         </div>
       </div>
     </section>
   );
 }
-

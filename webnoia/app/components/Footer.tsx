@@ -8,24 +8,24 @@ export default function Footer({ className = "" }: FooterProps) {
   return (
     <footer className={`w-full bg-[#18181b] ${className}`}>
       {/* Main footer body */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 pt-12 md:pt-20 pb-10 md:pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
 
           {/* Left — headline + contact */}
-          <div className="md:col-span-4 flex flex-col gap-6">
+          <div className="md:col-span-4 flex flex-col gap-5 md:gap-6">
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4 md:mb-6">
                 Let&apos;s Talk
               </h2>
               <a
                 href="mailto:hello@webnoia.com"
-                className="block text-brand-jade hover:text-jade-mid transition-colors text-xl font-medium mb-2"
+                className="block text-brand-jade hover:text-jade-mid transition-colors text-base md:text-xl font-medium mb-1 md:mb-2 break-all"
               >
                 hello@webnoia.com
               </a>
               <a
                 href="tel:+919975558544"
-                className="block text-white/60 hover:text-white transition-colors text-lg"
+                className="block text-white/60 hover:text-white transition-colors text-base md:text-lg"
               >
                 +91 9975558544
               </a>
@@ -33,10 +33,10 @@ export default function Footer({ className = "" }: FooterProps) {
 
             {/* Address */}
             <div>
-              <p className="text-white/40 text-sm font-semibold uppercase tracking-[0.15em] mb-2">
+              <p className="text-white/40 text-xs font-semibold uppercase tracking-[0.15em] mb-2">
                 Headquarters
               </p>
-              <p className="text-white/60 text-base leading-relaxed">
+              <p className="text-white/60 text-sm md:text-base leading-relaxed">
                 Pendse Nagar, Dombivli<br />
                 Maharashtra, India
               </p>
@@ -44,9 +44,9 @@ export default function Footer({ className = "" }: FooterProps) {
           </div>
 
           {/* Middle — nav columns */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-8">
-            <div className="flex flex-col gap-4">
-              <p className="text-white/30 text-sm font-semibold uppercase tracking-[0.15em] mb-2">Company</p>
+          <div className="md:col-span-4 grid grid-cols-2 gap-6 md:gap-8">
+            <div className="flex flex-col gap-3 md:gap-4">
+              <p className="text-white/30 text-xs font-semibold uppercase tracking-[0.15em] mb-1 md:mb-2">Company</p>
               {[
                 { label: "Services", href: "#services" },
                 { label: "How it Works", href: "#how-it-works" },
@@ -56,14 +56,14 @@ export default function Footer({ className = "" }: FooterProps) {
                 <a
                   key={label}
                   href={href}
-                  className="text-white/70 hover:text-white transition-colors text-base"
+                  className="text-white/70 hover:text-white transition-colors text-sm md:text-base"
                 >
                   {label}
                 </a>
               ))}
             </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-white/30 text-sm font-semibold uppercase tracking-[0.15em] mb-2">Legal</p>
+            <div className="flex flex-col gap-3 md:gap-4">
+              <p className="text-white/30 text-xs font-semibold uppercase tracking-[0.15em] mb-1 md:mb-2">Legal</p>
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },
                 { label: "Terms of Service", href: "/terms-of-service" },
@@ -72,7 +72,7 @@ export default function Footer({ className = "" }: FooterProps) {
                 <a
                   key={label}
                   href={href}
-                  className="text-white/70 hover:text-white transition-colors text-base"
+                  className="text-white/70 hover:text-white transition-colors text-sm md:text-base"
                 >
                   {label}
                 </a>
@@ -80,9 +80,9 @@ export default function Footer({ className = "" }: FooterProps) {
             </div>
           </div>
 
-          {/* Right — logo + tagline */}
-          <div className="md:col-span-4 flex flex-col items-start md:items-end justify-between gap-6">
-            <div className="text-right hidden md:block">
+          {/* Right — logo + tagline (desktop only) */}
+          <div className="hidden md:flex md:col-span-4 flex-col items-end justify-start gap-6">
+            <div className="text-right">
               <span className="text-3xl font-bold tracking-tight text-white">
                 Web<span className="text-brand-jade">noia</span>
               </span>
@@ -95,8 +95,8 @@ export default function Footer({ className = "" }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 py-4 md:py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Social icons */}
           <div className="flex items-center gap-3">
             {/* WhatsApp */}
@@ -137,7 +137,7 @@ export default function Footer({ className = "" }: FooterProps) {
             </a>
           </div>
           {/* Copyright */}
-          <p className="text-white/40 text-sm">
+          <p className="text-white/40 text-xs md:text-sm text-center sm:text-right">
             © {year} Webnoia. All rights reserved.
           </p>
         </div>
