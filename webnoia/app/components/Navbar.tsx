@@ -238,6 +238,8 @@ export default function Navbar() {
             className="
       group
       relative
+      isolate
+      overflow-hidden
       flex
       items-center
       justify-center
@@ -253,19 +255,53 @@ export default function Navbar() {
       shadow-sm
       transition-all
       duration-300
-      hover:opacity-90
       active:scale-95
     "
           >
+            {/* Jade reveal */}
+            <span
+              className="
+      absolute
+      left-1/2
+      top-1/2
+      z-[-1]
+      aspect-square
+      w-5
+      -translate-x-1/2
+      -translate-y-1/2
+      scale-0
+      rounded-full
+      bg-brand-jade
+      transition-transform
+      duration-300
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      group-hover:scale-[14]
+    "
+            />
             <img 
               src="/logos/googlemeet.webp" 
               alt="Google Meet" 
-              className="h-[20px] w-[20px] object-contain" 
+              className="relative z-10 h-[20px] w-[20px] object-contain" 
             />
 
-            <span>
+            <span className="relative z-10">
               Book a Call
             </span>
+            <svg 
+              width="14" 
+              height="14" 
+              viewBox="0 0 14 14" 
+              fill="none" 
+              className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
+              <path 
+                d="M3 11L11 3M5 3H11V9" 
+                stroke="currentColor" 
+                strokeWidth="1.3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+              />
+            </svg>
           </a>
 
           <a 
@@ -434,6 +470,10 @@ export default function Navbar() {
               <a
                 href="/schedule"
                 className="
+                  group
+                  relative
+                  isolate
+                  overflow-hidden
                   w-full
                   rounded-full
                   bg-[#1e4a40]
@@ -445,8 +485,7 @@ export default function Navbar() {
                   text-white
                   shadow-sm
                   transition-all
-                  duration-200
-                  hover:opacity-90
+                  duration-300
                   active:scale-[0.99]
                   flex
                   items-center
@@ -454,12 +493,47 @@ export default function Navbar() {
                   gap-2
                 "
               >
+                {/* Jade reveal */}
+                <span
+                  className="
+                    absolute
+                    left-1/2
+                    top-1/2
+                    z-[-1]
+                    aspect-square
+                    w-5
+                    -translate-x-1/2
+                    -translate-y-1/2
+                    scale-0
+                    rounded-full
+                    bg-brand-jade
+                    transition-transform
+                    duration-300
+                    ease-[cubic-bezier(0.22,1,0.36,1)]
+                    group-hover:scale-[25]
+                  "
+                />
                 <img 
                   src="/logos/googlemeet.webp" 
                   alt="Google Meet" 
-                  className="h-5 w-5 object-contain" 
+                  className="relative z-10 h-5 w-5 object-contain" 
                 />
-                Book a Call
+                <span className="relative z-10">Book a Call</span>
+                <svg 
+                  width="14" 
+                  height="14" 
+                  viewBox="0 0 14 14" 
+                  fill="none" 
+                  className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  <path 
+                    d="M3 11L11 3M5 3H11V9" 
+                    stroke="currentColor" 
+                    strokeWidth="1.3" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                  />
+                </svg>
               </a>
             </li>
           </ul>
