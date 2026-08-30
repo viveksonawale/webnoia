@@ -13,13 +13,18 @@ export default function Pricing({ className = "" }: PricingProps) {
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Pricing</span>
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
+            </span>
+            <span className="text-xs font-bold tracking-widest text-ink-secondary uppercase font-display">
+              Pricing
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-5">
+          <h2 className="ext-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
             Transparent pricing,{" "}
-            <span className="font-serif italic font-medium">no hidden fees.</span>
+            <span className="font-serif italic font-medium text-brand-jade ">no hidden fees.</span>
           </h2>
         </div>
 

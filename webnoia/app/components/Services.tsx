@@ -40,13 +40,16 @@ export default function Services({ className = "" }: ServicesProps) {
         {/* Header */}
         <div className="mb-14 text-center md:mb-15">
           <div className="mb-4 flex items-center justify-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-white/60" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70 font-display">
+           <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
+             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70 font-display">
               Services
             </span>
           </div>
+           
+          </div>
 
-          <h2 className="mb-5 text-4xl font-bold tracking-tight text-white md:text-5xl font-display">
+          <h2 className="mb-5 text-4xl md:text-5xl font-bold tracking-tight text-white font-display">
             Everything you need.
             <br />
             <span className="font-serif font-medium italic text-white/85">
