@@ -18,7 +18,7 @@ export default function Services({ className = "" }: ServicesProps) {
         aria-hidden="true"
         className="pointer-events-none absolute left-0 right-0 -z-10 overflow-hidden"
         style={{
-          top: "-16px",
+          top: "0",
           bottom: "0",
           borderTopLeftRadius: "2.5rem",
           borderTopRightRadius: "2.5rem",
@@ -39,14 +39,10 @@ export default function Services({ className = "" }: ServicesProps) {
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         {/* Header */}
         <div className="mb-14 text-center md:mb-15">
-          <div className="mb-4 flex items-center justify-center gap-2">
-           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-jade" />
-             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70 font-display">
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white font-display shadow-xs">
               Services
             </span>
-          </div>
-           
           </div>
 
           <h2 className="mb-5 text-4xl md:text-5xl font-bold tracking-tight text-white font-display">

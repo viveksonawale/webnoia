@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HERO_COPY } from "../data/mockData";
+import PlatformPreview from "./PlatformPreview";
 
 export interface HeroProps {
   readonly className?: string;
@@ -17,192 +18,52 @@ export default function Hero({ className = "" }: HeroProps) {
   return (
     <section
       id="home"
-      className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-4 pt-20 text-center md:pt-30 md:pb-20 pb-16 ${className}`}
+      className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-0 sm:px-2 md:px-4 pt-24 text-center md:pt-28 md:pb-12 pb-10 ${className}`}
     >
-      {/* Background Radial Glow using Brand Colors */}
-      <div
-        aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[300px] md:w-[500px] h-[200px] md:h-[300px] bg-jade-mid/10 blur-[120px] pointer-events-none rounded-full"
-      />
-      
-      {/* =========================================================
-          LIVE JADE BACKGROUND
-      ========================================================= */}
+      {/* ==========================================================
+          BACKGROUND: DOT GRID + DIAGONAL JADE GRADIENT WASH
+      ========================================================== */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        {/* Main ambient jade glow */}
+        {/* Dot grid base */}
+        <div className="absolute inset-0 bg-dots opacity-100" />
+
+        {/* Diagonal jade gradient wash — sweeps from top-right corner */}
         <div
-          className="
-            absolute
-            left-1/2
-            top-[42%]
-            h-[420px]
-            w-[700px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-brand-jade/[0.08]
-            blur-[110px]
-            animate-hero-glow
-          "
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(20,92,82,0.13) 0%, rgba(20,92,82,0.07) 25%, rgba(255,255,255,0) 60%)",
+          }}
         />
 
-        {/* Secondary atmospheric glow */}
+        {/* Soft jade tint in top-right corner for depth */}
         <div
-          className="
-            absolute
-            left-[8%]
-            top-[28%]
-            h-[260px]
-            w-[260px]
-            rounded-full
-            bg-brand-jade/[0.055]
-            blur-[100px]
-            animate-drift-left
-          "
+          className="absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(20,92,82,0.12) 0%, rgba(20,92,82,0.04) 55%, transparent 75%)",
+          }}
         />
 
+        {/* Faint bottom-left echo to balance the composition */}
         <div
-          className="
-            absolute
-            bottom-[5%]
-            right-[5%]
-            h-[320px]
-            w-[320px]
-            rounded-full
-            bg-brand-jade/[0.06]
-            blur-[110px]
-            animate-drift-right
-          "
+          className="absolute -bottom-24 -left-24 h-[380px] w-[380px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(20,92,82,0.07) 0%, rgba(20,92,82,0.02) 55%, transparent 75%)",
+          }}
         />
 
-        {/* =====================================================
-            FLOWING JADE CONTOUR LINES
-        ====================================================== */}
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.28]"
-          viewBox="0 0 1440 900"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            {/* Jade gradient */}
-            <linearGradient
-              id="jadeWave"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" stopColor="#145C52" stopOpacity="0" />
-              <stop offset="18%" stopColor="#145C52" stopOpacity="0.55" />
-              <stop offset="50%" stopColor="#145C52" stopOpacity="0.9" />
-              <stop offset="82%" stopColor="#145C52" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#145C52" stopOpacity="0" />
-            </linearGradient>
-
-            {/* Slight softness */}
-            <filter id="softJadeBlur">
-              <feGaussianBlur stdDeviation="0.7" />
-            </filter>
-          </defs>
-
-          {/* =================================================
-              TOP CONTOUR FIELD
-          ================================================== */}
-          <g
-            fill="none"
-            stroke="url(#jadeWave)"
-            strokeWidth="1.1"
-            filter="url(#softJadeBlur)"
-            className="animate-wave"
-          >
-            <path d="M-120 220 C160 125 320 305 570 210 S950 120 1200 210 S1510 295 1600 190" />
-            <path d="M-120 232 C160 137 320 317 570 222 S950 132 1200 222 S1510 307 1600 202" />
-            <path d="M-120 244 C160 149 320 329 570 234 S950 144 1200 234 S1510 319 1600 214" />
-            <path d="M-120 256 C160 161 320 341 570 246 S950 156 1200 246 S1510 331 1600 226" />
-            <path d="M-120 268 C160 173 320 353 570 258 S950 168 1200 258 S1510 343 1600 238" />
-            <path d="M-120 280 C160 185 320 365 570 270 S950 180 1200 270 S1510 355 1600 250" />
-            <path d="M-120 292 C160 197 320 377 570 282 S950 192 1200 282 S1510 367 1600 262" />
-          </g>
-
-          {/* =================================================
-              RIGHT SIDE FLOW
-          ================================================== */}
-          <g
-            fill="none"
-            stroke="#145C52"
-            strokeWidth="1.05"
-            opacity="0.48"
-            className="animate-wave-reverse"
-          >
-            <path d="M820 390 C1030 315 1150 500 1330 410 S1510 350 1630 440" />
-            <path d="M820 402 C1030 327 1150 512 1330 422 S1510 362 1630 452" />
-            <path d="M820 414 C1030 339 1150 524 1330 434 S1510 374 1630 464" />
-            <path d="M820 426 C1030 351 1150 536 1330 446 S1510 386 1630 476" />
-            <path d="M820 438 C1030 363 1150 548 1330 458 S1510 398 1630 488" />
-            <path d="M820 450 C1030 375 1150 560 1330 470 S1510 410 1630 500" />
-          </g>
-
-          {/* =================================================
-              BOTTOM CONTOUR FIELD
-          ================================================== */}
-          <g
-            fill="none"
-            stroke="url(#jadeWave)"
-            strokeWidth="1.1"
-            opacity="0.55"
-            className="animate-wave-slow"
-          >
-            <path d="M-220 690 C70 595 245 795 485 685 S785 595 1010 700" />
-            <path d="M-220 702 C70 607 245 807 485 697 S785 607 1010 712" />
-            <path d="M-220 714 C70 619 245 819 485 709 S785 619 1010 724" />
-            <path d="M-220 726 C70 631 245 831 485 721 S785 631 1010 736" />
-            <path d="M-220 738 C70 643 245 843 485 733 S785 643 1010 748" />
-            <path d="M-220 750 C70 655 245 855 485 745 S785 655 1010 760" />
-          </g>
-
-          {/* =================================================
-              SUBTLE FLOATING JADE POINTS
-          ================================================== */}
-          <g fill="#145C52">
-            <circle cx="180" cy="180" r="2" opacity="0.25" />
-            <circle cx="1260" cy="210" r="2" opacity="0.3" />
-            <circle cx="1080" cy="620" r="1.8" opacity="0.25" />
-            <circle cx="320" cy="650" r="1.5" opacity="0.25" />
-            <circle cx="1370" cy="560" r="1.5" opacity="0.3" />
-            <circle cx="90" cy="420" r="1.5" opacity="0.2" />
-          </g>
-        </svg>
-
-        {/* Soft edge haze */}
+        {/* Bottom fade to white so the section transitions cleanly */}
         <div
-          className="
-            absolute
-            -left-[180px]
-            top-[32%]
-            h-[320px]
-            w-[320px]
-            rounded-full
-            bg-brand-jade/[0.045]
-            blur-[90px]
-            animate-drift-left
-          "
-        />
-
-        <div
-          className="
-            absolute
-            -right-[180px]
-            bottom-[12%]
-            h-[360px]
-            w-[360px]
-            rounded-full
-            bg-brand-jade/[0.05]
-            blur-[100px]
-            animate-drift-right
-          "
+          className="absolute bottom-0 left-0 right-0 h-40"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.85) 100%)",
+          }}
         />
       </div>
 
@@ -450,6 +311,9 @@ export default function Hero({ className = "" }: HeroProps) {
           </button>
         </div>
       </div>
+
+      {/* Work Showcase Images sticking right below buttons spanning full layout width */}
+      <PlatformPreview />
     </section>
   );
 }

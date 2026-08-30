@@ -49,14 +49,38 @@ export default function Navbar() {
     };
   }, []);
 
+  const handleLogoClick = (
+    e: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    setMobileOpen(false);
+    setActiveTab("#home");
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      window.location.href = "/";
+      return;
+    }
+    e.preventDefault();
+    const targetElement = document.getElementById("home");
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.history.pushState(null, "", "/");
+  };
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
     href: string
   ) => {
-    e.preventDefault();
-
-    setActiveTab(href);
     setMobileOpen(false);
+    setActiveTab(href);
+
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      window.location.href = href.startsWith("#") ? "/" + href : href;
+      return;
+    }
+
+    e.preventDefault();
 
     const targetId = href.startsWith("#") ? href.slice(1) : href;
     const targetElement = document.getElementById(targetId);
@@ -91,8 +115,8 @@ export default function Navbar() {
           `}
         >
           <Link
-            href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
+            href="/"
+            onClick={handleLogoClick}
             className="
               group
               flex
@@ -278,34 +302,34 @@ export default function Navbar() {
       group-hover:scale-[14]
     "
             />
-            <img 
-              src="/logos/googlemeet.webp" 
-              alt="Google Meet" 
-              className="relative z-10 h-[20px] w-[20px] object-contain" 
+            <img
+              src="/logos/googlemeet.webp"
+              alt="Google Meet"
+              className="relative z-10 h-[20px] w-[20px] object-contain"
             />
 
             <span className="relative z-10">
               Book a Call
             </span>
-            <svg 
-              width="14" 
-              height="14" 
-              viewBox="0 0 14 14" 
-              fill="none" 
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
               className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             >
-              <path 
-                d="M3 11L11 3M5 3H11V9" 
-                stroke="currentColor" 
-                strokeWidth="1.3" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+              <path
+                d="M3 11L11 3M5 3H11V9"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </a>
 
-          <a 
-            href="https://wa.me/919975558544" 
+          <a
+            href="https://wa.me/919975558544"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center outline-none"
@@ -513,25 +537,25 @@ export default function Navbar() {
                     group-hover:scale-[25]
                   "
                 />
-                <img 
-                  src="/logos/googlemeet.webp" 
-                  alt="Google Meet" 
-                  className="relative z-10 h-5 w-5 object-contain" 
+                <img
+                  src="/logos/googlemeet.webp"
+                  alt="Google Meet"
+                  className="relative z-10 h-5 w-5 object-contain"
                 />
                 <span className="relative z-10">Book a Call</span>
-                <svg 
-                  width="14" 
-                  height="14" 
-                  viewBox="0 0 14 14" 
-                  fill="none" 
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
                   className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 >
-                  <path 
-                    d="M3 11L11 3M5 3H11V9" 
-                    stroke="currentColor" 
-                    strokeWidth="1.3" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                  <path
+                    d="M3 11L11 3M5 3H11V9"
+                    stroke="currentColor"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </a>
