@@ -25,9 +25,12 @@ export default function FAQ({ className = "" }: FAQProps) {
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-10 md:mb-15">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-jade animate-pulse" />
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase font-display">
+         <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
+            </span>
+            <span className="text-xs font-bold tracking-widest text-ink-secondary uppercase font-display">
               Support Chat
             </span>
           </div>
