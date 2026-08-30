@@ -143,26 +143,19 @@ export default function Hero({ className = "" }: HeroProps) {
               {HERO_COPY.primaryCta.label}
             </span>
 
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="
-      relative
-      z-10
-      transition-transform
-      duration-300
-      ease-[cubic-bezier(0.22,1,0.36,1)]
-      group-hover:translate-x-1
-    "
+            <svg 
+              width="14" 
+              height="14" 
+              viewBox="0 0 14 14" 
+              fill="none" 
+              className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             >
-              <path
-                d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              <path 
+                d="M3 11L11 3M5 3H11V9" 
+                stroke="currentColor" 
+                strokeWidth="1.3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
               />
             </svg>
           </Link>
