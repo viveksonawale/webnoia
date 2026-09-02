@@ -98,6 +98,53 @@ body {
 
 }
 
+/* ── Hero background floating blobs ── */
+
+.hero-background {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-brand-light);
+}
+
+.hero-background::before,
+.hero-background::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-background::before {
+  width: 280px;
+  height: 280px;
+  background: var(--color-brand-jade);
+  top: -80px;
+  left: -60px;
+  animation: float-a 16s ease-in-out infinite;
+}
+
+.hero-background::after {
+  width: 220px;
+  height: 220px;
+  background: var(--color-brand-jade-hover);
+  bottom: -60px;
+  right: -40px;
+  animation: float-b 20s ease-in-out infinite;
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(40px, 30px) scale(1.08); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, -20px) scale(1.05); }
+}
+
 /* ── Custom scrollbar ── */
 
 ::-webkit-scrollbar { width: 6px; }
@@ -246,6 +293,11 @@ body {
   .animate-hero-glow,
   .animate-drift-left,
   .animate-drift-right {
+    animation: none;
+  }
+
+  .hero-background::before,
+  .hero-background::after {
     animation: none;
   }
 }
