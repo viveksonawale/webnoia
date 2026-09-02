@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useRef } from "react";
 import { HERO_COPY } from "../data/mockData";
 
 export interface HeroProps {
@@ -9,6 +10,19 @@ export interface HeroProps {
 }
 
 export default function Hero({ className = "" }: HeroProps) {
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      setCursorPos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
   const handleScroll = (href: string) => {
     const el = document.getElementById(href.replace("#", ""));
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -20,50 +34,16 @@ export default function Hero({ className = "" }: HeroProps) {
       className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-0 sm:px-2 md:px-4 pt-24 text-center md:pt-28 md:pb-12 pb-10 ${className}`}
     >
       {/* ==========================================================
-          BACKGROUND: DOT GRID + DIAGONAL JADE GRADIENT WASH
+          BACKGROUND: CUSTOM TOP ANIMATION
       ========================================================== */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-brand-white [mask-image:linear-gradient(to_bottom,black_20%,transparent_80%)]"
       >
-        {/* Dot grid base */}
-        <div className="absolute inset-0 bg-dots opacity-100" />
-
-        {/* Diagonal jade gradient wash — sweeps from top-right corner */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(20,92,82,0.13) 0%, rgba(20,92,82,0.07) 25%, rgba(255,255,255,0) 60%)",
-          }}
-        />
-
-        {/* Soft jade tint in top-right corner for depth */}
-        <div
-          className="absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(20,92,82,0.12) 0%, rgba(20,92,82,0.04) 55%, transparent 75%)",
-          }}
-        />
-
-        {/* Faint bottom-left echo to balance the composition */}
-        <div
-          className="absolute -bottom-24 -left-24 h-[380px] w-[380px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(20,92,82,0.07) 0%, rgba(20,92,82,0.02) 55%, transparent 75%)",
-          }}
-        />
-
-        {/* Bottom fade to white so the section transitions cleanly */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-40"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.85) 100%)",
-          }}
-        />
+        {/* Animated glowing orbs at the top */}
+        <div className="absolute -top-[20%] left-[10%] h-[500px] w-[500px] rounded-full bg-purple-300/40 blur-[120px] animate-orb-wide-1 mix-blend-multiply" />
+        <div className="absolute -top-[10%] right-[10%] h-[600px] w-[600px] rounded-full bg-sky-300/40 blur-[140px] animate-orb-wide-2 mix-blend-multiply" />
+        <div className="absolute top-[0%] left-[30%] h-[550px] w-[550px] rounded-full bg-emerald-300/40 blur-[130px] animate-orb-wide-3 mix-blend-multiply" />
       </div>
 
       {/* =========================================================
@@ -309,6 +289,55 @@ export default function Hero({ className = "" }: HeroProps) {
             </div>
           </button>
         </div>
+      </div>
+
+      {/* =========================================================
+          LARGE PRODUCT VISUAL
+      ========================================================= */}
+      <div className="relative z-10 mx-auto mt-10 md:mt-14 w-full max-w-[1440px] px-2 sm:px-4 md:px-6">
+        <Link
+          href="https://www.metanoiaglobal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <div 
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative rounded-2xl md:rounded-3xl border border-brand-border/60 bg-brand-white/40 p-1 sm:p-2 shadow-2xl backdrop-blur-sm transition-all duration-700 ease-out hover:shadow-[0_40px_80px_-20px_rgba(20,92,82,0.3)] cursor-none"
+          >
+            <div className="relative overflow-hidden rounded-xl md:rounded-2xl bg-brand-white ring-1 ring-ink-primary/5">
+              <Image
+                src="/website-images/website-image1.webp"
+                alt="Webnoia Dashboard Overview"
+                width={1920}
+                height={1080}
+                className="h-auto w-full object-cover object-top"
+                priority
+              />
+              
+              {/* Subtle inner shadow overlay */}
+              <div className="pointer-events-none absolute inset-0 rounded-xl md:rounded-2xl ring-1 ring-inset ring-brand-border/20" />
+              
+              {/* Glossy glare effect for premium feel */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 opacity-50" />
+            </div>
+
+            {/* Custom Cursor Tooltip ("Visit Website") */}
+            <div 
+              className={`pointer-events-none absolute z-50 flex items-center justify-center whitespace-nowrap bg-black px-4 py-2 text-sm font-semibold tracking-wide text-white font-sans transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+              style={{
+                left: `${cursorPos.x}px`,
+                top: `${cursorPos.y}px`,
+                transform: 'translate(-50%, -100%) translateY(-10px)',
+              }}
+            >
+              Visit Website
+            </div>
+          </div>
+        </Link>
       </div>
     </section>
   );

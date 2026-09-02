@@ -25,23 +25,10 @@ export default function HowItWorks({ className = "" }: HowItWorksProps) {
       id="how-it-works"
       className={`relative w-full py-14 md:py-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
     >
-      {/* Micro-Square Grid Pattern Canvas */}
-<div 
-  className="absolute inset-0 bg-[linear-gradient(to_right,#d1d5db_1px,transparent_1px),linear-gradient(to_bottom,#d1d5db_1px,transparent_1px)] bg-[size:10px_10px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-25 pointer-events-none" 
-/>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-14 md:mb-15">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
-            </span>
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
-              How We Work
-            </span>
-          </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
             Great design,{" "}

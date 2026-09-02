@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import ContactCTA from "./components/ContactCTA";
 import Footer from "./components/Footer";
+import MobileFloatingChat from "./components/MobileFloatingChat";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <ContactCTA />
       </main>
       <Footer />
+      <MobileFloatingChat />
     </>
   );
 }

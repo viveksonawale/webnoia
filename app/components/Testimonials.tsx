@@ -29,15 +29,6 @@ export default function Testimonials({ className = "" }: TestimonialsProps) {
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-10">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
-            </span>
-            <span className="text-xs font-bold tracking-widest text-ink-secondary uppercase font-display">
-              Client Feedback Thread
-            </span>
-          </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
             Don&apos;t just take{" "}
@@ -133,8 +124,8 @@ export default function Testimonials({ className = "" }: TestimonialsProps) {
 
                         <span
                           className={`text-[9px] px-2 py-0.5 rounded-full font-sans font-medium uppercase tracking-wider ${isActive
-                              ? "bg-brand-white/20 text-brand-white"
-                              : "bg-jade-whisper text-brand-jade border border-brand-border/40"
+                            ? "bg-brand-white/20 text-brand-white"
+                            : "bg-jade-whisper text-brand-jade border border-brand-border/40"
                             }`}
                         >
                           Verified

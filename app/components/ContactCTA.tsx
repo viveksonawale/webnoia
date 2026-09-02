@@ -20,23 +20,32 @@ export default function ContactCTA() {
   }, []);
 
   return (
-    <section className="relative w-full py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-brand-light overflow-hidden flex flex-col items-center">
-      {/* Decorative background dots */}
-      <div
-        className="absolute inset-0 opacity-40 pointer-events-none bg-dots"
-        style={{ backgroundSize: "24px 24px" }}
-      />
+    <section id="contact" className="relative w-full py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-brand-white overflow-hidden flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col">
-        {/* Wide Horizontal Cal.com Embed */}
-        <div className="w-full bg-brand-white rounded-3xl border border-brand-border/60 shadow-[0_20px_50px_rgba(20,92,82,0.06)] overflow-hidden h-[650px] md:h-[550px] p-2 md:p-4">
-          <Cal 
+        {/* Header */}
+        <div className="text-center mb-8 max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-ink-primary tracking-tight font-display mb-4">
+            Ready to scale your{" "}
+            <span className="font-serif italic font-normal text-brand-jade">
+              digital presence?
+            </span>
+          </h2>
+          <p className="text-sm md:text-base text-ink-secondary leading-relaxed font-sans">
+            Book a 1-on-1 strategy call with our team. Select a time below to get started immediately.
+          </p>
+        </div>
+
+        {/* Cal.com Card — exact same card as /schedule route */}
+        <div className="w-full h-[650px] md:h-[550px] bg-brand-white rounded-3xl border-2 border-brand-border shadow-[0_20px_50px_rgba(20,92,82,0.04)] overflow-hidden p-2 md:p-4">
+          <Cal
             namespace="webnoia-client-meeting-request"
             calLink="vivek-sonawale-pz4xth/webnoia-client-meeting-request"
-            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            style={{ width: "100%", height: "100%", overflow: "scroll", borderRadius: "1.5rem" }}
             config={{ theme: "light", layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
           />
         </div>
+
       </div>
     </section>
   );
