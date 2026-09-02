@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+@theme {
+
+  /* ── Brand Colours (Webnoia Jade system) ── */
+
+  --color-brand-jade: #145C52;
+
+  --color-brand-jade-hover: #0D4039;
+
+  --color-brand-dark: #111614;
+
+  --color-brand-light: #F2F8F6;
+
+  --color-brand-white: #ffffff;
+
+  --color-brand-border: #DDE8E4;
+
+  /* ── Jade palette (from DESIGN.md) ── */
+
+  --color-canvas: #FFFFFF;
+
+  --color-ink-primary: #111614;
+
+  --color-ink-secondary: #5F6B67;
+
+  --color-jade-primary: #145C52;
+
+  --color-jade-dark: #0D4039;
+
+  --color-jade-mid: #1B7568;
+
+  --color-jade-light: #E6F1EE;
+
+  --color-jade-tint: #F2F8F6;
+
+  --color-jade-whisper: #F8FBFA;
+
+  --color-jade-disabled: #A8BBB5;
+
+  /* ── Typography ── */
+
+  --font-sans: 'Instrument Sans', 'DM Sans', sans-serif;
+
+  --font-serif: 'Instrument Serif', serif;
+
+  --font-display: 'Instrument Sans', sans-serif;
+
+}
+
+/* ── Global reset & base ── */
+
+*, *::before, *::after {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  background-color: #FFFFFF;
+
+  color: #111614;
+
+  font-family: var(--font-sans);
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+
+}
+
+/* ── Dot pattern background ── */
+
+.bg-dots {
+
+  background-image: radial-gradient(#DDE8E4 1px, transparent 1px);
+
+  background-size: 24px 24px;
+
+}
+
+/* ── Stacking cards scroll animation ── */
+
+.sticky-card {
+
+  position: sticky;
+
+  top: 120px;
+
+}
+
+/* ── Hero background floating blobs ── */
+
+.hero-background {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-brand-light);
+}
+
+.hero-background::before,
+.hero-background::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-background::before {
+  width: 280px;
+  height: 280px;
+  background: var(--color-brand-jade);
+  top: -80px;
+  left: -60px;
+  animation: float-a 16s ease-in-out infinite;
+}
+
+.hero-background::after {
+  width: 220px;
+  height: 220px;
+  background: var(--color-brand-jade-hover);
+  bottom: -60px;
+  right: -40px;
+  animation: float-b 20s ease-in-out infinite;
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(40px, 30px) scale(1.08); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, -20px) scale(1.05); }
+}
+
+/* ── Custom scrollbar ── */
+
+::-webkit-scrollbar { width: 6px; }
+
+::-webkit-scrollbar-track { background: #F8FBFA; }
+
+::-webkit-scrollbar-thumb { background: #DDE8E4; border-radius: 3px; }
+
+::-webkit-scrollbar-thumb:hover { background: #A8BBB5; }
+
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes hero-wave {
+  0% {
+    transform: translateX(-2%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(2%) translateY(-8px);
+  }
+
+  100% {
+    transform: translateX(-2%) translateY(0);
+  }
+}
+
+@keyframes hero-wave-reverse {
+  0% {
+    transform: translateX(2%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-2%) translateY(8px);
+  }
+
+  100% {
+    transform: translateX(2%) translateY(0);
+  }
+}
+
+@keyframes hero-wave-slow {
+  0% {
+    transform: translateX(-1%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(1.5%) translateY(-5px);
+  }
+
+  100% {
+    transform: translateX(-1%) translateY(0);
+  }
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes drift-left {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(30px, -15px, 0);
+  }
+}
+
+@keyframes drift-right {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-25px, 15px, 0);
+  }
+}
+
+.animate-wave {
+  animation: hero-wave 18s ease-in-out infinite;
+}
+
+.animate-wave-reverse {
+  animation: hero-wave-reverse 22s ease-in-out infinite;
+}
+
+.animate-wave-slow {
+  animation: hero-wave-slow 25s ease-in-out infinite;
+}
+
+.animate-hero-glow {
+  animation: hero-glow 12s ease-in-out infinite;
+}
+
+.animate-drift-left {
+  animation: drift-left 18s ease-in-out infinite;
+}
+
+.animate-drift-right {
+  animation: drift-right 21s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave,
+  .animate-wave-reverse,
+  .animate-wave-slow,
+  .animate-hero-glow,
+  .animate-drift-left,
+  .animate-drift-right {
+    animation: none;
+  }
+
+  .hero-background::before,
+  .hero-background::after {
+    animation: none;
+  }
+}
