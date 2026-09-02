@@ -9,38 +9,26 @@ export interface PricingProps {
 
 export default function Pricing({ className = "" }: PricingProps) {
   return (
-    <section
-      id="pricing"
-      className={`w-full py-14 md:py-20 bg-brand-white ${className}`}
-    >
+    <section id="pricing" className={`w-full py-14 md:py-20 bg-brand-white ${className}`}>
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-10">
-          <div className="inline-flex items-center gap-2 mb-5">
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-2 mb-3">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-jade opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-jade" />
             </span>
-            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+            <span className="text-xs font-bold tracking-widest text-ink-secondary uppercase font-display">
               Pricing
             </span>
           </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl leading-[0.98] font-semibold tracking-[-0.04em] text-brand-dark">
-            Simple pricing. 
-            
-            <span className="font-serif italic font-normal text-brand-jade">
-              Serious value.
-            </span>
+          <h2 className="ext-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
+            Transparent pricing,{" "}
+            <span className="font-serif italic font-medium text-brand-jade ">no hidden fees.</span>
           </h2>
-
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-gray-500 max-w-xl mx-auto">
-            Clear scope, transparent pricing, and no surprises once we start
-            building.
-          </p>
         </div>
 
-        {/* Pricing Grid */}
+        {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-6xl mx-auto">
           {PRICING_PLANS.map((plan) => {
             const isGrowth = plan.highlight;
@@ -49,7 +37,7 @@ export default function Pricing({ className = "" }: PricingProps) {
               <div
                 key={plan.id}
                 className={`
-                  group relative overflow-hidden
+                  group/card relative overflow-hidden
                   flex flex-col
                   rounded-[20px]
                   p-5 md:p-6
@@ -67,17 +55,17 @@ export default function Pricing({ className = "" }: PricingProps) {
                         bg-brand-white
                         border border-brand-border
                         hover:-translate-y-1
+                        hover:bg-jade-whisper/60
                         hover:border-brand-jade/30
                         hover:shadow-[0_18px_45px_rgba(13,64,57,0.08)]
                       `
                   }
                 `}
               >
-                {/* Pro accent */}
+                {/* Pro accent for Growth */}
                 {isGrowth && (
                   <>
                     <div className="absolute inset-x-0 top-0 h-px bg-brand-jade" />
-
                     <div
                       className="
                         pointer-events-none
@@ -100,10 +88,11 @@ export default function Pricing({ className = "" }: PricingProps) {
                         font-semibold
                         uppercase
                         tracking-[0.16em]
+                        transition-colors duration-300
                         ${
                           isGrowth
-                            ? "text-brand-jade"
-                            : "text-gray-400"
+                            ? "text-brand-light"
+                            : "text-gray-400 group-hover/card:text-brand-jade"
                         }
                       `}
                     >
@@ -120,10 +109,10 @@ export default function Pricing({ className = "" }: PricingProps) {
                         px-2.5 py-1
                         text-[10px]
                         font-semibold
-                        text-brand-jade
+                        text-brand-light
                       "
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-jade" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-jade-mid" />
                       {plan.badge}
                     </span>
                   )}
@@ -180,7 +169,7 @@ export default function Pricing({ className = "" }: PricingProps) {
                   </div>
                 </div>
 
-                {/* Description */}
+                {/* Divider */}
                 <div className="relative mt-7 mb-6">
                   <div
                     className={`
@@ -237,11 +226,14 @@ export default function Pricing({ className = "" }: PricingProps) {
                   ))}
                 </ul>
 
-                {/* CTA */}
+                {/* CTA Button */}
                 <Link href="/schedule" className="relative mt-8 block">
                   <button
                     className={`
                       group/btn
+                      relative
+                      isolate
+                      overflow-hidden
                       w-full
                       h-11
                       rounded-full
@@ -251,31 +243,52 @@ export default function Pricing({ className = "" }: PricingProps) {
                       transition-all duration-300
                       ${
                         isGrowth
-                          ? `
-                            bg-brand-jade
-                            text-white
-                            hover:bg-brand-rich-jade
-                          `
-                          : `
-                            border border-brand-jade
-                            text-brand-jade
-                            hover:bg-brand-jade
-                            hover:text-white
-                          `
+                          ? "bg-brand-jade text-white"
+                          : "border border-brand-jade text-brand-jade group-hover/card:bg-brand-jade group-hover/card:text-white"
                       }
                     `}
                   >
-                    <span>{plan.cta}</span>
-
+                    {/* Minimal Jade Reveal */}
                     <span
-                      className="
+                      className={`
+                        absolute
+                        left-1/2
+                        top-1/2
+                        z-[-1]
+                        aspect-square
+                        w-5
+                        -translate-x-1/2
+                        -translate-y-1/2
+                        scale-0
+                        rounded-full
                         transition-transform
                         duration-300
-                        group-hover/btn:translate-x-0.5
-                      "
+                        ease-[cubic-bezier(0.22,1,0.36,1)]
+                        group-hover/btn:scale-[25]
+                        ${
+                          isGrowth
+                            ? "bg-brand-jade-hover"
+                            : "bg-brand-jade"
+                        }
+                      `}
+                    />
+                    <span className="relative z-10">{plan.cta}</span>
+
+                    <svg 
+                      width="14" 
+                      height="14" 
+                      viewBox="0 0 14 14" 
+                      fill="none" 
+                      className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
                     >
-                      →
-                    </span>
+                      <path 
+                        d="M3 11L11 3M5 3H11V9" 
+                        stroke="currentColor" 
+                        strokeWidth="1.3" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                      />
+                    </svg>
                   </button>
                 </Link>
               </div>
@@ -286,12 +299,16 @@ export default function Pricing({ className = "" }: PricingProps) {
         {/* Email CTA */}
         <div
           className="
+            group/email
             max-w-5xl mx-auto
             mt-3
             px-5 py-4
             rounded-[18px]
             border border-brand-border
             bg-brand-mist
+            hover:bg-jade-whisper/60
+            hover:border-brand-jade/30
+            transition-all duration-300
             flex flex-col sm:flex-row
             items-center justify-between
             gap-4
@@ -316,6 +333,10 @@ export default function Pricing({ className = "" }: PricingProps) {
           <a
             href="mailto:hello@webnoia.com"
             className="
+              group/btn
+              relative
+              isolate
+              overflow-hidden
               inline-flex
               items-center
               justify-center
@@ -327,14 +348,48 @@ export default function Pricing({ className = "" }: PricingProps) {
               text-sm
               font-semibold
               text-brand-jade
-              hover:bg-brand-jade
-              hover:text-white
-              transition-all duration-300
+              group-hover/email:bg-brand-jade
+              group-hover/email:text-white
+              transition-colors duration-300
               whitespace-nowrap
             "
           >
-            Email us
-            <span>→</span>
+            {/* Minimal Jade Reveal */}
+            <span
+              className="
+                absolute
+                left-1/2
+                top-1/2
+                z-[-1]
+                aspect-square
+                w-5
+                -translate-x-1/2
+                -translate-y-1/2
+                scale-0
+                rounded-full
+                bg-brand-jade
+                transition-transform
+                duration-300
+                ease-[cubic-bezier(0.22,1,0.36,1)]
+                group-hover/btn:scale-[14]
+              "
+            />
+            <span className="relative z-10">Email us</span>
+            <svg 
+              width="14" 
+              height="14" 
+              viewBox="0 0 14 14" 
+              fill="none" 
+              className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+            >
+              <path 
+                d="M3 11L11 3M5 3H11V9" 
+                stroke="currentColor" 
+                strokeWidth="1.3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+              />
+            </svg>
           </a>
         </div>
       </div>
