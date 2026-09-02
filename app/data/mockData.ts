@@ -110,22 +110,22 @@ export const HOW_IT_WORKS = [
   {
     step: "01",
     title: "We Listen First",
-    description: "Before anything gets built, we sit down to understand your business — what you do, who your customers are, and your goals. No templates, no guesswork.",
+    description: "We take the time to understand your business, audience, and main goals. No generic templates or guesswork—just custom strategy.",
   },
   {
     step: "02",
     title: "You See It Before We Build It",
-    description: "We show you the complete look and feel before writing a single line of code. If something's off, we adjust it on paper first.",
+    description: "We show you the complete visual layout before writing a single line of code. If anything needs tweaking, we can easily adjust it on paper first.",
   },
   {
     step: "03",
     title: "We Build, You Stay in the Loop",
-    description: "We work in stages and check in constantly. You're never left wondering what's happening for weeks, and your feedback shapes the final build.",
+    description: "We develop in clear stages and share regular progress updates. Your direct feedback shapes the final build as we move forward.",
   },
   {
     step: "04",
     title: "We Launch — And We Don't Disappear",
-    description: "Once live, we test everything, set up full backups, and hand it over clean. Afterwards, we're always directly reachable whenever you need us.",
+    description: "We thoroughly test everything, set up backups, and hand over a clean product. Afterwards, we stay directly available for support.",
   },
 ];
 
