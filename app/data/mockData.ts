@@ -2,8 +2,8 @@
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "Testimonials", href: "#testimonial" },
-  { label: "FAQ", href: "#faq" },
 ] as const;
 
 export const HERO_COPY = {
@@ -124,7 +124,7 @@ export const HOW_IT_WORKS = [
   },
   {
     step: "04",
-    title: "We Launch — And We Don't Disappear",
+    title: "We Launch And We Don't Disappear",
     description: "Once live, we test everything, set up full backups, and hand it over clean. Afterwards, we're always directly reachable whenever you need us.",
   },
 ];

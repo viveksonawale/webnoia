@@ -84,7 +84,7 @@ export default function Footer({ className = "" }: FooterProps) {
           <div className="hidden md:flex md:col-span-4 flex-col items-end justify-start gap-6">
             <div className="text-right">
               <span className="text-3xl font-bold tracking-tight text-white">
-                Web<span className="text-brand-jade">noia</span>
+                Webnoia
               </span>
               <p className="text-white/50 text-sm mt-2 max-w-[200px] text-right">
                 Premium web design &amp; development studio.
@@ -141,6 +141,13 @@ export default function Footer({ className = "" }: FooterProps) {
             © {year} Webnoia. All rights reserved.
           </p>
         </div>
+      </div>
+
+      {/* Massive Dark Mode WEBNOIA Branding Banner */}
+      <div className="relative w-full overflow-hidden border-t border-white/[0.05] pt-6 pb-2 md:pt-10 md:pb-4 flex justify-center items-center pointer-events-none select-none">
+        <h1 className="text-[14vw] sm:text-[15vw] md:text-[16vw] font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/20 via-white/[0.08] to-transparent uppercase text-center font-display">
+          WEBNOIA
+        </h1>
       </div>
     </footer>
   );

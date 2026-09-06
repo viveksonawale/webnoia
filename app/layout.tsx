@@ -17,7 +17,7 @@ const BASE_URL = "https://webnoia.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Webnoia — Premium Web Design & Development for Scaling Brands",
+    default: "Webnoia - Where Brands Come to Life",
     template: "%s | Webnoia",
   },
   description:
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Webnoia — Premium Web Design & Development for Scaling Brands",
+    title: "Webnoia - Where Brands Come to Life",
     description:
       "AI-accelerated web design & development that keeps your brand at the premium end of the market.",
     url: BASE_URL,

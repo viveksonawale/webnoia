@@ -29,6 +29,14 @@ export default function Testimonials({ className = "" }: TestimonialsProps) {
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-10">
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-jade/10 border border-brand-jade/20 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-brand-jade font-display">
+              <svg className="w-3.5 h-3.5 text-brand-jade" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              Testimonials
+            </span>
+          </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
             Don&apos;t just take{" "}

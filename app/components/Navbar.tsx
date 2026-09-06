@@ -20,7 +20,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 220;
 
-      let currentSection = "#home";
+      let currentSection = "";
 
       NAV_LINKS.forEach((link) => {
         const section = document.getElementById(
@@ -29,15 +29,19 @@ export default function Navbar() {
 
         if (!section) return;
 
-        const top = section.offsetTop;
-        const bottom = top + section.offsetHeight;
+        const rect = section.getBoundingClientRect();
 
-        if (scrollPosition >= top && scrollPosition < bottom) {
+        // Check if a line 220px from the top of the viewport is currently crossing this section
+        if (rect.top <= 220 && rect.bottom > 220) {
           currentSection = link.href;
         }
       });
 
-      setActiveTab(currentSection);
+      if (currentSection) {
+        setActiveTab(currentSection);
+      } else if (window.scrollY < 100) {
+        setActiveTab("#home");
+      }
     };
 
     handleScroll();
@@ -141,11 +145,11 @@ export default function Navbar() {
             hidden
             md:block
             transition-all
-            duration-800
+            duration-700
             ease-[cubic-bezier(0.16,1,0.3,1)]
             ${mounted
-              ? "opacity-100"
-              : "translate-y-[-12px] opacity-0"
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-3"
             }
           `}
         >

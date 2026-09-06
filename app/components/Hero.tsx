@@ -31,7 +31,7 @@ export default function Hero({ className = "" }: HeroProps) {
   return (
     <section
       id="home"
-      className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-0 sm:px-2 md:px-4 pt-24 text-center md:pt-28 md:pb-12 pb-10 ${className}`}
+      className={`relative flex w-full flex-col items-center justify-center overflow-hidden px-0 sm:px-2 md:px-4 pt-28 md:pt-36 pb-0 text-center ${className}`}
     >
       {/* ==========================================================
           BACKGROUND: CUSTOM TOP ANIMATION
@@ -96,12 +96,12 @@ export default function Hero({ className = "" }: HeroProps) {
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto mb-8 max-w-2xl px-2 text-sm leading-relaxed text-ink-secondary md:mb-10 md:text-xl font-sans">
+        <p className="mx-auto mb-10 max-w-2xl px-2 text-sm leading-relaxed text-ink-secondary md:mb-14 md:text-xl font-sans">
           {HERO_COPY.subheadline}
         </p>
 
         {/* CTA Buttons */}
-        <div className="mx-auto flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row md:gap-4">
+        <div className="mx-auto mb-8 md:mb-12 flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row md:gap-4">
           {/* Primary CTA */}
           <Link
             href={HERO_COPY.primaryCta.href}
@@ -291,54 +291,6 @@ export default function Hero({ className = "" }: HeroProps) {
         </div>
       </div>
 
-      {/* =========================================================
-          LARGE PRODUCT VISUAL
-      ========================================================= */}
-      <div className="relative z-10 mx-auto mt-10 md:mt-14 w-full max-w-[1440px] px-2 sm:px-4 md:px-6">
-        <Link
-          href="https://www.metanoiaglobal.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
-          <div 
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="relative rounded-2xl md:rounded-3xl border border-brand-border/60 bg-brand-white/40 p-1 sm:p-2 shadow-2xl backdrop-blur-sm transition-all duration-700 ease-out hover:shadow-[0_40px_80px_-20px_rgba(20,92,82,0.3)] cursor-none"
-          >
-            <div className="relative overflow-hidden rounded-xl md:rounded-2xl bg-brand-white ring-1 ring-ink-primary/5">
-              <Image
-                src="/website-images/website-image1.webp"
-                alt="Webnoia Dashboard Overview"
-                width={1920}
-                height={1080}
-                className="h-auto w-full object-cover object-top"
-                priority
-              />
-              
-              {/* Subtle inner shadow overlay */}
-              <div className="pointer-events-none absolute inset-0 rounded-xl md:rounded-2xl ring-1 ring-inset ring-brand-border/20" />
-              
-              {/* Glossy glare effect for premium feel */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 opacity-50" />
-            </div>
-
-            {/* Custom Cursor Tooltip ("Visit Website") */}
-            <div 
-              className={`pointer-events-none absolute z-50 flex items-center justify-center whitespace-nowrap bg-black px-4 py-2 text-sm font-semibold tracking-wide text-white font-sans transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-              style={{
-                left: `${cursorPos.x}px`,
-                top: `${cursorPos.y}px`,
-                transform: 'translate(-50%, -100%) translateY(-10px)',
-              }}
-            >
-              Visit Website
-            </div>
-          </div>
-        </Link>
-      </div>
     </section>
   );
 }

@@ -29,6 +29,15 @@ export default function HowItWorks({ className = "" }: HowItWorksProps) {
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-14 md:mb-15">
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-jade/10 border border-brand-jade/20 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-brand-jade font-display">
+              <svg className="w-3.5 h-3.5 text-brand-jade" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+              Process
+            </span>
+          </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-ink-primary tracking-tight mb-4 font-display">
             Great design,{" "}
