@@ -1,5 +1,4 @@
-"use client";
-
+// Server Component — purely static markup, no hooks or browser APIs.
 export default function Recognition() {
   return (
     <section className="relative w-full py-16 md:py-24 text-center">

@@ -1,19 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS } from "../data/mockData";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("#home");
-  const [mounted, setMounted] = useState(false);
 
-  // Navbar entrance
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+  // Navbar entrance animation refs
+  const logoRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const mobileToggleRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.fromTo(
+      [logoRef.current, mobileToggleRef.current],
+      { opacity: 0, y: -16 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0 },
+      0
+    );
+    tl.fromTo(
+      navRef.current,
+      { opacity: 0, y: -16 },
+      { opacity: 1, y: 0, duration: 0.7 },
+      0.08
+    );
+    tl.fromTo(
+      ctaRef.current,
+      { opacity: 0, y: -16 },
+      { opacity: 1, y: 0, duration: 0.7 },
+      0.16
+    );
+  });
 
   // Track active section
   useEffect(() => {
@@ -107,16 +131,9 @@ export default function Navbar() {
             LOGO
         ===================================================== */}
         <div
-          className={`
-            pointer-events-auto
-            transition-all
-            duration-700
-            ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${mounted
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-3 opacity-0"
-            }
-          `}
+          ref={logoRef}
+          style={{ opacity: 0 }}
+          className="pointer-events-auto"
         >
           <Link
             href="/"
@@ -130,7 +147,15 @@ export default function Navbar() {
           >
             <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full border border-gray-200 bg-white p-[3px] shadow-sm transition-transform duration-300 group-hover:scale-105">
               <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-black">
-                <img src="/logos/webnoia.svg" alt="Webnoia" className="h-11 w-11 object-contain" />
+              <Image
+                src="/logos/webnoia.svg"
+                alt="Webnoia"
+                width={44}
+                height={44}
+                priority
+                className="h-11 w-11 object-contain"
+              />
+
               </div>
             </div>
           </Link>
@@ -140,18 +165,9 @@ export default function Navbar() {
             CENTER NAVIGATION
         ===================================================== */}
         <nav
-          className={`
-            pointer-events-auto
-            hidden
-            md:block
-            transition-all
-            duration-700
-            ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${mounted
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-3"
-            }
-          `}
+          ref={navRef}
+          style={{ opacity: 0 }}
+          className="pointer-events-auto hidden md:block"
         >
           <div
             className="
@@ -246,20 +262,9 @@ export default function Navbar() {
             DESKTOP CTA
         ===================================================== */}
         <div
-          className={`
-    hidden
-    pointer-events-auto
-    md:flex
-    items-center
-    gap-2
-    transition-all
-    duration-700
-    ease-[cubic-bezier(0.16,1,0.3,1)]
-    ${mounted
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-3 opacity-0"
-            }
-  `}
+          ref={ctaRef}
+          style={{ opacity: 0 }}
+          className="hidden pointer-events-auto md:flex items-center gap-2"
         >
           <a
             href="/schedule"
@@ -306,11 +311,15 @@ export default function Navbar() {
       group-hover:scale-[14]
     "
             />
-            <img
+            <Image
               src="/logos/googlemeet.webp"
               alt="Google Meet"
+              width={20}
+              height={20}
+              priority
               className="relative z-10 h-[20px] w-[20px] object-contain"
             />
+
 
             <span className="relative z-10">
               Book a Call
@@ -352,17 +361,9 @@ export default function Navbar() {
             MOBILE TOGGLE 
         ===================================================== */}
         <div
-          className={`
-            pointer-events-auto
-            md:hidden
-            transition-all
-            duration-700
-            ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${mounted
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-3 opacity-0"
-            }
-          `}
+          ref={mobileToggleRef}
+          style={{ opacity: 0 }}
+          className="pointer-events-auto md:hidden"
         >
           <button
             onClick={() => setMobileOpen((open) => !open)}
@@ -541,9 +542,12 @@ export default function Navbar() {
                     group-hover:scale-[25]
                   "
                 />
-                <img
+                <Image
                   src="/logos/googlemeet.webp"
                   alt="Google Meet"
+                  width={20}
+                  height={20}
+                  priority
                   className="relative z-10 h-5 w-5 object-contain"
                 />
                 <span className="relative z-10">Book a Call</span>

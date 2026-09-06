@@ -149,6 +149,9 @@ const Silk: React.FC<SilkProps> = ({
   lightMode = false
 }) => {
   const meshRef = useRef<Mesh>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
+  // Holds the R3F invalidate fn so the IntersectionObserver can request frames
+  const invalidateRef = useRef<(() => void) | null>(null);
 
   const uniforms = useMemo<SilkUniforms>(
     () => ({
@@ -173,10 +176,64 @@ const Silk: React.FC<SilkProps> = ({
     uniforms.uLightMode.value = lightMode ? 1 : 0;
   }, [speed, scale, noiseIntensity, color, rotation, lightMode, uniforms]);
 
+  // Dispose geometry and material on unmount — prevents GPU memory leaks
+  useEffect(() => {
+    return () => {
+      if (meshRef.current) {
+        meshRef.current.geometry.dispose();
+        (meshRef.current.material as ShaderMaterial).dispose();
+      }
+    };
+  }, []);
+
+  // Pause rendering when scrolled off-screen; resume when back in view.
+  // Works with frameloop="demand" — the RAF only fires when invalidate() is called.
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+    let rafId: number | null = null;
+    const tick = () => {
+      if (invalidateRef.current) invalidateRef.current();
+      rafId = requestAnimationFrame(tick);
+    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          tick();
+        } else {
+          if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <Canvas dpr={[1, 2]} frameloop="always">
-      <SilkPlane ref={meshRef} uniforms={uniforms} />
-    </Canvas>
+    <div ref={canvasRef} style={{ width: '100%', height: '100%' }}>
+      {/*
+        dpr capped at [1, 2] — prevents 3× GPU fragment shader cost on high-DPI screens.
+        frameloop="demand" — canvas only repaints when invalidate() is called, so the
+        GPU is idle when the Showcase section is scrolled out of view.
+      */}
+      <Canvas
+        dpr={[1, Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 2, 2)]}
+        frameloop="demand"
+        onCreated={({ invalidate }) => {
+          invalidateRef.current = invalidate;
+          invalidate(); // first paint
+        }}
+      >
+        <SilkPlane ref={meshRef} uniforms={uniforms} />
+      </Canvas>
+    </div>
   );
 };
 

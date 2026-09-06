@@ -4,7 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+// Register once at module level — but only in browser environments to avoid SSR issues
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+}
 
 export interface SplitTextProps {
   text: string;
@@ -63,6 +66,14 @@ const SplitText: React.FC<SplitTextProps> = ({
       // Prevent re-animation if already completed
       if (animationCompletedRef.current) return;
 
+      // Respect prefers-reduced-motion — jump to final state instantly
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set(ref.current, { ...to });
+        animationCompletedRef.current = true;
+        onCompleteRef.current?.();
+        return;
+      }
+
       const el = ref.current as HTMLElement & {
         _rbsplitInstance?: GSAPSplitText;
       };
@@ -119,6 +130,9 @@ const SplitText: React.FC<SplitTextProps> = ({
               },
               onComplete: () => {
                 animationCompletedRef.current = true;
+                // Release GPU-promoted layers now that the animation is done.
+                // Leaving willChange active indefinitely wastes GPU memory.
+                gsap.set(targets, { willChange: 'auto' });
                 onCompleteRef.current?.();
               },
               willChange: 'transform, opacity',
@@ -162,7 +176,9 @@ const SplitText: React.FC<SplitTextProps> = ({
       display: 'inline-block',
       whiteSpace: 'normal',
       wordWrap: 'break-word',
-      willChange: 'transform, opacity'
+      // willChange is intentionally NOT set here at the static level.
+      // GSAP sets it on individual split targets when the animation starts,
+      // then resets it to 'auto' in onComplete to release GPU layers.
     };
     const classes = `split-parent ${className}`;
     const Tag = tag || 'p';

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { HERO_COPY } from "../data/mockData";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export interface HeroProps {
   readonly className?: string;
@@ -13,6 +15,61 @@ export default function Hero({ className = "" }: HeroProps) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Animation refs
+  const containerRef = useRef<HTMLElement>(null);
+  const orbsRef = useRef<HTMLDivElement>(null);
+  const trustRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const subheadlineRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      // Orbs: scale in from slightly smaller
+      tl.fromTo(
+        orbsRef.current,
+        { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, duration: 1.6 },
+        0
+      );
+
+      // Trust badge: fade + slide up
+      tl.fromTo(
+        trustRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        0.2
+      );
+
+      // Headline children: stagger each span
+      tl.fromTo(
+        headlineRef.current?.children ?? [],
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.85, stagger: 0.12 },
+        0.45
+      );
+
+      // Subheadline
+      tl.fromTo(
+        subheadlineRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.75 },
+        0.7
+      );
+
+      // CTA buttons: stagger
+      tl.fromTo(
+        ctaRef.current?.children ?? [],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 },
+        0.85
+      );
+    },
+    { scope: containerRef }
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (cardRef.current) {
@@ -28,8 +85,10 @@ export default function Hero({ className = "" }: HeroProps) {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+
   return (
     <section
+      ref={containerRef}
       id="home"
       className={`relative flex w-full flex-col items-center justify-center overflow-hidden px-0 sm:px-2 md:px-4 pt-28 md:pt-36 pb-0 text-center ${className}`}
     >
@@ -41,9 +100,11 @@ export default function Hero({ className = "" }: HeroProps) {
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-brand-white [mask-image:linear-gradient(to_bottom,black_20%,transparent_80%)]"
       >
         {/* Animated glowing orbs at the top */}
-        <div className="absolute -top-[20%] left-[10%] h-[500px] w-[500px] rounded-full bg-purple-300/40 blur-[120px] animate-orb-wide-1 mix-blend-multiply" />
-        <div className="absolute -top-[10%] right-[10%] h-[600px] w-[600px] rounded-full bg-sky-300/40 blur-[140px] animate-orb-wide-2 mix-blend-multiply" />
-        <div className="absolute top-[0%] left-[30%] h-[550px] w-[550px] rounded-full bg-emerald-300/40 blur-[130px] animate-orb-wide-3 mix-blend-multiply" />
+        <div ref={orbsRef} style={{ opacity: 0 }}>
+          <div className="absolute -top-[20%] left-[10%] h-[500px] w-[500px] rounded-full bg-purple-300/40 blur-[120px] animate-orb-wide-1 mix-blend-multiply" />
+          <div className="absolute -top-[10%] right-[10%] h-[600px] w-[600px] rounded-full bg-sky-300/40 blur-[140px] animate-orb-wide-2 mix-blend-multiply" />
+          <div className="absolute top-[0%] left-[30%] h-[550px] w-[550px] rounded-full bg-emerald-300/40 blur-[130px] animate-orb-wide-3 mix-blend-multiply" />
+        </div>
       </div>
 
       {/* =========================================================
@@ -51,7 +112,7 @@ export default function Hero({ className = "" }: HeroProps) {
       ========================================================= */}
       <div className="relative z-10 mx-auto h-full w-full max-w-4xl px-4 text-center">
         {/* Review Section / Trust Signal */}
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+        <div ref={trustRef} style={{ opacity: 0 }} className="mb-8 flex flex-wrap items-center justify-center gap-3">
           <div className="flex shrink-0 -space-x-3">
             <Image
               src="/rahul-dey.jpeg"
@@ -88,20 +149,27 @@ export default function Hero({ className = "" }: HeroProps) {
         </div>
 
         {/* Headline */}
-        <h1 className="mb-5 text-4xl font-bold leading-tight tracking-tight text-ink-primary sm:text-5xl md:mb-6 md:text-6xl font-display">
-          {HERO_COPY.headline[0]}{" "}
-          <span className="font-serif font-normal italic text-brand-jade">
+        <h1
+          ref={headlineRef}
+          className="mb-5 text-4xl font-bold leading-tight tracking-tight text-ink-primary sm:text-5xl md:mb-6 md:text-6xl font-display"
+        >
+          <span style={{ display: "inline", opacity: 0 }}>{HERO_COPY.headline[0]}{" "}</span>
+          <span style={{ opacity: 0 }} className="font-serif font-normal italic text-brand-jade">
             {HERO_COPY.headline[1]}
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto mb-10 max-w-2xl px-2 text-sm leading-relaxed text-ink-secondary md:mb-14 md:text-xl font-sans">
+        <p
+          ref={subheadlineRef}
+          style={{ opacity: 0 }}
+          className="mx-auto mb-10 max-w-2xl px-2 text-sm leading-relaxed text-ink-secondary md:mb-14 md:text-xl font-sans"
+        >
           {HERO_COPY.subheadline}
         </p>
 
         {/* CTA Buttons */}
-        <div className="mx-auto mb-8 md:mb-12 flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row md:gap-4">
+        <div ref={ctaRef} className="mx-auto mb-8 md:mb-12 flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row md:gap-4">
           {/* Primary CTA */}
           <Link
             href={HERO_COPY.primaryCta.href}

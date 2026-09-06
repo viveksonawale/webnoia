@@ -123,6 +123,7 @@ export default function Work() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className={`transition-transform duration-700 group-hover:scale-105 ${
                         project.fit === "contain"
                           ? "object-contain p-3 object-center"
@@ -143,6 +144,7 @@ export default function Work() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className={`transition-transform duration-700 group-hover:scale-105 ${
                         project.fit === "contain"
                           ? "object-contain p-3 object-center"

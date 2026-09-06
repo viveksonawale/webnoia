@@ -44,11 +44,14 @@
 
   /* ── Typography ── */
 
+  /* ── Typography ── */
+
   --font-sans: 'Instrument Sans', 'DM Sans', sans-serif;
 
   --font-serif: 'Instrument Serif', serif;
 
   --font-display: 'Instrument Sans', sans-serif;
+
 
 }
 
@@ -62,7 +65,8 @@
 
 html {
 
-  scroll-behavior: smooth;
+  /* scroll-behavior intentionally omitted — Lenis handles all smooth scrolling.
+     Native scroll-behavior: smooth would double-ease with Lenis on scrollIntoView() calls. */
 
 }
 
@@ -349,13 +353,24 @@ iframe::-webkit-scrollbar {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* CSS animation killswitch for all motion-sensitive users */
   .animate-wave,
   .animate-wave-reverse,
   .animate-wave-slow,
   .animate-hero-glow,
   .animate-drift-left,
-  .animate-drift-right {
-    animation: none;
+  .animate-drift-right,
+  /* Orbs — were previously missing from this block */
+  .animate-orb-wide-1,
+  .animate-orb-wide-2,
+  .animate-orb-wide-3,
+  /* Marquee — were previously missing from this block */
+  .animate-marquee-right,
+  .animate-marquee-left,
+  /* WhatsApp floating button pulse/ping */
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
   }
 
   .hero-background::before,

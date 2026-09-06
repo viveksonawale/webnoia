@@ -1,5 +1,5 @@
-"use client";
-
+// Server Component — no hooks, no browser APIs, no event handlers.
+// Uses CSS sticky scroll; can be streamed as HTML from the server.
 import Image from "next/image";
 import { SERVICES } from "../data/mockData";
 

@@ -1,5 +1,5 @@
-"use client";
-
+// Server Component — no hooks, no browser APIs, no event handlers.
+// Renders a static step-cards grid; can be streamed as HTML from the server.
 import { HOW_IT_WORKS } from "../data/mockData";
 import {
   Brain,
