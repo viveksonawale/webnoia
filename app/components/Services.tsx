@@ -1,5 +1,5 @@
-"use client";
-
+// Server Component — no hooks, no browser APIs, no event handlers.
+// Uses CSS sticky scroll; can be streamed as HTML from the server.
 import Image from "next/image";
 import { SERVICES } from "../data/mockData";
 
@@ -40,7 +40,10 @@ export default function Services({ className = "" }: ServicesProps) {
         {/* Header */}
         <div className="mb-14 text-center md:mb-15">
           <div className="mb-6 flex justify-center">
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white font-display shadow-xs">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white font-display shadow-xs">
+              <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
               Services
             </span>
           </div>

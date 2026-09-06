@@ -31,7 +31,7 @@ export default function SchedulePageClient() {
         style={{ backgroundSize: "24px 24px" }}
       />
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
 
         {/* Prominent Back to Home Button (Visible & touch-friendly on both Desktop and Mobile) */}
         <div className="w-full flex justify-start mb-6">
@@ -67,12 +67,12 @@ export default function SchedulePageClient() {
           </p>
         </div>
 
-        {/* Wide Horizontal Calendar Embed Area */}
-        <div className="w-full h-[650px] md:h-[550px] bg-brand-white rounded-3xl border-2 border-brand-border shadow-[0_20px_50px_rgba(20,92,82,0.04)] overflow-hidden p-2 md:p-4">
+        {/* Wide Horizontal Calendar Embed Area — exact height allocated to fit all timeslots without iframe scrollbars */}
+        <div className="w-full h-[760px] sm:h-[700px] md:h-[660px] overflow-hidden flex justify-center">
           <Cal
             namespace="webnoia-client-meeting-request"
             calLink="vivek-sonawale-pz4xth/webnoia-client-meeting-request"
-            style={{ width: "100%", height: "100%", overflow: "scroll", borderRadius: "1.5rem" }}
+            style={{ width: "100%", height: "100%", overflow: "hidden", scrollbarWidth: "none" }}
             config={{ theme: "light", layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
           />
         </div>

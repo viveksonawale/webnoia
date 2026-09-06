@@ -20,11 +20,21 @@ export default function FAQ({ className = "" }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`relative w-full py-14 md:py-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
+      className={`relative w-full pt-6 md:pt-10 pb-14 md:pb-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-10 md:mb-15">
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-jade/10 border border-brand-jade/20 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-brand-jade font-display">
+              <svg className="w-3.5 h-3.5 text-brand-jade" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              FAQ
+            </span>
+          </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4 font-display">
             Frequently Asked{" "}

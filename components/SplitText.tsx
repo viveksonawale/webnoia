@@ -1,12 +1,31 @@
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+// Register once at module level — but only in browser environments to avoid SSR issues
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+}
 
-const SplitText = ({
+export interface SplitTextProps {
+  text: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  ease?: string | ((t: number) => number);
+  splitType?: 'chars' | 'words' | 'lines' | 'words, chars';
+  from?: gsap.TweenVars;
+  to?: gsap.TweenVars;
+  threshold?: number;
+  rootMargin?: string;
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  textAlign?: React.CSSProperties['textAlign'];
+  onLetterAnimationComplete?: () => void;
+}
+
+const SplitText: React.FC<SplitTextProps> = ({
   text,
   className = '',
   delay = 50,
@@ -21,10 +40,10 @@ const SplitText = ({
   tag = 'p',
   onLetterAnimationComplete
 }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLParagraphElement>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
 
   // Keep callback ref updated
   useEffect(() => {
@@ -46,15 +65,24 @@ const SplitText = ({
       if (!ref.current || !text || !fontsLoaded) return;
       // Prevent re-animation if already completed
       if (animationCompletedRef.current) return;
-      const el = ref.current;
+
+      // Respect prefers-reduced-motion — jump to final state instantly
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set(ref.current, { ...to });
+        animationCompletedRef.current = true;
+        onCompleteRef.current?.();
+        return;
+      }
+
+      const el = ref.current as HTMLElement & {
+        _rbsplitInstance?: GSAPSplitText;
+      };
 
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {
-          /* ignore */
-        }
-        el._rbsplitInstance = null;
+        } catch (_) {}
+        el._rbsplitInstance = undefined;
       }
 
       const startPct = (1 - threshold) * 100;
@@ -68,15 +96,13 @@ const SplitText = ({
             ? `-=${Math.abs(marginValue)}${marginUnit}`
             : `+=${marginValue}${marginUnit}`;
       const start = `top ${startPct}%${sign}`;
-
-      let targets;
-      const assignTargets = self => {
+      let targets: Element[] = [];
+      const assignTargets = (self: GSAPSplitText) => {
         if (splitType.includes('chars') && self.chars.length) targets = self.chars;
-        if (!targets && splitType.includes('words') && self.words.length) targets = self.words;
-        if (!targets && splitType.includes('lines') && self.lines.length) targets = self.lines;
-        if (!targets) targets = self.chars || self.words || self.lines;
+        if (!targets.length && splitType.includes('words') && self.words.length) targets = self.words;
+        if (!targets.length && splitType.includes('lines') && self.lines.length) targets = self.lines;
+        if (!targets.length) targets = self.chars || self.words || self.lines;
       };
-
       const splitInstance = new GSAPSplitText(el, {
         type: splitType,
         smartWrap: true,
@@ -85,7 +111,7 @@ const SplitText = ({
         wordsClass: 'split-word',
         charsClass: 'split-char',
         reduceWhiteSpace: false,
-        onSplit: self => {
+        onSplit: (self: GSAPSplitText) => {
           assignTargets(self);
           return gsap.fromTo(
             targets,
@@ -104,6 +130,9 @@ const SplitText = ({
               },
               onComplete: () => {
                 animationCompletedRef.current = true;
+                // Release GPU-promoted layers now that the animation is done.
+                // Leaving willChange active indefinitely wastes GPU memory.
+                gsap.set(targets, { willChange: 'auto' });
                 onCompleteRef.current?.();
               },
               willChange: 'transform, opacity',
@@ -113,17 +142,14 @@ const SplitText = ({
         }
       });
       el._rbsplitInstance = splitInstance;
-
       return () => {
         ScrollTrigger.getAll().forEach(st => {
           if (st.trigger === el) st.kill();
         });
         try {
           splitInstance.revert();
-        } catch (_) {
-          /* ignore */
-        }
-        el._rbsplitInstance = null;
+        } catch (_) {}
+        el._rbsplitInstance = undefined;
       };
     },
     {
@@ -144,12 +170,17 @@ const SplitText = ({
   );
 
   const renderTag = () => {
-    const style = {
+    const style: React.CSSProperties = {
       textAlign,
+      overflow: 'hidden',
+      display: 'inline-block',
+      whiteSpace: 'normal',
       wordWrap: 'break-word',
-      willChange: 'transform, opacity'
+      // willChange is intentionally NOT set here at the static level.
+      // GSAP sets it on individual split targets when the animation starts,
+      // then resets it to 'auto' in onComplete to release GPU layers.
     };
-    const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    const classes = `split-parent ${className}`;
     const Tag = tag || 'p';
 
     return (

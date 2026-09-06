@@ -44,11 +44,14 @@
 
   /* ── Typography ── */
 
+  /* ── Typography ── */
+
   --font-sans: 'Instrument Sans', 'DM Sans', sans-serif;
 
   --font-serif: 'Instrument Serif', serif;
 
   --font-display: 'Instrument Sans', sans-serif;
+
 
 }
 
@@ -62,7 +65,8 @@
 
 html {
 
-  scroll-behavior: smooth;
+  /* scroll-behavior intentionally omitted — Lenis handles all smooth scrolling.
+     Native scroll-behavior: smooth would double-ease with Lenis on scrollIntoView() calls. */
 
 }
 
@@ -79,7 +83,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   overflow-x: hidden;
+}
 
+/* Hide scrollbars inside Cal embeds and iframe containers */
+iframe {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+iframe::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari/Blink */
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* ── Dot pattern background ── */
@@ -320,14 +334,43 @@ body {
 .animate-orb-wide-2 { animation: orb-drift-wide-2 30s ease-in-out infinite alternate; }
 .animate-orb-wide-3 { animation: orb-drift-wide-3 28s ease-in-out infinite alternate; }
 
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  /* CSS animation killswitch for all motion-sensitive users */
   .animate-wave,
   .animate-wave-reverse,
   .animate-wave-slow,
   .animate-hero-glow,
   .animate-drift-left,
-  .animate-drift-right {
-    animation: none;
+  .animate-drift-right,
+  /* Orbs — were previously missing from this block */
+  .animate-orb-wide-1,
+  .animate-orb-wide-2,
+  .animate-orb-wide-3,
+  /* Marquee — were previously missing from this block */
+  .animate-marquee-right,
+  .animate-marquee-left,
+  /* WhatsApp floating button pulse/ping */
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
   }
 
   .hero-background::before,
