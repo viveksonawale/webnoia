@@ -35,7 +35,7 @@ export default function Showcase() {
           <Silk
             speed={5}
             scale={1}
-            color="#10B981"
+            color="#2ec2af"
             noiseIntensity={1.5}
             rotation={0}
           />
@@ -43,7 +43,7 @@ export default function Showcase() {
 
         {/* Foreground Layer: Masonry Marquee Grid */}
         <div className="relative z-10 w-full h-full flex flex-col justify-center gap-6 md:gap-[72px] overflow-hidden md:pb-12">
-          
+
           {/* Top Row: Scrolling Right — all eager: CSS transform animation bypasses lazy-load IntersectionObserver */}
           <div className="flex w-max animate-marquee-right gap-6 px-4">
             {[...topRowImages, ...topRowImages].map((src, index) => (
