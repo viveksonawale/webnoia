@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 
 // Lazy-load Silk (Three.js/R3F) — keeps ~500 KB gz out of the initial bundle
 // ssr:false prevents server-side rendering of a WebGL canvas
@@ -19,14 +20,26 @@ const images = [
   "/website-images/webshowcase-image9.avif",
 ];
 
-// Split images into two halves for the two rows
+// Split images into two halves for the two marquee rows
 const topRowImages = images.slice(0, 5);
 const bottomRowImages = images.slice(4, 9);
 
 export default function Showcase() {
   return (
     <section className="w-full pt-4 md:pt-6 pb-16 flex justify-center items-center overflow-hidden">
-      <div
+      {/* 
+        Sequential Load Animation: 
+        Fades in and slides up gently after the Hero section loads.
+      */}
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{
+          duration: 0.9,
+          delay: 0.2, // Small delay allows the hero element animations to finish first
+          ease: [0.21, 0.47, 0.32, 0.98], // Ultra-smooth cubic-bezier curve
+        }}
         className="relative mx-auto w-full max-w-[1440px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         style={{ height: "800px" }}
       >
@@ -35,17 +48,23 @@ export default function Showcase() {
           <Silk
             speed={5}
             scale={1}
-            color="#10B981"
+            color="#2ec2af"
             noiseIntensity={1.5}
             rotation={0}
           />
         </div>
 
-        {/* Foreground Layer: Masonry Marquee Grid */}
+        {/* Foreground Layer: Masonry Marquee Grid with staggered entrance */}
         <div className="relative z-10 w-full h-full flex flex-col justify-center gap-6 md:gap-[72px] overflow-hidden md:pb-12">
-          
-          {/* Top Row: Scrolling Right — all eager: CSS transform animation bypasses lazy-load IntersectionObserver */}
-          <div className="flex w-max animate-marquee-right gap-6 px-4">
+
+          {/* Top Row: Scrolling Right */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex w-max animate-marquee-right gap-6 px-4"
+          >
             {[...topRowImages, ...topRowImages].map((src, index) => (
               <div
                 key={`top-${index}`}
@@ -61,10 +80,16 @@ export default function Showcase() {
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Bottom Row: Scrolling Left — all eager: CSS transform animation bypasses lazy-load IntersectionObserver */}
-          <div className="flex w-max animate-marquee-left gap-6 px-4">
+          {/* Bottom Row: Scrolling Left */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.55, ease: "easeOut" }}
+            className="flex w-max animate-marquee-left gap-6 px-4"
+          >
             {[...bottomRowImages, ...bottomRowImages].map((src, index) => (
               <div
                 key={`bottom-${index}`}
@@ -80,10 +105,10 @@ export default function Showcase() {
                 />
               </div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
