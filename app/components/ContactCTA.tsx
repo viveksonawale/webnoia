@@ -66,18 +66,17 @@ export default function ContactCTA() {
           </p>
         </div>
 
-        {/* Cal.com Embed — rendered only after section enters viewport */}
-        <div className="w-full h-[760px] sm:h-[700px] md:h-[660px] overflow-hidden flex justify-center">
+        {/* Cal.com Embed — Container scales dynamically with Viewport Height */}
+        <div className="w-full flex-grow min-h-[70vh] lg:min-h-[23vh] h-full overflow-hidden flex justify-center rounded-2xl">
           {calReady ? (
             <Cal
               namespace="webnoia-client-meeting-request"
               calLink="vivek-sonawale-pz4xth/webnoia-client-meeting-request"
-              style={{ width: "100%", height: "100%", overflow: "hidden", scrollbarWidth: "none" }}
+              style={{ width: "100%", height: "100%", minHeight: "100%", overflow: "hidden" }}
               config={{ theme: "light", layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
             />
           ) : (
-            // Skeleton placeholder preserves layout height so CLS is zero
-            <div className="w-full h-full rounded-2xl bg-jade-whisper/60 border border-brand-border/40 animate-pulse" />
+            <div className="w-full h-full min-h-[650px] rounded-2xl bg-jade-whisper/60 border border-brand-border/40 animate-pulse" />
           )}
         </div>
 

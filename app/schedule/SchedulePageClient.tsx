@@ -1,12 +1,31 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Cal, { getCalApi } from "@calcom/embed-react";
 
 export default function SchedulePageClient() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [calReady, setCalReady] = useState(false);
+
+  // Lazy-load Cal.com script once the section comes into view
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCalReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!calReady) return;
     (async function () {
       const cal = await getCalApi({ namespace: "webnoia-client-meeting-request" });
       cal("ui", {
@@ -19,21 +38,23 @@ export default function SchedulePageClient() {
         layout: "month_view",
       });
     })();
-  }, []);
+  }, [calReady]);
 
   return (
-    <main className="relative min-h-screen w-full bg-brand-white pt-24 pb-12 md:pt-32 md:pb-16 overflow-x-hidden flex flex-col items-center">
+    <main className="relative min-h-screen w-full bg-brand-white pt-24 pb-12 md:pt-28 md:pb-16 overflow-x-hidden flex flex-col items-center justify-between">
       <Navbar />
 
-      {/* Decorative dots across the entire page */}
+      {/* Decorative background dot pattern */}
       <div
-        className="absolute inset-0 bg-dots opacity-30 pointer-events-none"
+        className="absolute inset-0 bg-dots opacity-40 pointer-events-none"
         style={{ backgroundSize: "24px 24px" }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
-
-        {/* Prominent Back to Home Button (Visible & touch-friendly on both Desktop and Mobile) */}
+      <div
+        ref={sectionRef}
+        className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center flex-grow"
+      >
+        {/* Prominent Back to Home Button */}
         <div className="w-full flex justify-start mb-6">
           <Link
             href="/"
@@ -58,8 +79,8 @@ export default function SchedulePageClient() {
         </div>
 
         {/* Page Header */}
-        <div className="text-center max-w-3xl mb-8">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-ink-primary tracking-tight font-display mb-4">
+        <div className="text-center max-w-3xl mb-6 md:mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-ink-primary tracking-tight font-display mb-3">
             Book your <span className="font-serif italic font-normal text-brand-jade">strategy call.</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-ink-secondary font-sans leading-relaxed">
@@ -67,14 +88,18 @@ export default function SchedulePageClient() {
           </p>
         </div>
 
-        {/* Wide Horizontal Calendar Embed Area — exact height allocated to fit all timeslots without iframe scrollbars */}
-        <div className="w-full h-[760px] sm:h-[700px] md:h-[660px] overflow-hidden flex justify-center">
-          <Cal
-            namespace="webnoia-client-meeting-request"
-            calLink="vivek-sonawale-pz4xth/webnoia-client-meeting-request"
-            style={{ width: "100%", height: "100%", overflow: "hidden", scrollbarWidth: "none" }}
-            config={{ theme: "light", layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
-          />
+        {/* Cal.com Embed Container — Responsive Viewport Scaling */}
+        <div className="w-full flex-grow min-h-[70vh] lg:min-h-[22vh] h-full overflow-hidden flex justify-center rounded-2xl ">
+          {calReady ? (
+            <Cal
+              namespace="webnoia-client-meeting-request"
+              calLink="vivek-sonawale-pz4xth/webnoia-client-meeting-request"
+              style={{ width: "100%", height: "100%", minHeight: "100%", overflow: "hidden" }}
+              config={{ theme: "light", layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+            />
+          ) : (
+            <div className="w-full h-full min-h-[650px] rounded-2xl bg-jade-whisper/60 border border-brand-border/40 animate-pulse" />
+          )}
         </div>
 
       </div>
