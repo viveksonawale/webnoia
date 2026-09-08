@@ -12,7 +12,7 @@ const PROJECTS = [
     category: "Websites",
     tags: ["B2B", "Corporate"],
     image: "/website-images/webshowcase-image8.avif",
-    link: "https://metnoiaglobal.com",
+    link: "https://metanoiaglobal.com",
     fit: "cover",
   },
   {
