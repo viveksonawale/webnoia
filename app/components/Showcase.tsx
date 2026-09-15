@@ -25,24 +25,18 @@ const bottomRowImages = images.slice(4, 9);
 
 export default function Showcase() {
   return (
-    <section className="w-full pt-2 md:pt-4 pb-8 md:pb-12 flex justify-center items-center overflow-hidden">
-      {/* 
-        Container Height Reduced: 
-        Changed fixed height from 800px to 480px (mobile) / 580px (desktop) 
-        to eliminate heavy top/bottom space.
-      */}
+    <section className="w-full pt-4 md:pt-6 pb-12 md:pb-16 flex justify-center items-center overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.98 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.15 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{
           duration: 0.8,
-          delay: 0.15,
-          ease: [0.21, 0.47, 0.32, 0.98],
+          ease: "easeOut",
         }}
-        className="relative mx-auto w-full max-w-[1440px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-[480px] sm:h-[540px] md:h-[580px]"
+        className="relative mx-auto w-full max-w-[1440px] h-[520px] sm:h-[600px] md:h-[680px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10"
       >
-        {/* Background Layer: Silk Component */}
+        {/* Background Layer: Silk Canvas */}
         <div className="absolute inset-0 z-0">
           <Silk
             speed={5}
@@ -53,21 +47,21 @@ export default function Showcase() {
           />
         </div>
 
-        {/* Foreground Layer: Compact Grid Padding & Row Gaps */}
-        <div className="relative z-10 w-full h-full flex flex-col justify-center gap-4 md:gap-6 overflow-hidden py-4">
+        {/* Foreground Layer: Marquee Container */}
+        <div className="relative z-10 w-full h-full flex flex-col justify-center gap-6 md:gap-8 overflow-hidden py-6">
 
           {/* Top Row: Scrolling Right */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
             className="flex w-max animate-marquee-right gap-4 md:gap-6 px-4"
           >
             {[...topRowImages, ...topRowImages].map((src, index) => (
               <div
                 key={`top-${index}`}
-                className="w-[260px] h-[170px] md:w-[360px] md:h-[230px] rounded-xl overflow-hidden shadow-lg border border-white/20 flex-shrink-0 relative"
+                className="w-[260px] h-[170px] sm:w-[320px] sm:h-[210px] md:w-[380px] md:h-[250px] rounded-xl overflow-hidden shadow-xl border border-white/20 flex-shrink-0 relative bg-neutral-900/40"
               >
                 <Image
                   src={src}
@@ -75,24 +69,24 @@ export default function Showcase() {
                   fill
                   loading="eager"
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 260px, 360px"
+                  sizes="(max-width: 768px) 260px, 380px"
                 />
               </div>
             ))}
           </motion.div>
 
           {/* Bottom Row: Scrolling Left */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex w-max animate-marquee-left gap-4 md:gap-6 px-4"
           >
             {[...bottomRowImages, ...bottomRowImages].map((src, index) => (
               <div
                 key={`bottom-${index}`}
-                className="w-[260px] h-[170px] md:w-[360px] md:h-[230px] rounded-xl overflow-hidden shadow-lg border border-white/20 flex-shrink-0 relative"
+                className="w-[260px] h-[170px] sm:w-[320px] sm:h-[210px] md:w-[380px] md:h-[250px] rounded-xl overflow-hidden shadow-xl border border-white/20 flex-shrink-0 relative bg-neutral-900/40"
               >
                 <Image
                   src={src}
@@ -100,7 +94,7 @@ export default function Showcase() {
                   fill
                   loading="eager"
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 260px, 360px"
+                  sizes="(max-width: 768px) 260px, 380px"
                 />
               </div>
             ))}
