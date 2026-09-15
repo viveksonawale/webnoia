@@ -7,8 +7,8 @@ import { ArrowUpRight, Monitor, Smartphone } from "lucide-react";
 const PROJECTS = [
   {
     id: "metnoia",
-    title: "Metnoia B2B Website",
-    year: "2025",
+    title: "Metanoia B2B Website",
+    year: "2026",
     category: "Websites",
     tags: ["B2B", "Corporate"],
     image: "/website-images/webshowcase-image8.avif",
@@ -16,19 +16,29 @@ const PROJECTS = [
     fit: "cover",
   },
   {
-    id: "sms",
-    title: "SMS - Society Management System",
-    year: "2025",
+    id: "micasa-doors",
+    title: "Micasa Doors",
+    year: "2026",
     category: "Websites",
-    tags: ["SaaS", "Management"],
-    image: "/website-images/website-smspng.avif",
-    hideIcon: true,
+    tags: ["B2B", "Corporate"],
+    image: "/website-images/micasa-doors.avif",
+    link: "https://micasadoor.vercel.app/",
     fit: "cover",
   },
+  // {
+  //   id: "sms",
+  //   title: "SMS - Society Management System",
+  //   year: "2026",
+  //   category: "Websites",
+  //   tags: ["SaaS", "Management"],
+  //   image: "/website-images/website-smspng.avif",
+  //   hideIcon: true,
+  //   fit: "cover",
+  // },
   {
     id: "sms-app",
     title: "SMS - Society Management System",
-    year: "2025",
+    year: "2026",
     category: "Apps & More",
     tags: ["App", "Mobile", "SaaS"],
     image: "/app-images/app1.avif",
@@ -91,11 +101,10 @@ export default function Work() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                  isActive
+                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${isActive
                     ? "bg-brand-jade text-white shadow-[0_8px_20px_rgba(20,92,82,0.25)] border-2 border-brand-jade"
                     : "bg-white text-ink-secondary border-2 border-brand-border hover:border-brand-jade/30 hover:text-ink-primary"
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-ink-secondary"}`} />
                 {tab.label}
@@ -115,11 +124,10 @@ export default function Work() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                    className={`transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02] ${
-                      project.fit === "contain"
+                    className={`transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02] ${project.fit === "contain"
                         ? "object-contain p-4 object-center"
                         : "object-cover object-top"
-                    }`}
+                      }`}
                   />
                   {!project.hideIcon && (
                     <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
