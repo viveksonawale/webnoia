@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { FAQ_ITEMS } from "../data/mockData";
 
@@ -20,7 +21,7 @@ export default function FAQ({ className = "" }: FAQProps) {
   return (
     <section
       id="faq"
-      className={`relative w-full pt-6 md:pt-10 pb-14 md:pb-20 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
+      className={`relative w-full pt-6 md:pt-10 pb-8 md:pb-12 bg-brand-white border-y border-brand-border/40 overflow-hidden ${className}`}
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
@@ -117,6 +118,32 @@ export default function FAQ({ className = "" }: FAQProps) {
               </div>
             );
           })}
+          {/* Mobile CTA */}
+          <div className="mt-6 p-4 rounded-2xl bg-white border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+            <span className="text-xs text-gray-500 font-medium font-sans text-center sm:text-left">
+              Have more questions?
+            </span>
+            <Link
+              href="/schedule"
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-jade text-white text-xs sm:text-sm font-semibold font-display shadow-[0_4px_16px_rgba(20,92,82,0.25)] hover:shadow-[0_6px_24px_rgba(20,92,82,0.35)] hover:bg-[#0f463e] transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer"
+            >
+              <span>Book a consultation</span>
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-white/30">
+                <svg
+                  className="h-3 w-3 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </Link>
+          </div>
         </div>
 
         {/* =========================================================
@@ -225,14 +252,28 @@ export default function FAQ({ className = "" }: FAQProps) {
               </div>
 
               {/* Chat Footer Accent */}
-              <div className="mt-8 pt-4 border-t border-brand-border/40 flex items-center justify-between text-[11px] text-gray-400 font-sans">
-                <span>Have more questions?</span>
-                <a
-                  href="#contact"
-                  className="font-semibold text-brand-jade hover:underline flex items-center gap-1 font-display"
+              <div className="mt-8 pt-5 border-t border-brand-border/60 flex items-center justify-between text-xs sm:text-sm text-gray-500 font-sans">
+                <span className="font-medium text-gray-600">Have more questions?</span>
+                <Link
+                  href="/schedule"
+                  className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-jade text-white text-xs sm:text-sm font-semibold font-display shadow-[0_4px_16px_rgba(20,92,82,0.25)] hover:shadow-[0_6px_24px_rgba(20,92,82,0.35)] hover:bg-[#0f463e] transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer"
                 >
-                  Book a consultation <span>→</span>
-                </a>
+                  <span>Book a consultation</span>
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-white/30">
+                    <svg
+                      className="h-3 w-3 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </span>
+                </Link>
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ import HowItWorks from "./components/HowItWorks";
 import MembershipBenefits from "./components/MembershipBenefits";
 import Pricing from "./components/Pricing";
 import Testimonials from "./components/Testimonials";
+import AboutUs from "./components/AboutUs";
 import FAQ from "./components/FAQ";
 import ContactCTA from "./components/ContactCTA";
 import Footer from "./components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
         <HowItWorks />
         {/* <MembershipBenefits /> */}
         <Testimonials />
+        <AboutUs />
         {/* <Pricing /> */}
         <ContactCTA />
         <FAQ />

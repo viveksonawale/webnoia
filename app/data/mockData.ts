@@ -1,8 +1,8 @@
 // All static site data — decoupled from components for easy editing
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
+  { label: "Service", href: "#services" },
   { label: "Testimonials", href: "#testimonial" },
 ] as const;
 
@@ -247,5 +247,24 @@ export const FAQ_ITEMS = [
     question: "What's the difference between a design subscription and a project?",
     answer:
       "A subscription is an ongoing monthly relationship — great for businesses with continuous needs. Project-based work is a fixed-scope engagement with a defined start and end. We offer both.",
+  },
+] as const;
+
+export const FOUNDERS = [
+  {
+    id: "f1",
+    name: "Vivek Sonawale",
+    title: "Founder",
+    avatar: "/placeholder.jpg",
+    description:
+      "As a full-stack designer, Vivek blends visual aesthetics with technical precision. He shapes digital experiences with an obsession for detail and pixel-perfect execution.",
+  },
+  {
+    id: "f2",
+    name: "Akshata Bhoi",
+    title: "Founder",
+    avatar: "/placeholder2.jpg",
+    description:
+      "With expertise bridging UI/UX and full-stack development, Akshata leads the technical and experiential vision of our projects, delivering impactful digital solutions.",
   },
 ] as const;
