@@ -78,6 +78,7 @@ export const viewport: Viewport = {
 };
 
 import SmoothScroll from "./components/SmoothScroll";
+import StructuredData from "./components/StructuredData";
 import { cn } from "@/lib/utils";
 
 export default function RootLayout({
@@ -89,6 +90,7 @@ export default function RootLayout({
     <html lang="en" className={cn(playfair.variable, "font-sans", geist.variable)}>
       <body className="font-sans text-brand-dark antialiased min-h-screen flex flex-col relative overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>
+        <StructuredData />
       </body>
     </html>
   );
