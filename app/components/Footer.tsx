@@ -9,7 +9,7 @@ export default function Footer({ className = "" }: FooterProps) {
       <div className="max-w-7xl mx-auto px-5 md:px-10 pt-8 md:pt-12 pb-10 md:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
 
-          {/* Left Column — Logo, Copyright, Contact & Headquarters */}
+          {/* Left Column — Logo, Copyright & Contact */}
           <div className="md:col-span-6 flex flex-col gap-6 md:gap-8">
             <div>
               <img
@@ -34,15 +34,7 @@ export default function Footer({ className = "" }: FooterProps) {
               </a>
             </div>
 
-            {/* Address / Headquarters */}
-            <div className="pt-2">
-              <p className="text-brand-jade/80 text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-2 font-display">
-                Headquarters
-              </p>
-              <p className="text-white/70 text-base md:text-lg leading-relaxed font-sans">
-                Ganga Nagar, Neral
-              </p>
-            </div>
+
           </div>
 
           {/* Right Column — Company & Legal Navigation Links Side-by-Side */}

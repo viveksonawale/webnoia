@@ -255,7 +255,8 @@ export const FOUNDERS = [
     id: "f1",
     name: "Vivek Sonawale",
     title: "Founder",
-    avatar: "/placeholder.jpg",
+    avatar: "/about/viveksonawale.jpg",
+    objectPosition: "center 18%",
     description:
       "As a full-stack designer, Vivek blends visual aesthetics with technical precision. He shapes digital experiences with an obsession for detail and pixel-perfect execution.",
   },
@@ -263,7 +264,8 @@ export const FOUNDERS = [
     id: "f2",
     name: "Akshata Bhoi",
     title: "Founder",
-    avatar: "/placeholder2.jpg",
+    avatar: "/about/akshatabhio.jpg",
+    objectPosition: "center 20%",
     description:
       "With expertise bridging UI/UX and full-stack development, Akshata leads the technical and experiential vision of our projects, delivering impactful digital solutions.",
   },

@@ -57,6 +57,7 @@ export default function AboutUs({ className = "" }: AboutUsProps) {
                   alt={founder.name}
                   fill
                   className="object-cover transition-opacity duration-300"
+                  style={{ objectPosition: founder.objectPosition }}
                   onError={(e) => {
                     // Fallback to hide broken image icon
                     e.currentTarget.style.opacity = '0';

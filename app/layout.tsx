@@ -17,23 +17,11 @@ const BASE_URL = "https://webnoia.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Webnoia - Where Brand Comes to Life",
+    default: "Webnoia - Web Design & Development Agency in Mumbai, Navi Mumbai & Neral",
     template: "%s | Webnoia",
   },
   description:
-    "Webnoia is a premium web services studio helping SaaS founders and businesses build, test, and maintain high-converting websites using AI-accelerated development with human-directed precision.",
-  keywords: [
-    "web design",
-    "web development",
-    "SaaS website",
-    "UI/UX design",
-    "website maintenance",
-    "website testing",
-    "AI web development",
-    "premium web studio",
-    "Next.js agency",
-    "startup website",
-  ],
+    "Webnoia is a web design and development agency serving businesses in Mumbai, Navi Mumbai and Neral. We build modern websites, web applications and custom software.",
   authors: [{ name: "Webnoia", url: BASE_URL }],
   creator: "Webnoia",
   publisher: "Webnoia",
@@ -52,27 +40,27 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Webnoia - Where Brand Comes to Life",
+    title: "Webnoia - Web Design & Development Agency in Mumbai, Navi Mumbai & Neral",
     description:
-      "AI-accelerated web design & development that keeps your brand at the premium end of the market.",
+      "Webnoia is a web design and development agency serving businesses in Mumbai, Navi Mumbai and Neral. We build modern websites, web applications and custom software.",
     url: BASE_URL,
     siteName: "Webnoia",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/web-app-manifest-512x512.png",
-        width: 512,
-        height: 512,
-        alt: "Webnoia — Premium Web Services",
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Webnoia — Web Design & Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Webnoia — Premium Web Design & Development",
-    description: "AI-accelerated web design & development for scaling brands.",
-    images: ["/web-app-manifest-512x512.png"],
+    title: "Webnoia - Web Design & Development Agency in Mumbai, Navi Mumbai & Neral",
+    description: "Webnoia is a web design and development agency serving businesses in Mumbai, Navi Mumbai and Neral. We build modern websites, web applications and custom software.",
+    images: ["/opengraph-image.png"],
     site: "@webnoia",
   },
   appleWebApp: {
