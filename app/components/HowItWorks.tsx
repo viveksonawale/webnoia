@@ -8,7 +8,14 @@ export interface HowItWorksProps {
   readonly className?: string;
 }
 
-const DESKTOP_STEPS = [
+type StepItem = {
+  step: string;
+  title: string;
+  description: string;
+  isHeader?: boolean;
+};
+
+const DESKTOP_STEPS: StepItem[] = [
   { step: "00", isHeader: true, title: "", description: "" },
   ...HOW_IT_WORKS
 ];
