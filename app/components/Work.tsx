@@ -22,7 +22,7 @@ const PROJECTS = [
     category: "Websites",
     tags: ["B2B", "Corporate"],
     image: "/website-images/micasa-doors.avif",
-    link: "https://micasadoor.vercel.app/",
+    link: "https://www.micasadoor.com/",
     fit: "cover",
   },
   // {

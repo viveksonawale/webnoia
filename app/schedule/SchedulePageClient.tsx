@@ -88,7 +88,7 @@ export default function SchedulePageClient() {
           </p>
         </div>
 
-        {/* Cal.com Embed Container — Responsive Viewport Scaling */}
+        {/* Cal.com Embed Container  Responsive Viewport Scaling */}
         <div className="w-full flex-grow min-h-[70vh] lg:min-h-[22vh] h-full overflow-hidden flex justify-center rounded-2xl ">
           {calReady ? (
             <Cal

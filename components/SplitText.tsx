@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 
-// Register once at module level — but only in browser environments to avoid SSR issues
+// Register once at module level  but only in browser environments to avoid SSR issues
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 }
@@ -66,7 +66,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       // Prevent re-animation if already completed
       if (animationCompletedRef.current) return;
 
-      // Respect prefers-reduced-motion — jump to final state instantly
+      // Respect prefers-reduced-motion  jump to final state instantly
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         gsap.set(ref.current, { ...to });
         animationCompletedRef.current = true;
@@ -81,7 +81,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {}
+        } catch (_) { }
         el._rbsplitInstance = undefined;
       }
 
@@ -148,7 +148,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         });
         try {
           splitInstance.revert();
-        } catch (_) {}
+        } catch (_) { }
         el._rbsplitInstance = undefined;
       };
     },

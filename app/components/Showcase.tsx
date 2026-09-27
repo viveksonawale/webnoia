@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
-// Lazy-load Silk (Three.js/R3F) — keeps ~500 KB gz out of the initial bundle
+// Lazy-load Silk (Three.js/R3F)  keeps ~500 KB gz out of the initial bundle
 const Silk = dynamic(() => import("@/components/Silk"), { ssr: false });
 
 const images = [
@@ -28,10 +28,10 @@ export default function Showcase() {
     <section className="w-full pt-4 md:pt-6 pb-12 md:pb-16 flex justify-center items-center overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        animate={{ opacity: 1 }}
         transition={{
-          duration: 0.8,
+          duration: 0.6,
+          delay: 1.1,
           ease: "easeOut",
         }}
         className="relative mx-auto w-full max-w-[1440px] h-[520px] sm:h-[600px] md:h-[680px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10"
@@ -53,9 +53,8 @@ export default function Showcase() {
           {/* Top Row: Scrolling Right */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.25, ease: "easeOut" }}
             className="flex w-max animate-marquee-right gap-4 md:gap-6 px-4"
           >
             {[...topRowImages, ...topRowImages].map((src, index) => (
@@ -78,9 +77,8 @@ export default function Showcase() {
           {/* Bottom Row: Scrolling Left */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
             className="flex w-max animate-marquee-left gap-4 md:gap-6 px-4"
           >
             {[...bottomRowImages, ...bottomRowImages].map((src, index) => (

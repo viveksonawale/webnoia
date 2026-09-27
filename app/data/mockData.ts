@@ -1,4 +1,4 @@
-// All static site data — decoupled from components for easy editing
+// All static site data  decoupled from components for easy editing
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Work", href: "#work" },
@@ -99,7 +99,7 @@ export const SERVICES = [
     number: "04",
     title: "Website Maintenance",
     description:
-      "Your site needs ongoing care — security patches, dependency updates, content changes, and performance monitoring. We handle it all, quietly and reliably.",
+      "Your site needs ongoing care  security patches, dependency updates, content changes, and performance monitoring. We handle it all, quietly and reliably.",
     features: ["Monthly updates", "Security monitoring", "Content changes", "Uptime tracking"],
     // color: "from-orange-50 to-red-50",
     accent: "#145C52",
@@ -110,7 +110,7 @@ export const HOW_IT_WORKS = [
   {
     step: "01",
     title: "We Listen First",
-    description: "We take the time to understand your business, audience, and main goals. No generic templates or guesswork—just custom strategy.",
+    description: "We take the time to understand your business, audience, and main goals. No generic templates or guessworkjust custom strategy.",
   },
   {
     step: "02",
@@ -124,7 +124,7 @@ export const HOW_IT_WORKS = [
   },
   {
     step: "04",
-    title: "We Launch — And We Don't Disappear",
+    title: "We Launch  And We Don't Disappear",
     description: "We thoroughly test everything, set up backups, and hand over a clean product. Afterwards, we stay directly available for support.",
   },
 ];
@@ -132,7 +132,7 @@ export const HOW_IT_WORKS = [
 export const MEMBERSHIP_BENEFITS = [
   { title: "Pause anytime", description: "No long-term contracts. Pause or cancel whenever you need." },
   { title: "Fixed monthly rate", description: "Predictable billing with no surprise invoices." },
-  { title: "Async workflow", description: "Communicate on your schedule — no mandatory calls." },
+  { title: "Async workflow", description: "Communicate on your schedule  no mandatory calls." },
   { title: "AI-assisted speed", description: "AI tools accelerate development without sacrificing quality." },
   { title: "Real engineers", description: "Human-reviewed code and design at every stage." },
   { title: "Transparent process", description: "Always know what's being worked on and what's next." },
@@ -205,7 +205,7 @@ export const TESTIMONIALS = [
     title: "Co-Founder, Metanoia",
     avatar: "/divyang-Bhanushali.jpeg",
     quote:
-      "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring — all done without us having to chase anyone.",
+      "We needed a reliable maintenance partner, not another vendor to manage. Webnoia just handles it. Updates, fixes, performance monitoring  all done without us having to chase anyone.",
   },
   // {
   //   id: "t3",
@@ -222,7 +222,7 @@ export const FAQ_ITEMS = [
     id: "faq1",
     question: "What kind of businesses do you work with?",
     answer:
-      "We primarily work with SaaS founders, startups, and small-to-medium businesses that need a reliable web team without the overhead of hiring in-house. If you have a website and want it to be better — we're a fit.",
+      "We primarily work with SaaS founders, startups, and small-to-medium businesses that need a reliable web team without the overhead of hiring in-house. If you have a website and want it to be better  we're a fit.",
   },
   {
     id: "faq2",
@@ -240,13 +240,13 @@ export const FAQ_ITEMS = [
     id: "faq4",
     question: "How do AI tools fit into your process?",
     answer:
-      "AI accelerates our development and design work — things like code generation, visual QA, and content structuring. But every deliverable is reviewed and refined by our human team. The speed of AI with the quality bar of an expert.",
+      "AI accelerates our development and design work  things like code generation, visual QA, and content structuring. But every deliverable is reviewed and refined by our human team. The speed of AI with the quality bar of an expert.",
   },
   {
     id: "faq5",
     question: "What's the difference between a design subscription and a project?",
     answer:
-      "A subscription is an ongoing monthly relationship — great for businesses with continuous needs. Project-based work is a fixed-scope engagement with a defined start and end. We offer both.",
+      "A subscription is an ongoing monthly relationship  great for businesses with continuous needs. Project-based work is a fixed-scope engagement with a defined start and end. We offer both.",
   },
 ] as const;
 

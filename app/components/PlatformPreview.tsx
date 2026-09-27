@@ -37,7 +37,7 @@ const PROJECTS: ProjectCard[] = [
   },
   {
     id: 5,
-    title: "Kokan Meva — E-Commerce Experience",
+    title: "Kokan Meva  E-Commerce Experience",
     category: "Digital Commerce",
     src: "/website-images/website-image5.webp",
   },
@@ -52,7 +52,7 @@ export default function PhotoGridShowcase() {
 
   return (
     <div className="relative w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-12 mt-8 md:mt-10 mb-4">
-      
+
       {/* Responsive Showcase Cards - 5 images in single row */}
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 lg:gap-5 w-full">

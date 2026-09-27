@@ -8,7 +8,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Respect prefers-reduced-motion — disable smooth scroll for motion-sensitive users
+    // Respect prefers-reduced-motion  disable smooth scroll for motion-sensitive users
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const lenis = new Lenis({
@@ -21,7 +21,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     });
     lenisRef.current = lenis;
 
-    // Sync Lenis with GSAP's ticker — single RAF loop instead of two independent ones.
+    // Sync Lenis with GSAP's ticker  single RAF loop instead of two independent ones.
     // This prevents ScrollTrigger from reading scroll position before Lenis has applied
     // its smooth offset, which causes jitter and incorrect trigger start/end positions.
     const gsapTickerFn = (time: number) => {

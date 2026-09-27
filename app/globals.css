@@ -65,7 +65,7 @@
 
 html {
 
-  /* scroll-behavior intentionally omitted — Lenis handles all smooth scrolling.
+  /* scroll-behavior intentionally omitted  Lenis handles all smooth scrolling.
      Native scroll-behavior: smooth would double-ease with Lenis on scrollIntoView() calls. */
 
 }
@@ -360,11 +360,11 @@ iframe::-webkit-scrollbar {
   .animate-hero-glow,
   .animate-drift-left,
   .animate-drift-right,
-  /* Orbs — were previously missing from this block */
+  /* Orbs  were previously missing from this block */
   .animate-orb-wide-1,
   .animate-orb-wide-2,
   .animate-orb-wide-3,
-  /* Marquee — were previously missing from this block */
+  /* Marquee  were previously missing from this block */
   .animate-marquee-right,
   .animate-marquee-left,
   /* WhatsApp floating button pulse/ping */

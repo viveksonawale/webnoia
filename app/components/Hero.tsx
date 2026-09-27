@@ -40,32 +40,32 @@ export default function Hero({ className = "" }: HeroProps) {
       tl.fromTo(
         trustRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        0.2
+        { opacity: 1, y: 0, duration: 0.5 },
+        0.1
       );
 
       // Headline children: stagger each span
       tl.fromTo(
         headlineRef.current?.children ?? [],
         { opacity: 0, y: 32 },
-        { opacity: 1, y: 0, duration: 0.85, stagger: 0.12 },
-        0.45
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
+        0.1
       );
 
       // Subheadline
       tl.fromTo(
         subheadlineRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.75 },
-        0.7
+        { opacity: 1, y: 0, duration: 0.5 },
+        0.5
       );
 
       // CTA buttons: stagger
       tl.fromTo(
         ctaRef.current?.children ?? [],
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 },
-        0.85
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 },
+        0.8
       );
     },
     { scope: containerRef }
@@ -173,6 +173,7 @@ export default function Hero({ className = "" }: HeroProps) {
           {/* Primary CTA */}
           <Link
             href={HERO_COPY.primaryCta.href}
+            style={{ opacity: 0 }}
             className="
               group
               relative
@@ -261,6 +262,7 @@ export default function Hero({ className = "" }: HeroProps) {
           {/* Secondary CTA */}
           <button
             onClick={() => handleScroll(HERO_COPY.secondaryCta.href)}
+            style={{ opacity: 0 }}
             className="
               group
               relative

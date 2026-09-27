@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "Terms of Service | Webnoia",
   description:
-    "Terms of Service for Webnoia — web design & development services.",
+    "Terms of Service for Webnoia  web design & development services.",
 };
 
 export default function TermsOfServicePage() {

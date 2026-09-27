@@ -9,7 +9,7 @@ export default function Footer({ className = "" }: FooterProps) {
       <div className="max-w-7xl mx-auto px-5 md:px-10 pt-8 md:pt-12 pb-10 md:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
 
-          {/* Left Column — Logo, Copyright & Contact */}
+          {/* Left Column  Logo, Copyright & Contact */}
           <div className="md:col-span-6 flex flex-col gap-6 md:gap-8">
             <div>
               <img
@@ -37,7 +37,7 @@ export default function Footer({ className = "" }: FooterProps) {
 
           </div>
 
-          {/* Right Column — Company & Legal Navigation Links Side-by-Side */}
+          {/* Right Column  Company & Legal Navigation Links Side-by-Side */}
           <div className="md:col-span-5 md:col-start-8 grid grid-cols-2 gap-8 md:gap-12 pt-6 sm:pt-0 md:pt-4 border-t sm:border-t-0 border-white/10">
 
             {/* Company Nav Links */}

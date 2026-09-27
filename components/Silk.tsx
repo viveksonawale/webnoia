@@ -176,7 +176,7 @@ const Silk: React.FC<SilkProps> = ({
     uniforms.uLightMode.value = lightMode ? 1 : 0;
   }, [speed, scale, noiseIntensity, color, rotation, lightMode, uniforms]);
 
-  // Dispose geometry and material on unmount — prevents GPU memory leaks
+  // Dispose geometry and material on unmount  prevents GPU memory leaks
   useEffect(() => {
     return () => {
       if (meshRef.current) {
@@ -187,7 +187,7 @@ const Silk: React.FC<SilkProps> = ({
   }, []);
 
   // Pause rendering when scrolled off-screen; resume when back in view.
-  // Works with frameloop="demand" — the RAF only fires when invalidate() is called.
+  // Works with frameloop="demand"  the RAF only fires when invalidate() is called.
   useEffect(() => {
     const el = canvasRef.current;
     if (!el) return;
@@ -219,8 +219,8 @@ const Silk: React.FC<SilkProps> = ({
   return (
     <div ref={canvasRef} style={{ width: '100%', height: '100%' }}>
       {/*
-        dpr capped at [1, 2] — prevents 3× GPU fragment shader cost on high-DPI screens.
-        frameloop="demand" — canvas only repaints when invalidate() is called, so the
+        dpr capped at [1, 2]  prevents 3× GPU fragment shader cost on high-DPI screens.
+        frameloop="demand"  canvas only repaints when invalidate() is called, so the
         GPU is idle when the Showcase section is scrolled out of view.
       */}
       <Canvas
