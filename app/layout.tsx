@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/logos/webnoia.svg",
+        url: "/logos/webnoia-footer-logo.png",
         width: 1200,
         height: 630,
         alt: "Webnoia  Web Design & Development Agency",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Webnoia - Web Design & Development Agency in Mumbai, Navi Mumbai & Neral",
     description: "Webnoia is a web design and development agency serving businesses in Mumbai, Navi Mumbai and Neral. We build modern websites, web applications and custom software.",
-    images: ["/logos/webnoia.svg"],
+    images: ["/logos/webnoia-footer-logo.png"],
     site: "@webnoia",
   },
   appleWebApp: {
