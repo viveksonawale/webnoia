@@ -6,6 +6,7 @@ import Image from "next/image";
 import { NAV_LINKS } from "../data/mockData";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ArrowFillButton from "@/components/ui/arrow-fill-button";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -266,80 +267,27 @@ export default function Navbar() {
           style={{ opacity: 0 }}
           className="hidden pointer-events-auto md:flex items-center gap-2"
         >
-          <a
+          <ArrowFillButton
             href="/schedule"
-            className="
-      group
-      relative
-      isolate
-      overflow-hidden
-      flex
-      items-center
-      justify-center
-      gap-2.5
-      rounded-full
-      bg-[#1e4a40]
-      h-[52px]
-      pl-4
-      pr-6
-      text-[15px]
-      font-medium
-      text-white
-      shadow-sm
-      transition-all
-      duration-300
-      active:scale-95
-    "
-          >
-            {/* Jade reveal */}
-            <span
-              className="
-      absolute
-      left-1/2
-      top-1/2
-      z-[-1]
-      aspect-square
-      w-5
-      -translate-x-1/2
-      -translate-y-1/2
-      scale-0
-      rounded-full
-      bg-brand-jade
-      transition-transform
-      duration-300
-      ease-[cubic-bezier(0.22,1,0.36,1)]
-      group-hover:scale-[14]
-    "
-            />
-            <Image
-              src="/logos/googlemeet.webp"
-              alt="Google Meet"
-              width={20}
-              height={20}
-              priority
-              className="relative z-10 h-[20px] w-[20px] object-contain"
-            />
-
-
-            <span className="relative z-10">
-              Book a Call
-            </span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            >
-              <path
-                d="M3 11L11 3M5 3H11V9"
-                stroke="currentColor"
-                strokeWidth="1.3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            btnText="Book a Call"
+            bgColor="#1e4a40"
+            textColor="#ffffff"
+            fillBgColor="#ffffff"
+            fillTextColor="#1e4a40"
+            hoverFillBgColor="#ffffff"
+            hoverFillTextColor="#1e4a40"
+            className="shadow-sm !font-sans sm:!w-auto !rounded-full text-[15px] !h-[52px]"
+            leftIcon={
+              <Image
+                src="/logos/googlemeet.webp"
+                alt="Google Meet"
+                width={20}
+                height={20}
+                priority
+                className="relative z-10 h-[20px] w-[20px] object-contain"
               />
-            </svg>
-          </a>
+            }
+          />
 
           <a
             href="https://wa.me/919975558544"
@@ -496,77 +444,27 @@ export default function Navbar() {
             })}
 
             <li className="mt-2 border-t border-brand-border pt-2">
-              <a
+              <ArrowFillButton
                 href="/schedule"
-                className="
-                  group
-                  relative
-                  isolate
-                  overflow-hidden
-                  w-full
-                  rounded-full
-                  bg-[#1e4a40]
-                  h-[52px]
-                  pl-4
-                  pr-6
-                  text-[15px]
-                  font-medium
-                  text-white
-                  shadow-sm
-                  transition-all
-                  duration-300
-                  active:scale-[0.99]
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                "
-              >
-                {/* Jade reveal */}
-                <span
-                  className="
-                    absolute
-                    left-1/2
-                    top-1/2
-                    z-[-1]
-                    aspect-square
-                    w-5
-                    -translate-x-1/2
-                    -translate-y-1/2
-                    scale-0
-                    rounded-full
-                    bg-brand-jade
-                    transition-transform
-                    duration-300
-                    ease-[cubic-bezier(0.22,1,0.36,1)]
-                    group-hover:scale-[25]
-                  "
-                />
-                <Image
-                  src="/logos/googlemeet.webp"
-                  alt="Google Meet"
-                  width={20}
-                  height={20}
-                  priority
-                  className="relative z-10 h-5 w-5 object-contain"
-                />
-                <span className="relative z-10">Book a Call</span>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  <path
-                    d="M3 11L11 3M5 3H11V9"
-                    stroke="currentColor"
-                    strokeWidth="1.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                btnText="Book a Call"
+                bgColor="#1e4a40"
+                textColor="#ffffff"
+                fillBgColor="#ffffff"
+                fillTextColor="#1e4a40"
+                hoverFillBgColor="#ffffff"
+                hoverFillTextColor="#1e4a40"
+                className="w-full shadow-sm !font-sans !rounded-full text-[15px] !h-[52px]"
+                leftIcon={
+                  <Image
+                    src="/logos/googlemeet.webp"
+                    alt="Google Meet"
+                    width={20}
+                    height={20}
+                    priority
+                    className="relative z-10 h-5 w-5 object-contain"
                   />
-                </svg>
-              </a>
+                }
+              />
             </li>
           </ul>
         </div>

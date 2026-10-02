@@ -6,6 +6,8 @@ import { useState, useRef } from "react";
 import { HERO_COPY } from "../data/mockData";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ArrowFillButton from "@/components/ui/arrow-fill-button";
+import ButtonWithIcon from "@/components/ui/button-with-icon";
 
 export interface HeroProps {
   readonly className?: string;
@@ -171,193 +173,37 @@ export default function Hero({ className = "" }: HeroProps) {
         {/* CTA Buttons */}
         <div ref={ctaRef} className="mx-auto mb-8 md:mb-12 flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row md:gap-4">
           {/* Primary CTA */}
-          <Link
+          <ArrowFillButton
             href={HERO_COPY.primaryCta.href}
+            btnText={HERO_COPY.primaryCta.label}
             style={{ opacity: 0 }}
-            className="
-              group
-              relative
-              isolate
-              flex
-              w-full
-              items-center
-              justify-center
-              gap-2
-              overflow-hidden
-              rounded-full
-              border-2
-              border-brand-jade
-              bg-brand-jade
-              pl-5
-              pr-8
-              py-3.5
-              text-sm
-              font-semibold
-              text-brand-white
-              shadow-[0_4px_20px_0_rgba(20,92,82,0.25)]
-              transition-all
-              duration-300
-              ease-[cubic-bezier(0.22,1,0.36,1)]
-              hover:-translate-y-0.5
-              hover:border-brand-jade-hover
-              hover:bg-brand-jade-hover
-              hover:shadow-[0_8px_24px_rgba(20,92,82,0.30)]
-              active:translate-y-0
-              active:scale-[0.98]
-              sm:w-auto
-              md:py-4
-              md:text-base
-              cursor-pointer
-            "
-          >
-            <span
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                z-[-1]
-                aspect-square
-                w-5
-                -translate-x-1/2
-                -translate-y-1/2
-                scale-0
-                rounded-full
-                bg-brand-jade-hover
-                transition-transform
-                duration-300
-                ease-[cubic-bezier(0.22,1,0.36,1)]
-                group-hover:scale-[14]
-              "
-            />
-
-            <Image
-              src="/logos/googlemeet.webp"
-              alt="Google Meet"
-              width={20}
-              height={20}
-              className="relative z-10 h-5 w-5 shrink-0 object-contain"
-            />
-
-            <span className="relative z-10">
-              {HERO_COPY.primaryCta.label}
-            </span>
-
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            >
-              <path
-                d="M3 11L11 3M5 3H11V9"
-                stroke="currentColor"
-                strokeWidth="1.3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            bgColor="#145C52"
+            textColor="#ffffff"
+            fillBgColor="#ffffff"
+            fillTextColor="#145C52"
+            hoverFillBgColor="#ffffff"
+            hoverFillTextColor="#145C52"
+            className="shadow-[0_4px_20px_0_rgba(20,92,82,0.25)] hover:shadow-[0_8px_24px_rgba(20,92,82,0.30)] !font-sans !h-auto !py-3.5 md:!py-4 sm:!w-auto !rounded-full text-sm md:text-base"
+            leftIcon={
+              <Image
+                src="/logos/googlemeet.webp"
+                alt="Google Meet"
+                width={20}
+                height={20}
+                className="relative z-10 h-5 w-5 shrink-0 object-contain"
               />
-            </svg>
-          </Link>
+            }
+          />
 
-          {/* Secondary CTA */}
-          <button
-            onClick={() => handleScroll(HERO_COPY.secondaryCta.href)}
+          <ButtonWithIcon
+            onClick={(e) => { e.preventDefault(); handleScroll(HERO_COPY.secondaryCta.href); }}
+            text={HERO_COPY.secondaryCta.label}
             style={{ opacity: 0 }}
-            className="
-              group
-              relative
-              inline-flex
-              w-full
-              items-center
-              justify-center
-              gap-3
-              overflow-hidden
-              rounded-full
-              border
-              border-brand-border/60
-              bg-brand-white/80
-              px-6
-              py-3
-              text-sm
-              font-medium
-              tracking-wide
-              text-ink-primary
-              shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)]
-              backdrop-blur-md
-              transition-all
-              duration-500
-              ease-out
-              hover:-translate-y-0.5
-              hover:border-brand-jade/40
-              hover:bg-brand-white
-              hover:shadow-[0_12px_32px_-8px_rgba(20,92,82,0.15)]
-              active:translate-y-0
-              active:scale-[0.98]
-              sm:w-auto
-              md:py-3.5
-              cursor-pointer
-            "
-          >
-            {/* Ambient Jade Glow */}
-            <div
-              className="
-                pointer-events-none
-                absolute
-                -inset-px
-                rounded-full
-                bg-gradient-to-r
-                from-brand-jade/20
-                via-transparent
-                to-brand-jade/20
-                blur-md
-                opacity-0
-                transition-opacity
-                duration-500
-                group-hover:opacity-100
-              "
-            />
-
-            {/* Light Sweep */}
-            <div
-              className="
-                pointer-events-none
-                absolute
-                inset-0
-                -translate-x-full
-                bg-gradient-to-r
-                from-transparent
-                via-brand-white/60
-                to-transparent
-                transition-transform
-                duration-1000
-                ease-out
-                group-hover:translate-x-full
-              "
-            />
-
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-jade">
-              {HERO_COPY.secondaryCta.label}
-            </span>
-
-            <div className="relative z-10 flex h-4 w-4 items-center justify-center overflow-hidden">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                className="transform transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              >
-                <path
-                  d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"
-                  stroke="currentColor"
-                  strokeWidth="1.25"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-colors duration-300 group-hover:stroke-brand-jade"
-                />
-              </svg>
-            </div>
-          </button>
+            variant="outline"
+            className="bg-brand-white/80 text-ink-primary hover:bg-brand-white hover:text-ink-primary border-brand-border/60 hover:border-brand-jade/40 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_-8px_rgba(20,92,82,0.15)] backdrop-blur-md font-sans text-sm md:text-base sm:w-auto"
+            iconBgColor="#145C52"
+            iconTextColor="#ffffff"
+          />
         </div>
       </div>
 
